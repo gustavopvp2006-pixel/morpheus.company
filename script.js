@@ -465,3 +465,36 @@ color:white;
 font-size:14px;
 `
 );
+// =========================
+// FAQ ACCORDION
+// =========================
+
+const faqItems =
+document.querySelectorAll(".faq-item");
+
+faqItems.forEach((item) => {
+
+  const question =
+  item.querySelector(".faq-question");
+
+  question.addEventListener("click", () => {
+
+    // FECHA OUTROS
+
+    faqItems.forEach((faq) => {
+
+      if(faq !== item){
+
+        faq.classList.remove("active");
+
+      }
+
+    });
+
+    // ABRE O CLICADO
+
+    item.classList.toggle("active");
+
+  });
+
+});
