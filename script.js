@@ -8,9 +8,13 @@ window.addEventListener("load", () => {
 
   setTimeout(() => {
 
-    loader.classList.add("hide");
+    if(loader){
 
-  }, 1200);
+      loader.classList.add("hide");
+
+    }
+
+  }, 1000);
 
 });
 
@@ -20,57 +24,66 @@ window.addEventListener("load", () => {
 // DARK MODE
 // =========================
 
-const themeToggle = document.getElementById("theme-toggle");
+const themeToggle =
+document.getElementById("theme-toggle");
 
-themeToggle.addEventListener("click", () => {
+if(themeToggle){
 
-  document.body.classList.toggle("light");
+  themeToggle.addEventListener("click", () => {
 
-  const icon = themeToggle.querySelector("i");
+    document.body.classList.toggle("light");
 
-  // ALTERA ÍCONE
+    const icon = themeToggle.querySelector("i");
 
-  if(document.body.classList.contains("light")){
+    if(document.body.classList.contains("light")){
 
-    icon.classList.remove("fa-moon");
+      icon.classList.remove("fa-moon");
 
-    icon.classList.add("fa-sun");
+      icon.classList.add("fa-sun");
 
-    localStorage.setItem("theme", "light");
+      localStorage.setItem("theme", "light");
 
-  }
+    }
 
-  else{
+    else{
 
-    icon.classList.remove("fa-sun");
+      icon.classList.remove("fa-sun");
 
-    icon.classList.add("fa-moon");
+      icon.classList.add("fa-moon");
 
-    localStorage.setItem("theme", "dark");
+      localStorage.setItem("theme", "dark");
 
-  }
+    }
 
-});
+  });
+
+}
 
 
 
 // =========================
-// SALVAR TEMA
+// TEMA SALVO
 // =========================
 
 window.addEventListener("DOMContentLoaded", () => {
 
-  const savedTheme = localStorage.getItem("theme");
-
-  const icon = themeToggle.querySelector("i");
+  const savedTheme =
+  localStorage.getItem("theme");
 
   if(savedTheme === "light"){
 
     document.body.classList.add("light");
 
-    icon.classList.remove("fa-moon");
+    const icon =
+    document.querySelector("#theme-toggle i");
 
-    icon.classList.add("fa-sun");
+    if(icon){
+
+      icon.classList.remove("fa-moon");
+
+      icon.classList.add("fa-sun");
+
+    }
 
   }
 
@@ -82,23 +95,30 @@ window.addEventListener("DOMContentLoaded", () => {
 // MENU MOBILE
 // =========================
 
-const menuMobile = document.querySelector(".menu-mobile");
+const menuMobile =
+document.querySelector(".menu-mobile");
 
-const nav = document.querySelector(".nav");
+const nav =
+document.querySelector(".nav");
 
-menuMobile.addEventListener("click", () => {
+if(menuMobile && nav){
 
-  nav.classList.toggle("active");
+  menuMobile.addEventListener("click", () => {
 
-});
+    nav.classList.toggle("active");
+
+  });
+
+}
 
 
 
 // =========================
-// FECHAR MENU MOBILE
+// FECHAR MENU
 // =========================
 
-const navLinks = document.querySelectorAll(".nav a");
+const navLinks =
+document.querySelectorAll(".nav a");
 
 navLinks.forEach((link) => {
 
@@ -116,24 +136,27 @@ navLinks.forEach((link) => {
 // HEADER SCROLL
 // =========================
 
-const header = document.querySelector(".header");
+const header =
+document.querySelector(".header");
 
 window.addEventListener("scroll", () => {
 
+  if(!header) return;
+
   if(window.scrollY > 50){
 
-    header.style.background = "rgba(0,0,0,.85)";
+    header.style.background =
+    "rgba(0,0,0,.88)";
 
-    header.style.backdropFilter = "blur(16px)";
-
-    header.style.borderBottom =
-    "1px solid rgba(255,255,255,.08)";
+    header.style.backdropFilter =
+    "blur(16px)";
 
   }
 
   else{
 
-    header.style.background = "rgba(0,0,0,.45)";
+    header.style.background =
+    "rgba(0,0,0,.45)";
 
   }
 
@@ -145,48 +168,72 @@ window.addEventListener("scroll", () => {
 // BOTÃO HERO
 // =========================
 
-const heroButton = document.querySelector(".btn-primary");
+const heroButton =
+document.querySelector(".btn-primary");
 
-heroButton.addEventListener("click", () => {
+if(heroButton){
 
-  const products = document.querySelector(".products");
+  heroButton.addEventListener("click", () => {
 
-  products.scrollIntoView({
+    const products =
+    document.querySelector(".products");
 
-    behavior:"smooth"
+    if(products){
+
+      products.scrollIntoView({
+
+        behavior:"smooth"
+
+      });
+
+    }
 
   });
 
-});
+}
 
 
 
 // =========================
-// BOTÕES PRODUTOS
+// BOTÕES PRODUTO
 // =========================
 
 const productButtons =
 document.querySelectorAll(".product-info button");
 
+let cartCount = 0;
+
+const cartBadge =
+document.createElement("span");
+
+cartBadge.classList.add("cart-badge");
+
+cartBadge.innerHTML = "0";
+
+const cartContainer =
+document.querySelector(".fa-cart-shopping");
+
+if(cartContainer){
+
+  cartContainer.parentElement.appendChild(cartBadge);
+
+}
+
 productButtons.forEach((button) => {
 
   button.addEventListener("click", () => {
-
-    // EVITA DUPLO CLIQUE
 
     if(button.classList.contains("active")) return;
 
     button.classList.add("active");
 
-    // TEXTO
-
     button.innerHTML = "ADICIONADO ✓";
-
-    // ESTILO
 
     button.style.background = "#22c55e";
 
-    // VOLTA
+    cartCount++;
+
+    cartBadge.innerHTML = cartCount;
 
     setTimeout(() => {
 
@@ -214,38 +261,39 @@ document.querySelector(".newsletter-box button");
 const newsletterInput =
 document.querySelector(".newsletter-box input");
 
-newsletterBtn.addEventListener("click", () => {
+if(newsletterBtn){
 
-  const email = newsletterInput.value.trim();
+  newsletterBtn.addEventListener("click", () => {
 
-  // CAMPO VAZIO
+    const email =
+    newsletterInput.value.trim();
 
-  if(email === ""){
+    if(email === ""){
 
-    alert("Digite seu e-mail!");
+      alert("Digite seu e-mail!");
 
-    return;
+      return;
 
-  }
+    }
 
-  // VALIDAÇÃO
+    if(!email.includes("@") ||
+       !email.includes(".")){
 
-  if(!email.includes("@") ||
-     !email.includes(".")){
+      alert("Digite um e-mail válido!");
 
-    alert("Digite um e-mail válido!");
+      return;
 
-    return;
+    }
 
-  }
+    alert(
+      "Você entrou para o DROP da Morpheus Company 🔥"
+    );
 
-  // SUCESSO
+    newsletterInput.value = "";
 
-  alert("Você entrou para o DROP da Morpheus Company 🔥");
+  });
 
-  newsletterInput.value = "";
-
-});
+}
 
 
 
@@ -262,9 +310,11 @@ links.forEach((link) => {
 
     e.preventDefault();
 
-    const id = link.getAttribute("href");
+    const id =
+    link.getAttribute("href");
 
-    const section = document.querySelector(id);
+    const section =
+    document.querySelector(id);
 
     if(section){
 
@@ -286,12 +336,13 @@ links.forEach((link) => {
 // ANIMAÇÃO AO ROLAR
 // =========================
 
-const revealElements = document.querySelectorAll(
-  ".product-card, .mini-item, .section-title"
+const revealElements =
+document.querySelectorAll(
+".product-card, .mini-item, .section-title"
 );
 
-const revealObserver = new IntersectionObserver(
-(entries) => {
+const revealObserver =
+new IntersectionObserver((entries) => {
 
   entries.forEach((entry) => {
 
@@ -305,7 +356,7 @@ const revealObserver = new IntersectionObserver(
 
 }, {
 
-  threshold:0.2
+  threshold:0.15
 
 });
 
@@ -321,46 +372,53 @@ revealElements.forEach((element) => {
 // EFEITO 3D PRODUTOS
 // =========================
 
-const products =
-document.querySelectorAll(".product-card");
+if(window.innerWidth > 900){
 
-products.forEach((card) => {
+  const products =
+  document.querySelectorAll(".product-card");
 
-  card.addEventListener("mousemove", (e) => {
+  products.forEach((card) => {
 
-    const rect = card.getBoundingClientRect();
+    card.addEventListener("mousemove", (e) => {
 
-    const x = e.clientX - rect.left;
+      const rect =
+      card.getBoundingClientRect();
 
-    const y = e.clientY - rect.top;
+      const x =
+      e.clientX - rect.left;
 
-    const rotateY =
-    ((x / rect.width) - 0.5) * 16;
+      const y =
+      e.clientY - rect.top;
 
-    const rotateX =
-    ((y / rect.height) - 0.5) * -16;
+      const rotateY =
+      ((x / rect.width) - 0.5) * 12;
 
-    card.style.transform = `
-      perspective(1000px)
-      rotateX(${rotateX}deg)
-      rotateY(${rotateY}deg)
-      translateY(-10px)
-    `;
+      const rotateX =
+      ((y / rect.height) - 0.5) * -12;
+
+      card.style.transform = `
+        perspective(1000px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        translateY(-10px)
+      `;
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+      card.style.transform = `
+        perspective(1000px)
+        rotateX(0deg)
+        rotateY(0deg)
+        translateY(0px)
+      `;
+
+    });
 
   });
 
-  card.addEventListener("mouseleave", () => {
-
-    card.style.transform = `
-      perspective(1000px)
-      rotateX(0deg)
-      rotateY(0deg)
-      translateY(0px)
-    `;
-
-  });
-
-});
+}
 
 
 
@@ -373,139 +431,15 @@ document.querySelector(".hero");
 
 window.addEventListener("scroll", () => {
 
-  let scroll = window.pageYOffset;
+  if(hero){
 
-  hero.style.backgroundPositionY =
-  scroll * 0.5 + "px";
+    let scroll =
+    window.pageYOffset;
 
-});
+    hero.style.backgroundPositionY =
+    scroll * 0.4 + "px";
 
-
-
-// =========================
-// ANIMAÇÃO TEXTO HERO
-// =========================
-
-const heroTitle =
-document.querySelector(".hero-left h1");
-
-window.addEventListener("load", () => {
-
-  heroTitle.style.opacity = "0";
-
-  heroTitle.style.transform = "translateY(40px)";
-
-  setTimeout(() => {
-
-    heroTitle.style.transition = "1s";
-
-    heroTitle.style.opacity = "1";
-
-    heroTitle.style.transform =
-    "translateY(0px)";
-
-  }, 1300);
-
-});
-
-
-
-// =========================
-// EFEITO GLOW MOUSE
-// =========================
-
-document.addEventListener("mousemove", (e) => {
-
-  const x = e.clientX;
-  const y = e.clientY;
-
-  document.body.style.background = `
-    radial-gradient(
-      circle at ${x}px ${y}px,
-      rgba(77,163,255,.06),
-      transparent 25%
-    ),
-    var(--bg)
-  `;
-
-});
-
-
-
-// =========================
-// CONTADOR CARRINHO
-// =========================
-
-const cartIcon =
-document.querySelector(".fa-cart-shopping");
-
-let cartCount = 0;
-
-// CRIAR BOLINHA
-
-const cartBadge =
-document.createElement("span");
-
-cartBadge.classList.add("cart-badge");
-
-cartBadge.innerHTML = "0";
-
-cartIcon.parentElement.appendChild(cartBadge);
-
-// SOMAR PRODUTOS
-
-productButtons.forEach((button) => {
-
-  button.addEventListener("click", () => {
-
-    cartCount++;
-
-    cartBadge.innerHTML = cartCount;
-
-  });
-
-});
-
-
-
-// =========================
-// HOVER HERO IMAGE
-// =========================
-
-const heroImage =
-document.querySelector(".hero-right img");
-
-heroImage.addEventListener("mousemove", (e) => {
-
-  const rect = heroImage.getBoundingClientRect();
-
-  const x = e.clientX - rect.left;
-
-  const y = e.clientY - rect.top;
-
-  const rotateY =
-  ((x / rect.width) - 0.5) * 10;
-
-  const rotateX =
-  ((y / rect.height) - 0.5) * -10;
-
-  heroImage.style.transform = `
-    perspective(1000px)
-    rotateX(${rotateX}deg)
-    rotateY(${rotateY}deg)
-    translateY(-10px)
-  `;
-
-});
-
-heroImage.addEventListener("mouseleave", () => {
-
-  heroImage.style.transform = `
-    perspective(1000px)
-    rotateX(0deg)
-    rotateY(0deg)
-    translateY(0px)
-  `;
+  }
 
 });
 
