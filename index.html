@@ -10,11 +10,15 @@
 
   <link rel="stylesheet" href="style.css">
 
+  <!-- FONTES PREMIUM -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- ÍCONES -->
 
   <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
 
@@ -22,25 +26,34 @@
 
 <body>
 
+  <!-- LOADER -->
+
+  <div class="loader">
+
+    <div class="loader-logo">
+      MORPHEUS
+    </div>
+
+  </div>
+
   <!-- HEADER -->
 
   <header class="header">
 
     <div class="logo">
-      Morpheus Company
+      MORPHEUS
     </div>
 
     <nav class="nav">
 
-      <a href="#">Início</a>
-      <a href="#">Produtos</a>
-      <a href="#">Coleções</a>
-      <a href="#">Promoções</a>
-      <a href="#">Contato</a>
+      <a href="#inicio">INÍCIO</a>
+      <a href="#produtos">PRODUTOS</a>
+      <a href="#colecao">COLEÇÃO</a>
+      <a href="#contato">CONTATO</a>
 
     </nav>
 
-    <div class="header-right">
+    <div class="header-icons">
 
       <button id="theme-toggle">
         <i class="fa-solid fa-moon"></i>
@@ -58,154 +71,44 @@
 
   <!-- HERO -->
 
-  <section class="hero">
+  <section class="hero" id="inicio">
 
     <div class="hero-overlay"></div>
 
-    <div class="hero-content">
+    <div class="hero-left">
 
-      <span class="tag">
-        NOVA COLEÇÃO 2026
+      <span class="hero-tag">
+        LUXURY STREETWEAR JEWELRY
       </span>
 
       <h1>
-        Luxury Pearl Collection
+        PEARL<br>
+        CROSS<br>
+        COLLECTION
       </h1>
 
       <p>
-        Elegância, sofisticação e exclusividade.
-        Descubra a nova experiência premium da Morpheus Company.
+        Correntes premium em pérolas,
+        cruzes e estética trap luxury.
       </p>
 
-      <button>
-        Comprar Agora
-      </button>
+      <div class="hero-buttons">
 
-    </div>
+        <button class="btn-primary">
+          COMPRAR AGORA
+        </button>
 
-  </section>
-
-  <!-- BENEFÍCIOS -->
-
-  <section class="benefits">
-
-    <div class="benefit-card">
-
-      <i class="fa-solid fa-truck-fast"></i>
-
-      <h3>Frete Rápido</h3>
-
-      <p>Entrega para todo Brasil</p>
-
-    </div>
-
-    <div class="benefit-card">
-
-      <i class="fa-solid fa-credit-card"></i>
-
-      <h3>Pagamento Seguro</h3>
-
-      <p>Pix, cartão e boleto</p>
-
-    </div>
-
-    <div class="benefit-card">
-
-      <i class="fa-solid fa-shield-halved"></i>
-
-      <h3>Compra Protegida</h3>
-
-      <p>Segurança garantida</p>
-
-    </div>
-
-  </section>
-
-  <!-- PRODUTOS -->
-
-  <section class="products">
-
-    <div class="section-title">
-
-      <span>MORPHEUS</span>
-
-      <h2>Produtos em Destaque</h2>
-
-    </div>
-
-    <div class="products-grid">
-
-      <div class="product-card">
-
-        <img src="./img/produto1.jpg">
-
-        <div class="product-info">
-
-          <h3>Pearl Cross</h3>
-
-          <p>Design premium sofisticado.</p>
-
-          <span>R$ 249,90</span>
-
-          <button>Comprar</button>
-
-        </div>
+        <button class="btn-secondary">
+          EXPLORAR
+        </button>
 
       </div>
 
-      <div class="product-card">
+    </div>
 
-        <img src="./img/produto2.jpg">
+    <div class="hero-right">
 
-        <div class="product-info">
-
-          <h3>Luxury Pearl</h3>
-
-          <p>Acabamento exclusivo premium.</p>
-
-          <span>R$ 329,90</span>
-
-          <button>Comprar</button>
-
-        </div>
-
-      </div>
-
-      <div class="product-card">
-
-        <img src="./img/produto3.jpg">
-
-        <div class="product-info">
-
-          <h3>Minimal Pearl</h3>
-
-          <p>Elegância minimalista refinada.</p>
-
-          <span>R$ 189,90</span>
-
-          <button>Comprar</button>
-
-        </div>
-
-      </div>
-
-      <div class="product-card">
-
-        <img src="./img/produto4.jpg">
-
-        <div class="product-info">
-
-          <h3>Diamond Pearl</h3>
-
-          <p>Luxo moderno e sofisticado.</p>
-
-          <span>R$ 419,90</span>
-
-          <button>Comprar</button>
-
-        </div>
-
-      </div>
+      <img src="./img/hero-model.png">
 
     </div>
 
@@ -213,19 +116,164 @@
 
   <!-- BANNER -->
 
-  <section class="banner">
+  <section class="mini-banner">
+
+    <div class="mini-item">
+      FRETE GRÁTIS
+    </div>
+
+    <div class="mini-item">
+      10% OFF NO PIX
+    </div>
+
+    <div class="mini-item">
+      DROP LIMITADO 2026
+    </div>
+
+    <div class="mini-item">
+      ESTÉTICA TRAP PREMIUM
+    </div>
+
+  </section>
+
+  <!-- PRODUTOS -->
+
+  <section class="products" id="produtos">
+
+    <div class="section-title">
+
+      <span>DROP 2026</span>
+
+      <h2>BEST SELLERS</h2>
+
+    </div>
+
+    <div class="products-grid">
+
+      <!-- PRODUTO -->
+
+      <div class="product-card">
+
+        <div class="product-image">
+
+          <img src="./img/produto1.jpg">
+
+          <span class="badge">
+            HOT
+          </span>
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>Pearl Cross Chain</h3>
+
+          <p>
+            Pérolas premium + cruz inox.
+          </p>
+
+          <span class="price">
+            R$ 279,90
+          </span>
+
+          <button>
+            ADICIONAR
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- PRODUTO -->
+
+      <div class="product-card">
+
+        <div class="product-image">
+
+          <img src="./img/produto2.jpg">
+
+          <span class="badge">
+            NEW
+          </span>
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>Luxury Pearl</h3>
+
+          <p>
+            Estilo rapper sofisticado.
+          </p>
+
+          <span class="price">
+            R$ 349,90
+          </span>
+
+          <button>
+            ADICIONAR
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- PRODUTO -->
+
+      <div class="product-card">
+
+        <div class="product-image">
+
+          <img src="./img/produto3.jpg">
+
+          <span class="badge">
+            VIP
+          </span>
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>Diamond Cross</h3>
+
+          <p>
+            Design agressivo premium.
+          </p>
+
+          <span class="price">
+            R$ 429,90
+          </span>
+
+          <button>
+            ADICIONAR
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- BANNER GRANDE -->
+
+  <section class="big-banner" id="colecao">
 
     <div class="banner-content">
 
-      <span>DESCONTO EXCLUSIVO</span>
+      <span>MORPHEUS COMPANY</span>
 
-      <h2>Ganhe 15% OFF</h2>
+      <h2>
+        TRAP<br>
+        LUXURY<br>
+        STYLE
+      </h2>
 
       <p>
-        Utilize o cupom:
+        Estética exclusiva inspirada
+        no streetwear internacional.
       </p>
-
-      <strong>MORPHEUS15</strong>
 
     </div>
 
@@ -235,17 +283,19 @@
 
   <section class="newsletter">
 
-    <h2>Receba Novidades</h2>
+    <h2>ENTRE PARA O DROP</h2>
 
     <p>
-      Promoções exclusivas e lançamentos premium.
+      Receba promoções exclusivas.
     </p>
 
     <div class="newsletter-box">
 
-      <input type="email" placeholder="Digite seu e-mail">
+      <input type="email" placeholder="Seu melhor e-mail">
 
-      <button>Inscrever</button>
+      <button>
+        ENTRAR
+      </button>
 
     </div>
 
@@ -253,32 +303,28 @@
 
   <!-- FOOTER -->
 
-  <footer>
+  <footer id="contato">
 
-    <div class="footer-content">
+    <div class="footer-logo">
+      MORPHEUS
+    </div>
 
-      <h2>Morpheus Company</h2>
+    <p>
+      Luxury Trap Jewelry
+    </p>
 
-      <p>
-        Luxo, elegância e exclusividade.
-      </p>
+    <div class="social">
 
-      <div class="social">
+      <i class="fa-brands fa-instagram"></i>
 
-        <i class="fa-brands fa-instagram"></i>
+      <i class="fa-brands fa-tiktok"></i>
 
-        <i class="fa-brands fa-whatsapp"></i>
-
-        <i class="fa-brands fa-facebook-f"></i>
-
-      </div>
+      <i class="fa-brands fa-whatsapp"></i>
 
     </div>
 
     <div class="copy">
-
       © 2026 Morpheus Company
-
     </div>
 
   </footer>
@@ -286,4 +332,5 @@
   <script src="script.js"></script>
 
 </body>
+
 </html>
