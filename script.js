@@ -5,87 +5,62 @@
 
 
 // =========================
-// BOTÕES DOS PRODUTOS
+// DARK MODE
 // =========================
 
-const buttons = document.querySelectorAll(".produto-card button");
+const themeToggle = document.getElementById("theme-toggle");
 
-buttons.forEach((button) => {
+themeToggle.addEventListener("click", () => {
 
-  button.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
 
-    // EVITA CLIQUES DUPLOS
+  const icon = themeToggle.querySelector("i");
 
-    if(button.classList.contains("active")) return;
+  // ALTERAR ÍCONE
 
-    button.classList.add("active");
+  if(document.body.classList.contains("dark")){
 
-    // ALTERA TEXTO
+    icon.classList.remove("fa-moon");
 
-    button.innerHTML = "Adicionado ✓";
+    icon.classList.add("fa-sun");
 
-    // ALTERA COR
+    localStorage.setItem("theme", "dark");
 
-    button.style.background = "#7bf1a8";
-    button.style.color = "#000";
+  }
 
-    // VOLTA AO NORMAL
+  else{
 
-    setTimeout(() => {
+    icon.classList.remove("fa-sun");
 
-      button.innerHTML = "Adicionar ao Carrinho";
+    icon.classList.add("fa-moon");
 
-      button.style.background = "#d8b4fe";
+    localStorage.setItem("theme", "light");
 
-      button.style.color = "#000";
-
-      button.classList.remove("active");
-
-    }, 2000);
-
-  });
+  }
 
 });
 
 
 
 // =========================
-// NEWSLETTER
+// SALVAR TEMA
 // =========================
 
-const newsletterBtn = document.querySelector(".newsletter button");
+window.addEventListener("load", () => {
 
-const newsletterInput = document.querySelector(".newsletter input");
+  const savedTheme = localStorage.getItem("theme");
 
-newsletterBtn.addEventListener("click", () => {
+  if(savedTheme === "dark"){
 
-  const email = newsletterInput.value.trim();
+    document.body.classList.add("dark");
 
-  // CAMPO VAZIO
+    const icon = themeToggle.querySelector("i");
 
-  if(email === ""){
+    icon.classList.remove("fa-moon");
 
-    alert("Digite seu e-mail!");
-
-    return;
+    icon.classList.add("fa-sun");
 
   }
-
-  // VALIDAÇÃO
-
-  if(!email.includes("@") || !email.includes(".")){
-
-    alert("Digite um e-mail válido!");
-
-    return;
-
-  }
-
-  // SUCESSO
-
-  alert("Obrigado por se cadastrar na Morpheus Company!");
-
-  newsletterInput.value = "";
 
 });
 
@@ -95,11 +70,11 @@ newsletterBtn.addEventListener("click", () => {
 // MENU MOBILE
 // =========================
 
-const mobileMenu = document.querySelector(".menu-mobile");
+const menuMobile = document.querySelector(".menu-mobile");
 
 const nav = document.querySelector(".nav");
 
-mobileMenu.addEventListener("click", () => {
+menuMobile.addEventListener("click", () => {
 
   nav.classList.toggle("active");
 
@@ -133,21 +108,101 @@ const header = document.querySelector(".header");
 
 window.addEventListener("scroll", () => {
 
-  if(window.scrollY > 50){
+  if(window.scrollY > 40){
 
-    header.style.background = "rgba(0,0,0,0.92)";
-
-    header.style.backdropFilter = "blur(10px)";
-
-    header.style.borderBottom = "1px solid rgba(255,255,255,0.08)";
+    header.style.boxShadow = "0 5px 20px rgba(0,0,0,.08)";
 
   }
 
   else{
 
-    header.style.background = "rgba(0,0,0,0.65)";
+    header.style.boxShadow = "none";
 
   }
+
+});
+
+
+
+// =========================
+// BOTÕES PRODUTOS
+// =========================
+
+const buyButtons = document.querySelectorAll(".product-info button");
+
+buyButtons.forEach((button) => {
+
+  button.addEventListener("click", () => {
+
+    // EVITA CLIQUES DUPLOS
+
+    if(button.classList.contains("active")) return;
+
+    button.classList.add("active");
+
+    // ALTERA TEXTO
+
+    button.innerHTML = "Adicionado ✓";
+
+    // MUDA COR
+
+    button.style.background = "#28c76f";
+
+    // VOLTAR
+
+    setTimeout(() => {
+
+      button.innerHTML = "Comprar";
+
+      button.style.background = "";
+
+      button.classList.remove("active");
+
+    }, 2000);
+
+  });
+
+});
+
+
+
+// =========================
+// NEWSLETTER
+// =========================
+
+const newsletterBtn = document.querySelector(".newsletter-box button");
+
+const newsletterInput = document.querySelector(".newsletter-box input");
+
+newsletterBtn.addEventListener("click", () => {
+
+  const email = newsletterInput.value.trim();
+
+  // CAMPO VAZIO
+
+  if(email === ""){
+
+    alert("Digite seu e-mail!");
+
+    return;
+
+  }
+
+  // VALIDAÇÃO
+
+  if(!email.includes("@") || !email.includes(".")){
+
+    alert("Digite um e-mail válido!");
+
+    return;
+
+  }
+
+  // SUCESSO
+
+  alert("Cadastro realizado com sucesso!");
+
+  newsletterInput.value = "";
 
 });
 
@@ -158,7 +213,7 @@ window.addEventListener("scroll", () => {
 // =========================
 
 const cards = document.querySelectorAll(
-  ".produto-card, .cupom, .ajuda-card"
+  ".product-card, .benefit-card"
 );
 
 const observer = new IntersectionObserver((entries) => {
@@ -174,12 +229,28 @@ const observer = new IntersectionObserver((entries) => {
   });
 
 }, {
-  threshold: 0.2
+  threshold:0.2
 });
 
 cards.forEach((card) => {
 
   observer.observe(card);
+
+});
+
+
+
+// =========================
+// EFEITO PARALLAX HERO
+// =========================
+
+const hero = document.querySelector(".hero");
+
+window.addEventListener("scroll", () => {
+
+  let scroll = window.pageYOffset;
+
+  hero.style.backgroundPositionY = scroll * 0.5 + "px";
 
 });
 
@@ -204,7 +275,7 @@ links.forEach((link) => {
     if(section){
 
       section.scrollIntoView({
-        behavior: "smooth"
+        behavior:"smooth"
       });
 
     }
@@ -216,143 +287,101 @@ links.forEach((link) => {
 
 
 // =========================
-// CARROSSEL MANUAL
+// BOTÃO HERO
 // =========================
 
-const slides = document.querySelectorAll(".slide");
+const heroButton = document.querySelector(".hero-content button");
 
-const nextBtn = document.querySelector(".next");
+heroButton.addEventListener("click", () => {
 
-const prevBtn = document.querySelector(".prev");
+  const products = document.querySelector(".products");
 
-let currentSlide = 0;
+  products.scrollIntoView({
+    behavior:"smooth"
+  });
 
-let autoPlay;
+});
 
 
 
-// MOSTRAR SLIDE
+// =========================
+// EFEITO HOVER PRODUTOS
+// =========================
 
-function showSlide(index){
+const products = document.querySelectorAll(".product-card");
 
-  slides.forEach((slide) => {
+products.forEach((card) => {
 
-    slide.classList.remove("active");
+  card.addEventListener("mousemove", (e) => {
+
+    const rect = card.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+
+    const y = e.clientY - rect.top;
+
+    card.style.transform = `
+      perspective(1000px)
+      rotateX(${-(y - rect.height / 2) / 25}deg)
+      rotateY(${(x - rect.width / 2) / 25}deg)
+      translateY(-10px)
+    `;
 
   });
 
-  slides[index].classList.add("active");
+  card.addEventListener("mouseleave", () => {
 
-}
+    card.style.transform = `
+      perspective(1000px)
+      rotateX(0deg)
+      rotateY(0deg)
+      translateY(0px)
+    `;
 
-
-
-// PRÓXIMO SLIDE
-
-function nextSlide(){
-
-  currentSlide++;
-
-  if(currentSlide >= slides.length){
-
-    currentSlide = 0;
-
-  }
-
-  showSlide(currentSlide);
-
-}
-
-
-
-// SLIDE ANTERIOR
-
-function prevSlide(){
-
-  currentSlide--;
-
-  if(currentSlide < 0){
-
-    currentSlide = slides.length - 1;
-
-  }
-
-  showSlide(currentSlide);
-
-}
-
-
-
-// EVENTOS BOTÕES
-
-nextBtn.addEventListener("click", () => {
-
-  nextSlide();
-
-  resetAutoPlay();
+  });
 
 });
-
-
-
-prevBtn.addEventListener("click", () => {
-
-  prevSlide();
-
-  resetAutoPlay();
-
-});
-
-
-
-// AUTO PLAY
-
-function startAutoPlay(){
-
-  autoPlay = setInterval(() => {
-
-    nextSlide();
-
-  }, 5000);
-
-}
-
-
-
-// RESET AUTO PLAY
-
-function resetAutoPlay(){
-
-  clearInterval(autoPlay);
-
-  startAutoPlay();
-
-}
-
-
-
-// INICIAR
-
-showSlide(currentSlide);
-
-startAutoPlay();
 
 
 
 // =========================
-// PAUSAR CARROSSEL NO HOVER
+// LOADING PAGE
 // =========================
 
-const carousel = document.querySelector(".carousel");
+window.addEventListener("load", () => {
 
-carousel.addEventListener("mouseenter", () => {
-
-  clearInterval(autoPlay);
+  document.body.classList.add("loaded");
 
 });
 
-carousel.addEventListener("mouseleave", () => {
 
-  startAutoPlay();
+
+// =========================
+// SCROLL REVEAL
+// =========================
+
+const revealElements = document.querySelectorAll(
+  ".section-title, .banner-content, .newsletter"
+);
+
+const revealObserver = new IntersectionObserver((entries) => {
+
+  entries.forEach((entry) => {
+
+    if(entry.isIntersecting){
+
+      entry.target.classList.add("show");
+
+    }
+
+  });
+
+}, {
+  threshold:0.2
+});
+
+revealElements.forEach((element) => {
+
+  revealObserver.observe(element);
 
 });
