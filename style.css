@@ -904,10 +904,10 @@ body{
 /* carrossel */
 .banner-carousel {
   position: relative;
-  width: 40%;
-  height: 350px;
+  width: 45%;
+  aspect-ratio: 1 / 1; /* deixa quadrado */
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 20px;
 }
 
 .carousel-track {
@@ -1501,4 +1501,30 @@ body.light .social i:hover{
 
   color:#ffffff !important;
 
+}
+@media (max-width: 768px) {
+
+  .big-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+    gap: 20px;
+  }
+
+  .banner-content {
+    max-width: 100%;
+  }
+
+  .banner-carousel {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+
+  .banner-content h2 {
+    font-size: 28px;
+  }
+
+  .banner-content p {
+    font-size: 14px;
+  }
 }
