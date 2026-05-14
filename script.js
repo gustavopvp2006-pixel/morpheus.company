@@ -1,6 +1,18 @@
 // =========================
-// ARQUIVO: script.js
+// LOADER
 // =========================
+
+window.addEventListener("load", () => {
+
+  const loader = document.querySelector(".loader");
+
+  setTimeout(() => {
+
+    loader.classList.add("hide");
+
+  }, 1200);
+
+});
 
 
 
@@ -12,19 +24,19 @@ const themeToggle = document.getElementById("theme-toggle");
 
 themeToggle.addEventListener("click", () => {
 
-  document.body.classList.toggle("dark");
+  document.body.classList.toggle("light");
 
   const icon = themeToggle.querySelector("i");
 
-  // ALTERAR ÍCONE
+  // ALTERA ÍCONE
 
-  if(document.body.classList.contains("dark")){
+  if(document.body.classList.contains("light")){
 
     icon.classList.remove("fa-moon");
 
     icon.classList.add("fa-sun");
 
-    localStorage.setItem("theme", "dark");
+    localStorage.setItem("theme", "light");
 
   }
 
@@ -34,7 +46,7 @@ themeToggle.addEventListener("click", () => {
 
     icon.classList.add("fa-moon");
 
-    localStorage.setItem("theme", "light");
+    localStorage.setItem("theme", "dark");
 
   }
 
@@ -46,15 +58,15 @@ themeToggle.addEventListener("click", () => {
 // SALVAR TEMA
 // =========================
 
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
 
   const savedTheme = localStorage.getItem("theme");
 
-  if(savedTheme === "dark"){
+  const icon = themeToggle.querySelector("i");
 
-    document.body.classList.add("dark");
+  if(savedTheme === "light"){
 
-    const icon = themeToggle.querySelector("i");
+    document.body.classList.add("light");
 
     icon.classList.remove("fa-moon");
 
@@ -83,7 +95,7 @@ menuMobile.addEventListener("click", () => {
 
 
 // =========================
-// FECHAR MENU AO CLICAR
+// FECHAR MENU MOBILE
 // =========================
 
 const navLinks = document.querySelectorAll(".nav a");
@@ -101,24 +113,49 @@ navLinks.forEach((link) => {
 
 
 // =========================
-// HEADER EFEITO SCROLL
+// HEADER SCROLL
 // =========================
 
 const header = document.querySelector(".header");
 
 window.addEventListener("scroll", () => {
 
-  if(window.scrollY > 40){
+  if(window.scrollY > 50){
 
-    header.style.boxShadow = "0 5px 20px rgba(0,0,0,.08)";
+    header.style.background = "rgba(0,0,0,.85)";
+
+    header.style.backdropFilter = "blur(16px)";
+
+    header.style.borderBottom =
+    "1px solid rgba(255,255,255,.08)";
 
   }
 
   else{
 
-    header.style.boxShadow = "none";
+    header.style.background = "rgba(0,0,0,.45)";
 
   }
+
+});
+
+
+
+// =========================
+// BOTÃO HERO
+// =========================
+
+const heroButton = document.querySelector(".btn-primary");
+
+heroButton.addEventListener("click", () => {
+
+  const products = document.querySelector(".products");
+
+  products.scrollIntoView({
+
+    behavior:"smooth"
+
+  });
 
 });
 
@@ -128,31 +165,32 @@ window.addEventListener("scroll", () => {
 // BOTÕES PRODUTOS
 // =========================
 
-const buyButtons = document.querySelectorAll(".product-info button");
+const productButtons =
+document.querySelectorAll(".product-info button");
 
-buyButtons.forEach((button) => {
+productButtons.forEach((button) => {
 
   button.addEventListener("click", () => {
 
-    // EVITA CLIQUES DUPLOS
+    // EVITA DUPLO CLIQUE
 
     if(button.classList.contains("active")) return;
 
     button.classList.add("active");
 
-    // ALTERA TEXTO
+    // TEXTO
 
-    button.innerHTML = "Adicionado ✓";
+    button.innerHTML = "ADICIONADO ✓";
 
-    // MUDA COR
+    // ESTILO
 
-    button.style.background = "#28c76f";
+    button.style.background = "#22c55e";
 
-    // VOLTAR
+    // VOLTA
 
     setTimeout(() => {
 
-      button.innerHTML = "Comprar";
+      button.innerHTML = "ADICIONAR";
 
       button.style.background = "";
 
@@ -170,9 +208,11 @@ buyButtons.forEach((button) => {
 // NEWSLETTER
 // =========================
 
-const newsletterBtn = document.querySelector(".newsletter-box button");
+const newsletterBtn =
+document.querySelector(".newsletter-box button");
 
-const newsletterInput = document.querySelector(".newsletter-box input");
+const newsletterInput =
+document.querySelector(".newsletter-box input");
 
 newsletterBtn.addEventListener("click", () => {
 
@@ -190,7 +230,8 @@ newsletterBtn.addEventListener("click", () => {
 
   // VALIDAÇÃO
 
-  if(!email.includes("@") || !email.includes(".")){
+  if(!email.includes("@") ||
+     !email.includes(".")){
 
     alert("Digite um e-mail válido!");
 
@@ -200,57 +241,9 @@ newsletterBtn.addEventListener("click", () => {
 
   // SUCESSO
 
-  alert("Cadastro realizado com sucesso!");
+  alert("Você entrou para o DROP da Morpheus Company 🔥");
 
   newsletterInput.value = "";
-
-});
-
-
-
-// =========================
-// ANIMAÇÃO AO ROLAR
-// =========================
-
-const cards = document.querySelectorAll(
-  ".product-card, .benefit-card"
-);
-
-const observer = new IntersectionObserver((entries) => {
-
-  entries.forEach((entry) => {
-
-    if(entry.isIntersecting){
-
-      entry.target.classList.add("show");
-
-    }
-
-  });
-
-}, {
-  threshold:0.2
-});
-
-cards.forEach((card) => {
-
-  observer.observe(card);
-
-});
-
-
-
-// =========================
-// EFEITO PARALLAX HERO
-// =========================
-
-const hero = document.querySelector(".hero");
-
-window.addEventListener("scroll", () => {
-
-  let scroll = window.pageYOffset;
-
-  hero.style.backgroundPositionY = scroll * 0.5 + "px";
 
 });
 
@@ -260,7 +253,8 @@ window.addEventListener("scroll", () => {
 // SCROLL SUAVE
 // =========================
 
-const links = document.querySelectorAll('a[href^="#"]');
+const links =
+document.querySelectorAll('a[href^="#"]');
 
 links.forEach((link) => {
 
@@ -275,7 +269,9 @@ links.forEach((link) => {
     if(section){
 
       section.scrollIntoView({
+
         behavior:"smooth"
+
       });
 
     }
@@ -287,28 +283,46 @@ links.forEach((link) => {
 
 
 // =========================
-// BOTÃO HERO
+// ANIMAÇÃO AO ROLAR
 // =========================
 
-const heroButton = document.querySelector(".hero-content button");
+const revealElements = document.querySelectorAll(
+  ".product-card, .mini-item, .section-title"
+);
 
-heroButton.addEventListener("click", () => {
+const revealObserver = new IntersectionObserver(
+(entries) => {
 
-  const products = document.querySelector(".products");
+  entries.forEach((entry) => {
 
-  products.scrollIntoView({
-    behavior:"smooth"
+    if(entry.isIntersecting){
+
+      entry.target.classList.add("show");
+
+    }
+
   });
+
+}, {
+
+  threshold:0.2
+
+});
+
+revealElements.forEach((element) => {
+
+  revealObserver.observe(element);
 
 });
 
 
 
 // =========================
-// EFEITO HOVER PRODUTOS
+// EFEITO 3D PRODUTOS
 // =========================
 
-const products = document.querySelectorAll(".product-card");
+const products =
+document.querySelectorAll(".product-card");
 
 products.forEach((card) => {
 
@@ -320,10 +334,16 @@ products.forEach((card) => {
 
     const y = e.clientY - rect.top;
 
+    const rotateY =
+    ((x / rect.width) - 0.5) * 16;
+
+    const rotateX =
+    ((y / rect.height) - 0.5) * -16;
+
     card.style.transform = `
       perspective(1000px)
-      rotateX(${-(y - rect.height / 2) / 25}deg)
-      rotateY(${(x - rect.width / 2) / 25}deg)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
       translateY(-10px)
     `;
 
@@ -345,43 +365,169 @@ products.forEach((card) => {
 
 
 // =========================
-// LOADING PAGE
+// PARALLAX HERO
 // =========================
+
+const hero =
+document.querySelector(".hero");
+
+window.addEventListener("scroll", () => {
+
+  let scroll = window.pageYOffset;
+
+  hero.style.backgroundPositionY =
+  scroll * 0.5 + "px";
+
+});
+
+
+
+// =========================
+// ANIMAÇÃO TEXTO HERO
+// =========================
+
+const heroTitle =
+document.querySelector(".hero-left h1");
 
 window.addEventListener("load", () => {
 
-  document.body.classList.add("loaded");
+  heroTitle.style.opacity = "0";
+
+  heroTitle.style.transform = "translateY(40px)";
+
+  setTimeout(() => {
+
+    heroTitle.style.transition = "1s";
+
+    heroTitle.style.opacity = "1";
+
+    heroTitle.style.transform =
+    "translateY(0px)";
+
+  }, 1300);
 
 });
 
 
 
 // =========================
-// SCROLL REVEAL
+// EFEITO GLOW MOUSE
 // =========================
 
-const revealElements = document.querySelectorAll(
-  ".section-title, .banner-content, .newsletter"
-);
+document.addEventListener("mousemove", (e) => {
 
-const revealObserver = new IntersectionObserver((entries) => {
+  const x = e.clientX;
+  const y = e.clientY;
 
-  entries.forEach((entry) => {
+  document.body.style.background = `
+    radial-gradient(
+      circle at ${x}px ${y}px,
+      rgba(77,163,255,.06),
+      transparent 25%
+    ),
+    var(--bg)
+  `;
 
-    if(entry.isIntersecting){
+});
 
-      entry.target.classList.add("show");
 
-    }
+
+// =========================
+// CONTADOR CARRINHO
+// =========================
+
+const cartIcon =
+document.querySelector(".fa-cart-shopping");
+
+let cartCount = 0;
+
+// CRIAR BOLINHA
+
+const cartBadge =
+document.createElement("span");
+
+cartBadge.classList.add("cart-badge");
+
+cartBadge.innerHTML = "0";
+
+cartIcon.parentElement.appendChild(cartBadge);
+
+// SOMAR PRODUTOS
+
+productButtons.forEach((button) => {
+
+  button.addEventListener("click", () => {
+
+    cartCount++;
+
+    cartBadge.innerHTML = cartCount;
 
   });
 
-}, {
-  threshold:0.2
 });
 
-revealElements.forEach((element) => {
 
-  revealObserver.observe(element);
+
+// =========================
+// HOVER HERO IMAGE
+// =========================
+
+const heroImage =
+document.querySelector(".hero-right img");
+
+heroImage.addEventListener("mousemove", (e) => {
+
+  const rect = heroImage.getBoundingClientRect();
+
+  const x = e.clientX - rect.left;
+
+  const y = e.clientY - rect.top;
+
+  const rotateY =
+  ((x / rect.width) - 0.5) * 10;
+
+  const rotateX =
+  ((y / rect.height) - 0.5) * -10;
+
+  heroImage.style.transform = `
+    perspective(1000px)
+    rotateX(${rotateX}deg)
+    rotateY(${rotateY}deg)
+    translateY(-10px)
+  `;
 
 });
+
+heroImage.addEventListener("mouseleave", () => {
+
+  heroImage.style.transform = `
+    perspective(1000px)
+    rotateX(0deg)
+    rotateY(0deg)
+    translateY(0px)
+  `;
+
+});
+
+
+
+// =========================
+// CONSOLE STYLE
+// =========================
+
+console.log(
+"%cMORPHEUS COMPANY 🔥",
+`
+color:#4da3ff;
+font-size:28px;
+font-weight:bold;
+`
+);
+
+console.log(
+"%cLuxury Trap Jewelry",
+`
+color:white;
+font-size:14px;
+`
+);
