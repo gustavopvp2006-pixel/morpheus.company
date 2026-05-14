@@ -385,3 +385,91 @@ body.light ::-webkit-scrollbar-track{
   }
 
 }
+/* ========================= */
+/* ACESSIBILIDADE */
+/* ========================= */
+
+/* FOCO PARA TECLADO */
+
+a:focus,
+button:focus,
+input:focus,
+.faq-question:focus{
+
+  outline:3px solid var(--primary);
+
+  outline-offset:4px;
+
+  border-radius:10px;
+
+}
+
+/* MELHOR CONTRASTE */
+
+body.light{
+
+  --gray:#555;
+
+}
+
+/* INPUT PLACEHOLDER */
+
+.newsletter-box input::placeholder{
+
+  color:#888;
+
+}
+
+/* MELHOR LEITURA */
+
+p{
+
+  line-height:1.8;
+
+}
+
+/* IMAGENS RESPONSIVAS */
+
+img{
+
+  max-width:100%;
+
+  display:block;
+
+}
+
+/* SOCIAL ICONS LIGHT MODE */
+
+body.light .social i{
+
+  background:#0d0d0d !important;
+
+  color:#ffffff !important;
+
+  border:1px solid rgba(255,255,255,.06);
+
+}
+
+body.light .social i:hover{
+
+  background:var(--primary) !important;
+
+  color:#ffffff !important;
+
+}
+
+/* REDUZIR ANIMAÇÕES */
+
+@media(prefers-reduced-motion: reduce){
+
+  *{
+
+    animation:none !important;
+
+    transition:none !important;
+
+    scroll-behavior:auto !important;
+
+  }
+
+}
