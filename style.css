@@ -1419,3 +1419,24 @@ footer p{
   }
 
 }
+/* ========================= */
+/* FIX SOCIAL ICONS LIGHT MODE */
+/* ========================= */
+
+body.light .social i{
+
+  background:#0d0d0d !important;
+
+  color:#ffffff !important;
+
+  border:1px solid rgba(255,255,255,.06);
+
+}
+
+body.light .social i:hover{
+
+  background:var(--primary) !important;
+
+  color:#ffffff !important;
+
+}
