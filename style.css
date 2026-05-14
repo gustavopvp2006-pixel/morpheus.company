@@ -193,11 +193,13 @@ body{
   font-size:18px;
 }
 
+/* ========================= */
 /* CARROSSEL */
+/* ========================= */
 
 .carousel-section{
   width:100%;
-  padding:50px 8%;
+  padding:60px 8%;
 }
 
 .carousel-section h2{
@@ -210,21 +212,31 @@ body{
   width:100%;
   overflow:hidden;
   border-radius:25px;
+  position:relative;
 }
 
 .slides{
   display:flex;
   width:300%;
-  animation:slide 15s infinite;
+  animation:carousel 18s infinite;
 }
 
-.slides img{
+.slide{
+  width:100%;
+  flex-shrink:0;
+}
+
+.slide img{
   width:100%;
   height:650px;
   object-fit:cover;
+  display:block;
+  border-radius:25px;
 }
 
-@keyframes slide{
+/* ANIMAÇÃO */
+
+@keyframes carousel{
 
   0%{
     transform:translateX(0%);
@@ -256,6 +268,23 @@ body{
 
 }
 
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+  .slide img{
+    height:350px;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .slide img{
+    height:250px;
+  }
+
+}
 /* PRODUTOS */
 
 .produtos{
