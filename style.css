@@ -1,5 +1,1426 @@
 /* ========================= */
 /* MORPHEUS COMPANY */
+/* PREMIUM TRAP LUXURY CSS */
+/* ========================= */
+
+
+
+/* ========================= */
+/* RESET */
+/* ========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+:root{
+
+  --bg:#050505;
+  --bg2:#0d0d0d;
+
+  --card:#101010;
+
+  --text:#ffffff;
+
+  --gray:#a1a1a1;
+
+  --border:#1f1f1f;
+
+  --primary:#4da3ff;
+
+  --primary2:#2b7fff;
+
+  --shadow:0 10px 40px rgba(0,0,0,.45);
+
+}
+
+
+
+/* ========================= */
+/* LIGHT MODE */
+/* ========================= */
+
+body.light{
+
+  --bg:#f4f4f4;
+  --bg2:#ffffff;
+
+  --card:#ffffff;
+
+  --text:#111111;
+
+  --gray:#666666;
+
+  --border:#dddddd;
+
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+
+/* ========================= */
+/* BODY */
+/* ========================= */
+
+body{
+
+  font-family:'Montserrat', sans-serif;
+
+  background:var(--bg);
+
+  color:var(--text);
+
+  overflow-x:hidden;
+
+  transition:.4s;
+
+}
+
+
+
+/* ========================= */
+/* SCROLLBAR */
+/* ========================= */
+
+::-webkit-scrollbar{
+  width:8px;
+}
+
+::-webkit-scrollbar-track{
+  background:var(--bg);
+}
+
+::-webkit-scrollbar-thumb{
+  background:var(--primary);
+  border-radius:20px;
+}
+
+
+
+/* ========================= */
+/* LOADER */
+/* ========================= */
+
+.loader{
+
+  position:fixed;
+
+  inset:0;
+
+  background:#000;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  z-index:99999;
+
+  transition:1s;
+
+}
+
+.loader.hide{
+
+  opacity:0;
+
+  pointer-events:none;
+
+}
+
+.loader-logo{
+
+  font-family:'Anton', sans-serif;
+
+  font-size:80px;
+
+  color:#fff;
+
+  letter-spacing:8px;
+
+}
+
+
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+.header{
+
+  width:100%;
+  height:85px;
+
+  position:fixed;
+
+  top:0;
+  left:0;
+
+  z-index:999;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:0 7%;
+
+  background:rgba(0,0,0,.45);
+
+  backdrop-filter:blur(16px);
+
+  border-bottom:1px solid rgba(255,255,255,.05);
+
+  transition:.4s;
+
+}
+
+
+
+/* ========================= */
+/* LOGO */
+/* ========================= */
+
+.logo{
+
+  font-family:'Anton', sans-serif;
+
+  font-size:38px;
+
+  letter-spacing:3px;
+
+  color:var(--text);
+
+}
+
+
+
+/* ========================= */
+/* NAV */
+/* ========================= */
+
+.nav{
+
+  display:flex;
+
+  gap:40px;
+
+}
+
+.nav a{
+
+  color:var(--text);
+
+  text-decoration:none;
+
+  font-size:14px;
+
+  font-weight:700;
+
+  letter-spacing:2px;
+
+  position:relative;
+
+  transition:.3s;
+
+}
+
+.nav a::after{
+
+  content:'';
+
+  width:0%;
+  height:2px;
+
+  background:var(--primary);
+
+  position:absolute;
+
+  left:0;
+  bottom:-6px;
+
+  transition:.3s;
+
+}
+
+.nav a:hover{
+
+  color:var(--primary);
+
+}
+
+.nav a:hover::after{
+
+  width:100%;
+
+}
+
+
+
+/* ========================= */
+/* HEADER ICONS */
+/* ========================= */
+
+.header-icons{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:22px;
+
+  position:relative;
+
+}
+
+.header-icons i{
+
+  color:var(--text);
+
+  font-size:20px;
+
+  cursor:pointer;
+
+  transition:.3s;
+
+}
+
+.header-icons i:hover{
+
+  color:var(--primary);
+
+  transform:translateY(-3px);
+
+}
+
+
+
+/* ========================= */
+/* CART BADGE */
+/* ========================= */
+
+.cart-badge{
+
+  position:absolute;
+
+  top:-5px;
+  right:55px;
+
+  width:20px;
+  height:20px;
+
+  border-radius:50%;
+
+  background:var(--primary);
+
+  color:#fff;
+
+  font-size:11px;
+  font-weight:700;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+}
+
+
+
+/* ========================= */
+/* THEME BUTTON */
+/* ========================= */
+
+#theme-toggle{
+
+  width:42px;
+  height:42px;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:var(--card);
+
+  color:var(--text);
+
+  cursor:pointer;
+
+  transition:.3s;
+
+}
+
+#theme-toggle:hover{
+
+  transform:scale(1.08);
+
+}
+
+
+
+/* ========================= */
+/* MENU MOBILE */
+/* ========================= */
+
+.menu-mobile{
+
+  display:none;
+
+  font-size:25px;
+
+  color:var(--text);
+
+  cursor:pointer;
+
+}
+
+
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero{
+
+  width:100%;
+
+  min-height:100vh;
+
+  padding:140px 7% 80px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:60px;
+
+  position:relative;
+
+  background:
+  linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.8)),
+  url('./img/hero-bg.jpg');
+
+  background-size:cover;
+
+  background-position:center;
+
+}
+
+
+
+/* ========================= */
+/* HERO LEFT */
+/* ========================= */
+
+.hero-left{
+
+  position:relative;
+
+  z-index:2;
+
+  max-width:650px;
+
+}
+
+.hero-tag{
+
+  display:inline-block;
+
+  padding:10px 18px;
+
+  border:1px solid rgba(255,255,255,.12);
+
+  background:rgba(255,255,255,.04);
+
+  border-radius:40px;
+
+  font-size:13px;
+
+  font-weight:700;
+
+  letter-spacing:2px;
+
+  margin-bottom:30px;
+
+}
+
+.hero-left h1{
+
+  font-family:'Anton', sans-serif;
+
+  font-size:120px;
+
+  line-height:.95;
+
+  letter-spacing:3px;
+
+  margin-bottom:25px;
+
+}
+
+.hero-left p{
+
+  max-width:520px;
+
+  font-size:18px;
+
+  color:var(--gray);
+
+  line-height:1.8;
+
+  margin-bottom:40px;
+
+}
+
+
+
+/* ========================= */
+/* HERO BUTTONS */
+/* ========================= */
+
+.hero-buttons{
+
+  display:flex;
+
+  gap:18px;
+
+  flex-wrap:wrap;
+
+}
+
+.btn-primary,
+.btn-secondary{
+
+  padding:18px 34px;
+
+  border:none;
+
+  border-radius:14px;
+
+  font-weight:700;
+
+  letter-spacing:1px;
+
+  cursor:pointer;
+
+  transition:.3s;
+
+}
+
+.btn-primary{
+
+  background:var(--primary);
+
+  color:#fff;
+
+  box-shadow:0 10px 30px rgba(77,163,255,.25);
+
+}
+
+.btn-primary:hover{
+
+  background:var(--primary2);
+
+  transform:translateY(-5px);
+
+}
+
+.btn-secondary{
+
+  background:transparent;
+
+  border:1px solid var(--border);
+
+  color:var(--text);
+
+}
+
+.btn-secondary:hover{
+
+  background:var(--text);
+
+  color:var(--bg);
+
+}
+
+
+
+/* ========================= */
+/* HERO RIGHT */
+/* ========================= */
+
+.hero-right{
+
+  position:relative;
+
+  z-index:2;
+
+}
+
+.hero-right img{
+
+  width:600px;
+
+  max-width:100%;
+
+  filter:
+  drop-shadow(0 20px 60px rgba(0,0,0,.6));
+
+  animation:float 5s ease-in-out infinite;
+
+}
+
+
+
+/* ========================= */
+/* FLOAT */
+/* ========================= */
+
+@keyframes float{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-18px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
+
+
+/* ========================= */
+/* MINI BANNER */
+/* ========================= */
+
+.mini-banner{
+
+  width:100%;
+
+  display:grid;
+
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+  border-top:1px solid var(--border);
+
+  border-bottom:1px solid var(--border);
+
+  background:var(--bg2);
+
+}
+
+.mini-item{
+
+  padding:22px;
+
+  text-align:center;
+
+  font-size:13px;
+
+  font-weight:700;
+
+  letter-spacing:2px;
+
+  border-right:1px solid var(--border);
+
+}
+
+
+
+/* ========================= */
+/* PRODUCTS */
+/* ========================= */
+
+.products{
+
+  width:100%;
+
+  padding:120px 7%;
+
+}
+
+
+
+/* ========================= */
+/* SECTION TITLE */
+/* ========================= */
+
+.section-title{
+
+  text-align:center;
+
+  margin-bottom:70px;
+
+}
+
+.section-title span{
+
+  color:var(--primary);
+
+  font-weight:700;
+
+  letter-spacing:3px;
+
+}
+
+.section-title h2{
+
+  font-family:'Anton', sans-serif;
+
+  font-size:70px;
+
+  margin-top:10px;
+
+  letter-spacing:2px;
+
+}
+
+
+
+/* ========================= */
+/* PRODUCTS GRID */
+/* ========================= */
+
+.products-grid{
+
+  display:grid;
+
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+  gap:35px;
+
+}
+
+
+
+/* ========================= */
+/* PRODUCT CARD */
+/* ========================= */
+
+.product-card{
+
+  background:var(--card);
+
+  border:1px solid var(--border);
+
+  border-radius:28px;
+
+  overflow:hidden;
+
+  transition:.4s;
+
+  position:relative;
+
+  box-shadow:var(--shadow);
+
+}
+
+.product-card:hover{
+
+  transform:translateY(-12px);
+
+}
+
+
+
+/* ========================= */
+/* PRODUCT IMAGE */
+/* ========================= */
+
+.product-image{
+
+  position:relative;
+
+  overflow:hidden;
+
+}
+
+.product-image img{
+
+  width:100%;
+
+  height:420px;
+
+  object-fit:cover;
+
+  transition:.5s;
+
+}
+
+.product-card:hover img{
+
+  transform:scale(1.05);
+
+}
+
+
+
+/* ========================= */
+/* BADGE */
+/* ========================= */
+
+.badge{
+
+  position:absolute;
+
+  top:20px;
+  left:20px;
+
+  background:var(--primary);
+
+  color:#fff;
+
+  padding:8px 16px;
+
+  border-radius:40px;
+
+  font-size:12px;
+
+  font-weight:700;
+
+}
+
+
+
+/* ========================= */
+/* PRODUCT INFO */
+/* ========================= */
+
+.product-info{
+
+  padding:28px;
+
+}
+
+.product-info h3{
+
+  font-size:28px;
+
+  margin-bottom:10px;
+
+}
+
+.product-info p{
+
+  color:var(--gray);
+
+  margin-bottom:20px;
+
+}
+
+.price{
+
+  display:block;
+
+  margin-bottom:25px;
+
+  color:var(--primary);
+
+  font-size:30px;
+
+  font-weight:800;
+
+}
+
+
+
+/* ========================= */
+/* PRODUCT BUTTON */
+/* ========================= */
+
+.product-info button{
+
+  width:100%;
+
+  padding:16px;
+
+  border:none;
+
+  border-radius:14px;
+
+  background:var(--primary);
+
+  color:#fff;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:.3s;
+
+}
+
+.product-info button:hover{
+
+  background:var(--primary2);
+
+}
+
+
+
+/* ========================= */
+/* BIG BANNER */
+/* ========================= */
+
+.big-banner{
+
+  width:100%;
+
+  min-height:700px;
+
+  padding:120px 7%;
+
+  display:flex;
+  align-items:center;
+
+  background:
+  linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.7)),
+  url('./img/banner-trap.jpg');
+
+  background-size:cover;
+
+  background-position:center;
+
+}
+
+
+
+/* ========================= */
+/* BANNER CONTENT */
+/* ========================= */
+
+.banner-content span{
+
+  color:var(--primary);
+
+  letter-spacing:3px;
+
+  font-weight:700;
+
+}
+
+.banner-content h2{
+
+  font-family:'Anton', sans-serif;
+
+  font-size:120px;
+
+  line-height:.9;
+
+  margin:20px 0;
+
+}
+
+.banner-content p{
+
+  max-width:500px;
+
+  color:var(--gray);
+
+  line-height:1.8;
+
+}
+
+
+
+/* ========================= */
+/* FAQ */
+/* ========================= */
+
+.faq{
+
+  padding:120px 8%;
+
+  background:var(--bg);
+
+}
+
+.faq-title{
+
+  text-align:center;
+
+  margin-bottom:60px;
+
+}
+
+.faq-title span{
+
+  color:var(--primary);
+
+  font-size:14px;
+
+  letter-spacing:4px;
+
+}
+
+.faq-title h2{
+
+  font-size:48px;
+
+  margin-top:15px;
+
+}
+
+.faq-title p{
+
+  color:var(--gray);
+
+  max-width:700px;
+
+  margin:20px auto 0;
+
+  line-height:1.7;
+
+}
+
+.faq-container{
+
+  max-width:900px;
+
+  margin:auto;
+
+}
+
+.faq-item{
+
+  background:var(--card);
+
+  border:1px solid var(--border);
+
+  border-radius:18px;
+
+  margin-bottom:20px;
+
+  overflow:hidden;
+
+  transition:.4s;
+
+}
+
+.faq-item:hover{
+
+  border-color:#4da3ff55;
+
+}
+
+.faq-question{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  padding:28px;
+
+  cursor:pointer;
+
+}
+
+.faq-question h3{
+
+  font-size:18px;
+
+  font-weight:600;
+
+}
+
+.faq-question i{
+
+  color:var(--primary);
+
+  transition:.4s;
+
+}
+
+.faq-answer{
+
+  max-height:0;
+
+  overflow:hidden;
+
+  transition:.5s ease;
+
+}
+
+.faq-answer p{
+
+  padding:0 28px 28px;
+
+  color:var(--gray);
+
+  line-height:1.8;
+
+}
+
+.faq-item.active .faq-answer{
+
+  max-height:300px;
+
+}
+
+.faq-item.active .faq-question i{
+
+  transform:rotate(180deg);
+
+}
+
+
+
+/* ========================= */
+/* NEWSLETTER */
+/* ========================= */
+
+.newsletter{
+
+  padding:120px 7%;
+
+  text-align:center;
+
+}
+
+.newsletter h2{
+
+  font-family:'Anton', sans-serif;
+
+  font-size:70px;
+
+  margin-bottom:20px;
+
+}
+
+.newsletter p{
+
+  color:var(--gray);
+
+  margin-bottom:35px;
+
+}
+
+.newsletter-box{
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:15px;
+
+  flex-wrap:wrap;
+
+}
+
+.newsletter-box input{
+
+  width:420px;
+
+  max-width:100%;
+
+  padding:18px;
+
+  border:none;
+
+  border-radius:14px;
+
+  background:var(--card);
+
+  color:var(--text);
+
+  border:1px solid var(--border);
+
+  outline:none;
+
+}
+
+.newsletter-box button{
+
+  padding:18px 30px;
+
+  border:none;
+
+  border-radius:14px;
+
+  background:var(--primary);
+
+  color:#fff;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+}
+
+
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer{
+
+  background:var(--bg2);
+
+  padding:90px 7% 30px;
+
+  text-align:center;
+
+  border-top:1px solid var(--border);
+
+}
+
+.footer-logo{
+
+  font-family:'Anton', sans-serif;
+
+  font-size:60px;
+
+  letter-spacing:4px;
+
+  margin-bottom:15px;
+
+}
+
+footer p{
+
+  color:var(--gray);
+
+}
+
+.social{
+
+  margin:35px 0;
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:20px;
+
+}
+
+.social i{
+
+  width:55px;
+  height:55px;
+
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:var(--card);
+
+  color:var(--text);
+
+  cursor:pointer;
+
+  transition:.3s;
+
+}
+
+.social i:hover{
+
+  background:var(--primary);
+
+  color:#fff;
+
+  transform:translateY(-5px);
+
+}
+
+.copy{
+
+  color:var(--gray);
+
+  margin-top:25px;
+
+}
+
+
+
+/* ========================= */
+/* ANIMAÇÕES */
+/* ========================= */
+
+.product-card,
+.mini-item,
+.section-title{
+
+  opacity:0;
+
+  transform:translateY(40px);
+
+  transition:1s;
+
+}
+
+.product-card.show,
+.mini-item.show,
+.section-title.show{
+
+  opacity:1;
+
+  transform:translateY(0px);
+
+}
+
+
+
+/* ========================= */
+/* RESPONSIVO */
+/* ========================= */
+
+@media(max-width:1200px){
+
+  .hero{
+
+    flex-direction:column;
+
+    text-align:center;
+
+    gap:50px;
+
+  }
+
+  .hero-left{
+
+    max-width:100%;
+
+  }
+
+  .hero-left p{
+
+    margin:auto auto 40px;
+
+  }
+
+}
+
+
+
+@media(max-width:900px){
+
+  .nav{
+
+    position:absolute;
+
+    top:85px;
+    left:0;
+
+    width:100%;
+
+    background:var(--bg2);
+
+    flex-direction:column;
+
+    padding:30px;
+
+    display:none;
+
+    border-bottom:1px solid var(--border);
+
+  }
+
+  .nav.active{
+
+    display:flex;
+
+  }
+
+  .menu-mobile{
+
+    display:block;
+
+  }
+
+  .hero-left h1{
+
+    font-size:80px;
+
+  }
+
+  .banner-content h2{
+
+    font-size:80px;
+
+  }
+
+}
+
+
+
+@media(max-width:600px){
+
+  .header{
+
+    padding:0 5%;
+
+  }
+
+  .logo{
+
+    font-size:28px;
+
+  }
+
+  .hero{
+
+    padding:140px 5% 80px;
+
+  }
+
+  .hero-left h1{
+
+    font-size:58px;
+
+  }
+
+  .hero-left p{
+
+    font-size:15px;
+
+  }
+
+  .section-title h2,
+  .newsletter h2{
+
+    font-size:48px;
+
+  }
+
+  .banner-content h2{
+
+    font-size:60px;
+
+  }
+
+  .product-image img{
+
+    height:340px;
+
+  }
+
+  .faq-title h2{
+
+    font-size:34px;
+
+  }
+
+  .faq-question h3{
+
+    font-size:15px;
+
+  }
+
+}
+/* ========================= */
+/* MORPHEUS COMPANY */
 /* ACESSIBILIDADE PREMIUM */
 /* ========================= */
 
