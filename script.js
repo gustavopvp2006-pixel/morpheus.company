@@ -1,30 +1,6 @@
 // =========================
-// MORPHEUS COMPANY
-// PREMIUM TRAP JS
-// ACESSIBILIDADE + UX
+// ARQUIVO: script.js
 // =========================
-
-
-
-// =========================
-// LOADER
-// =========================
-
-window.addEventListener("load", () => {
-
-  const loader = document.querySelector(".loader");
-
-  setTimeout(() => {
-
-    if(loader){
-
-      loader.classList.add("hide");
-
-    }
-
-  }, 900);
-
-});
 
 
 
@@ -32,26 +8,23 @@ window.addEventListener("load", () => {
 // DARK MODE
 // =========================
 
-const themeToggle =
-document.getElementById("theme-toggle");
+const themeToggle = document.getElementById("theme-toggle");
 
-function updateThemeIcon(){
+themeToggle.addEventListener("click", () => {
 
-  const icon =
-  themeToggle?.querySelector("i");
+  document.body.classList.toggle("dark");
 
-  if(!icon) return;
+  const icon = themeToggle.querySelector("i");
 
-  if(document.body.classList.contains("light")){
+  // ALTERAR ÍCONE
+
+  if(document.body.classList.contains("dark")){
 
     icon.classList.remove("fa-moon");
 
     icon.classList.add("fa-sun");
 
-    themeToggle.setAttribute(
-      "aria-label",
-      "Ativar modo escuro"
-    );
+    localStorage.setItem("theme", "dark");
 
   }
 
@@ -61,55 +34,33 @@ function updateThemeIcon(){
 
     icon.classList.add("fa-moon");
 
-    themeToggle.setAttribute(
-      "aria-label",
-      "Ativar modo claro"
-    );
+    localStorage.setItem("theme", "light");
 
   }
 
-}
-
-if(themeToggle){
-
-  themeToggle.addEventListener("click", () => {
-
-    document.body.classList.toggle("light");
-
-    const currentTheme =
-    document.body.classList.contains("light")
-    ? "light"
-    : "dark";
-
-    localStorage.setItem(
-      "theme",
-      currentTheme
-    );
-
-    updateThemeIcon();
-
-  });
-
-}
+});
 
 
 
 // =========================
-// TEMA SALVO
+// SALVAR TEMA
 // =========================
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
 
-  const savedTheme =
-  localStorage.getItem("theme");
+  const savedTheme = localStorage.getItem("theme");
 
-  if(savedTheme === "light"){
+  if(savedTheme === "dark"){
 
-    document.body.classList.add("light");
+    document.body.classList.add("dark");
+
+    const icon = themeToggle.querySelector("i");
+
+    icon.classList.remove("fa-moon");
+
+    icon.classList.add("fa-sun");
 
   }
-
-  updateThemeIcon();
 
 });
 
@@ -119,38 +70,23 @@ window.addEventListener("DOMContentLoaded", () => {
 // MENU MOBILE
 // =========================
 
-const menuMobile =
-document.querySelector(".menu-mobile");
+const menuMobile = document.querySelector(".menu-mobile");
 
-const nav =
-document.querySelector(".nav");
+const nav = document.querySelector(".nav");
 
-if(menuMobile && nav){
+menuMobile.addEventListener("click", () => {
 
-  menuMobile.addEventListener("click", () => {
+  nav.classList.toggle("active");
 
-    nav.classList.toggle("active");
-
-    const expanded =
-    nav.classList.contains("active");
-
-    menuMobile.setAttribute(
-      "aria-expanded",
-      expanded
-    );
-
-  });
-
-}
+});
 
 
 
 // =========================
-// FECHAR MENU MOBILE
+// FECHAR MENU AO CLICAR
 // =========================
 
-const navLinks =
-document.querySelectorAll(".nav a");
+const navLinks = document.querySelectorAll(".nav a");
 
 navLinks.forEach((link) => {
 
@@ -158,11 +94,6 @@ navLinks.forEach((link) => {
 
     nav.classList.remove("active");
 
-    menuMobile?.setAttribute(
-      "aria-expanded",
-      "false"
-    );
-
   });
 
 });
@@ -170,41 +101,22 @@ navLinks.forEach((link) => {
 
 
 // =========================
-// HEADER SCROLL
+// HEADER EFEITO SCROLL
 // =========================
 
-const header =
-document.querySelector(".header");
+const header = document.querySelector(".header");
 
 window.addEventListener("scroll", () => {
 
-  if(!header) return;
-
   if(window.scrollY > 40){
 
-    header.style.background =
-    "rgba(0,0,0,.92)";
-
-    header.style.backdropFilter =
-    "blur(18px)";
+    header.style.boxShadow = "0 5px 20px rgba(0,0,0,.08)";
 
   }
 
   else{
 
-    if(document.body.classList.contains("light")){
-
-      header.style.background =
-      "rgba(255,255,255,.78)";
-
-    }
-
-    else{
-
-      header.style.background =
-      "rgba(0,0,0,.45)";
-
-    }
+    header.style.boxShadow = "none";
 
   }
 
@@ -213,107 +125,40 @@ window.addEventListener("scroll", () => {
 
 
 // =========================
-// HERO BUTTON
+// BOTÕES PRODUTOS
 // =========================
 
-const heroButton =
-document.querySelector(".btn-primary");
+const buyButtons = document.querySelectorAll(".product-info button");
 
-if(heroButton){
-
-  heroButton.addEventListener("click", () => {
-
-    const products =
-    document.querySelector(".products");
-
-    if(products){
-
-      products.scrollIntoView({
-
-        behavior:"smooth"
-
-      });
-
-    }
-
-  });
-
-}
-
-
-
-// =========================
-// CART BADGE
-// =========================
-
-const cartIcon =
-document.querySelector(".fa-cart-shopping");
-
-let cartCount = 0;
-
-const cartBadge =
-document.createElement("span");
-
-cartBadge.classList.add("cart-badge");
-
-cartBadge.innerHTML = "0";
-
-cartBadge.setAttribute(
-  "aria-label",
-  "Quantidade de itens no carrinho"
-);
-
-if(cartIcon){
-
-  cartIcon.parentElement.appendChild(cartBadge);
-
-}
-
-
-
-// =========================
-// PRODUCT BUTTONS
-// =========================
-
-const productButtons =
-document.querySelectorAll(".product-info button");
-
-productButtons.forEach((button) => {
+buyButtons.forEach((button) => {
 
   button.addEventListener("click", () => {
+
+    // EVITA CLIQUES DUPLOS
 
     if(button.classList.contains("active")) return;
 
     button.classList.add("active");
 
-    button.innerHTML =
-    "ADICIONADO ✓";
+    // ALTERA TEXTO
 
-    button.style.background =
-    "#22c55e";
+    button.innerHTML = "Adicionado ✓";
 
-    button.style.color =
-    "#ffffff";
+    // MUDA COR
 
-    cartCount++;
+    button.style.background = "#28c76f";
 
-    cartBadge.innerHTML =
-    cartCount;
+    // VOLTAR
 
     setTimeout(() => {
 
-      button.innerHTML =
-      "ADICIONAR";
+      button.innerHTML = "Comprar";
 
-      button.style.background =
-      "";
-
-      button.style.color =
-      "";
+      button.style.background = "";
 
       button.classList.remove("active");
 
-    }, 1800);
+    }, 2000);
 
   });
 
@@ -325,118 +170,39 @@ productButtons.forEach((button) => {
 // NEWSLETTER
 // =========================
 
-const newsletterBtn =
-document.querySelector(
-".newsletter-box button"
-);
+const newsletterBtn = document.querySelector(".newsletter-box button");
 
-const newsletterInput =
-document.querySelector(
-".newsletter-box input"
-);
+const newsletterInput = document.querySelector(".newsletter-box input");
 
-function validateEmail(email){
+newsletterBtn.addEventListener("click", () => {
 
-  const regex =
-  /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const email = newsletterInput.value.trim();
 
-  return regex.test(email);
+  // CAMPO VAZIO
 
-}
+  if(email === ""){
 
-if(newsletterBtn){
+    alert("Digite seu e-mail!");
 
-  newsletterBtn.addEventListener("click", () => {
-
-    const email =
-    newsletterInput.value.trim();
-
-    if(email === ""){
-
-      alert(
-        "Digite seu e-mail."
-      );
-
-      newsletterInput.focus();
-
-      return;
-
-    }
-
-    if(!validateEmail(email)){
-
-      alert(
-        "Digite um e-mail válido."
-      );
-
-      newsletterInput.focus();
-
-      return;
-
-    }
-
-    alert(
-      "Você entrou para o DROP da Morpheus Company 🔥"
-    );
-
-    newsletterInput.value = "";
-
-  });
-
-}
-
-
-
-// =========================
-// ENTER NO INPUT
-// =========================
-
-newsletterInput?.addEventListener(
-"keydown",
-(e) => {
-
-  if(e.key === "Enter"){
-
-    newsletterBtn.click();
+    return;
 
   }
 
-});
+  // VALIDAÇÃO
 
+  if(!email.includes("@") || !email.includes(".")){
 
+    alert("Digite um e-mail válido!");
 
-// =========================
-// SCROLL SUAVE
-// =========================
+    return;
 
-const smoothLinks =
-document.querySelectorAll(
-'a[href^="#"]'
-);
+  }
 
-smoothLinks.forEach((link) => {
+  // SUCESSO
 
-  link.addEventListener("click", (e) => {
+  alert("Cadastro realizado com sucesso!");
 
-    const id =
-    link.getAttribute("href");
-
-    const section =
-    document.querySelector(id);
-
-    if(section){
-
-      e.preventDefault();
-
-      section.scrollIntoView({
-
-        behavior:"smooth"
-
-      });
-
-    }
-
-  });
+  newsletterInput.value = "";
 
 });
 
@@ -446,20 +212,11 @@ smoothLinks.forEach((link) => {
 // ANIMAÇÃO AO ROLAR
 // =========================
 
-const revealElements =
-document.querySelectorAll(
-`
-.product-card,
-.mini-item,
-.section-title,
-.faq-item,
-.banner-content,
-.newsletter
-`
+const cards = document.querySelectorAll(
+  ".product-card, .benefit-card"
 );
 
-const revealObserver =
-new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entries) => {
 
   entries.forEach((entry) => {
 
@@ -472,9 +229,155 @@ new IntersectionObserver((entries) => {
   });
 
 }, {
+  threshold:0.2
+});
 
-  threshold:0.12
+cards.forEach((card) => {
 
+  observer.observe(card);
+
+});
+
+
+
+// =========================
+// EFEITO PARALLAX HERO
+// =========================
+
+const hero = document.querySelector(".hero");
+
+window.addEventListener("scroll", () => {
+
+  let scroll = window.pageYOffset;
+
+  hero.style.backgroundPositionY = scroll * 0.5 + "px";
+
+});
+
+
+
+// =========================
+// SCROLL SUAVE
+// =========================
+
+const links = document.querySelectorAll('a[href^="#"]');
+
+links.forEach((link) => {
+
+  link.addEventListener("click", (e) => {
+
+    e.preventDefault();
+
+    const id = link.getAttribute("href");
+
+    const section = document.querySelector(id);
+
+    if(section){
+
+      section.scrollIntoView({
+        behavior:"smooth"
+      });
+
+    }
+
+  });
+
+});
+
+
+
+// =========================
+// BOTÃO HERO
+// =========================
+
+const heroButton = document.querySelector(".hero-content button");
+
+heroButton.addEventListener("click", () => {
+
+  const products = document.querySelector(".products");
+
+  products.scrollIntoView({
+    behavior:"smooth"
+  });
+
+});
+
+
+
+// =========================
+// EFEITO HOVER PRODUTOS
+// =========================
+
+const products = document.querySelectorAll(".product-card");
+
+products.forEach((card) => {
+
+  card.addEventListener("mousemove", (e) => {
+
+    const rect = card.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+
+    const y = e.clientY - rect.top;
+
+    card.style.transform = `
+      perspective(1000px)
+      rotateX(${-(y - rect.height / 2) / 25}deg)
+      rotateY(${(x - rect.width / 2) / 25}deg)
+      translateY(-10px)
+    `;
+
+  });
+
+  card.addEventListener("mouseleave", () => {
+
+    card.style.transform = `
+      perspective(1000px)
+      rotateX(0deg)
+      rotateY(0deg)
+      translateY(0px)
+    `;
+
+  });
+
+});
+
+
+
+// =========================
+// LOADING PAGE
+// =========================
+
+window.addEventListener("load", () => {
+
+  document.body.classList.add("loaded");
+
+});
+
+
+
+// =========================
+// SCROLL REVEAL
+// =========================
+
+const revealElements = document.querySelectorAll(
+  ".section-title, .banner-content, .newsletter"
+);
+
+const revealObserver = new IntersectionObserver((entries) => {
+
+  entries.forEach((entry) => {
+
+    if(entry.isIntersecting){
+
+      entry.target.classList.add("show");
+
+    }
+
+  });
+
+}, {
+  threshold:0.2
 });
 
 revealElements.forEach((element) => {
@@ -482,292 +385,3 @@ revealElements.forEach((element) => {
   revealObserver.observe(element);
 
 });
-
-
-
-// =========================
-// EFEITO 3D PRODUTOS
-// =========================
-
-if(window.innerWidth > 900){
-
-  const products =
-  document.querySelectorAll(
-  ".product-card"
-  );
-
-  products.forEach((card) => {
-
-    card.addEventListener(
-    "mousemove",
-    (e) => {
-
-      const rect =
-      card.getBoundingClientRect();
-
-      const x =
-      e.clientX - rect.left;
-
-      const y =
-      e.clientY - rect.top;
-
-      const rotateY =
-      ((x / rect.width) - 0.5) * 10;
-
-      const rotateX =
-      ((y / rect.height) - 0.5) * -10;
-
-      card.style.transform = `
-      perspective(1000px)
-      rotateX(${rotateX}deg)
-      rotateY(${rotateY}deg)
-      translateY(-10px)
-      `;
-
-    });
-
-    card.addEventListener(
-    "mouseleave",
-    () => {
-
-      card.style.transform = `
-      perspective(1000px)
-      rotateX(0deg)
-      rotateY(0deg)
-      translateY(0px)
-      `;
-
-    });
-
-  });
-
-}
-
-
-
-// =========================
-// PARALLAX HERO
-// =========================
-
-const hero =
-document.querySelector(".hero");
-
-window.addEventListener("scroll", () => {
-
-  if(hero){
-
-    let scroll =
-    window.pageYOffset;
-
-    hero.style.backgroundPositionY =
-    scroll * 0.4 + "px";
-
-  }
-
-});
-
-
-
-// =========================
-// FAQ ACCORDION
-// =========================
-
-const faqItems =
-document.querySelectorAll(".faq-item");
-
-faqItems.forEach((item, index) => {
-
-  const question =
-  item.querySelector(".faq-question");
-
-  const answer =
-  item.querySelector(".faq-answer");
-
-  // ACESSIBILIDADE
-
-  question.setAttribute(
-    "tabindex",
-    "0"
-  );
-
-  question.setAttribute(
-    "role",
-    "button"
-  );
-
-  question.setAttribute(
-    "aria-expanded",
-    "false"
-  );
-
-  answer.setAttribute(
-    "id",
-    `faq-answer-${index}`
-  );
-
-  question.setAttribute(
-    "aria-controls",
-    `faq-answer-${index}`
-  );
-
-  function toggleFaq(){
-
-    const isActive =
-    item.classList.contains("active");
-
-    faqItems.forEach((faq) => {
-
-      faq.classList.remove("active");
-
-      faq.querySelector(".faq-question")
-      ?.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-    });
-
-    if(!isActive){
-
-      item.classList.add("active");
-
-      question.setAttribute(
-        "aria-expanded",
-        "true"
-      );
-
-    }
-
-  }
-
-  question.addEventListener(
-    "click",
-    toggleFaq
-  );
-
-  question.addEventListener(
-    "keydown",
-    (e) => {
-
-      if(
-        e.key === "Enter" ||
-        e.key === " "
-      ){
-
-        e.preventDefault();
-
-        toggleFaq();
-
-      }
-
-    }
-  );
-
-});
-
-
-
-// =========================
-// ACESSIBILIDADE IMAGENS
-// =========================
-
-const images =
-document.querySelectorAll("img");
-
-images.forEach((img) => {
-
-  if(!img.hasAttribute("alt")){
-
-    img.setAttribute(
-      "alt",
-      "Imagem da Morpheus Company"
-    );
-
-  }
-
-});
-
-
-
-// =========================
-// BOTÃO VOLTAR TOPO
-// =========================
-
-const backToTop =
-document.createElement("button");
-
-backToTop.innerHTML =
-'<i class="fa-solid fa-arrow-up"></i>';
-
-backToTop.classList.add(
-"back-to-top"
-);
-
-backToTop.setAttribute(
-"aria-label",
-"Voltar ao topo"
-);
-
-document.body.appendChild(backToTop);
-
-window.addEventListener("scroll", () => {
-
-  if(window.scrollY > 500){
-
-    backToTop.classList.add("show");
-
-  }
-
-  else{
-
-    backToTop.classList.remove("show");
-
-  }
-
-});
-
-backToTop.addEventListener("click", () => {
-
-  window.scrollTo({
-
-    top:0,
-    behavior:"smooth"
-
-  });
-
-});
-
-
-
-// =========================
-// PRELOAD HERO IMAGE
-// =========================
-
-const preloadImage =
-new Image();
-
-preloadImage.src =
-"./img/hero-bg.jpg";
-
-
-
-// =========================
-// CONSOLE STYLE
-// =========================
-
-console.log(
-"%cMORPHEUS COMPANY 🔥",
-`
-color:#4da3ff;
-font-size:28px;
-font-weight:bold;
-`
-);
-
-console.log(
-"%cLuxury Trap Jewelry",
-`
-color:white;
-font-size:14px;
-`
-);
