@@ -1017,3 +1017,162 @@ footer p{
   }
 
 }
+/* ========================= */
+/* LIGHT MODE FIX */
+/* ========================= */
+
+body.light{
+
+  background:#f5f5f5;
+  color:#111;
+
+}
+
+
+/* FAQ */
+
+body.light .faq{
+
+  background:#f3f3f3;
+
+}
+
+body.light .faq-item{
+
+  background:#ffffff;
+
+  border:1px solid rgba(0,0,0,.08);
+
+}
+
+body.light .faq-question h3{
+
+  color:#111;
+
+}
+
+body.light .faq-answer p{
+
+  color:#444;
+
+}
+
+
+/* ÍCONES SOCIAIS */
+
+body.light .social-icons i,
+body.light .footer-social i,
+body.light .social i{
+
+  color:#111;
+
+}
+
+body.light .social-icons i:hover,
+body.light .footer-social i:hover,
+body.light .social i:hover{
+
+  color:#4da3ff;
+
+}
+
+
+/* FOOTER */
+
+body.light footer{
+
+  background:#ffffff;
+
+  border-top:1px solid rgba(0,0,0,.08);
+
+}
+
+body.light footer p,
+body.light footer span,
+body.light .footer-links a{
+
+  color:#333;
+
+}
+
+
+/* NAVBAR */
+
+body.light .header{
+
+  background:rgba(255,255,255,.75);
+
+  border-bottom:1px solid rgba(0,0,0,.08);
+
+}
+
+body.light .nav a{
+
+  color:#111;
+
+}
+
+
+/* CARDS */
+
+body.light .product-card,
+body.light .mini-item,
+body.light .faq-item,
+body.light .newsletter-box,
+body.light .feature-card{
+
+  background:#fff;
+
+  box-shadow:0 5px 25px rgba(0,0,0,.05);
+
+}
+
+
+/* TEXTOS */
+
+body.light .section-title h2,
+body.light .section-title h3,
+body.light h1,
+body.light h2,
+body.light h3{
+
+  color:#111;
+
+}
+
+body.light p{
+
+  color:#444;
+
+}
+
+
+/* MENU MOBILE */
+
+body.light .nav.active{
+
+  background:#ffffff;
+
+}
+
+
+/* INPUTS */
+
+body.light input{
+
+  background:#fff;
+
+  color:#111;
+
+  border:1px solid rgba(0,0,0,.1);
+
+}
+
+
+/* BOTÕES */
+
+body.light button{
+
+  color:#111;
+
+}
