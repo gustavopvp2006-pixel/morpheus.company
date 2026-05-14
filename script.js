@@ -3,6 +3,7 @@
 // =========================
 
 
+
 // =========================
 // BOTÕES DOS PRODUTOS
 // =========================
@@ -13,22 +14,22 @@ buttons.forEach((button) => {
 
   button.addEventListener("click", () => {
 
-    // EVITA CLIQUE DUPLO
+    // EVITA CLIQUES DUPLOS
 
     if(button.classList.contains("active")) return;
 
     button.classList.add("active");
 
-    // TEXTO
+    // ALTERA TEXTO
 
     button.innerHTML = "Adicionado ✓";
 
-    // ESTILO
+    // ALTERA COR
 
     button.style.background = "#7bf1a8";
     button.style.color = "#000";
 
-    // VOLTAR AO NORMAL
+    // VOLTA AO NORMAL
 
     setTimeout(() => {
 
@@ -47,6 +48,7 @@ buttons.forEach((button) => {
 });
 
 
+
 // =========================
 // NEWSLETTER
 // =========================
@@ -57,9 +59,9 @@ const newsletterInput = document.querySelector(".newsletter input");
 
 newsletterBtn.addEventListener("click", () => {
 
-  const email = newsletterInput.value;
+  const email = newsletterInput.value.trim();
 
-  // VERIFICAÇÃO
+  // CAMPO VAZIO
 
   if(email === ""){
 
@@ -69,7 +71,7 @@ newsletterBtn.addEventListener("click", () => {
 
   }
 
-  // VALIDA EMAIL
+  // VALIDAÇÃO
 
   if(!email.includes("@") || !email.includes(".")){
 
@@ -88,6 +90,7 @@ newsletterBtn.addEventListener("click", () => {
 });
 
 
+
 // =========================
 // MENU MOBILE
 // =========================
@@ -103,8 +106,27 @@ mobileMenu.addEventListener("click", () => {
 });
 
 
+
 // =========================
-// HEADER SCROLL EFFECT
+// FECHAR MENU AO CLICAR
+// =========================
+
+const navLinks = document.querySelectorAll(".nav a");
+
+navLinks.forEach((link) => {
+
+  link.addEventListener("click", () => {
+
+    nav.classList.remove("active");
+
+  });
+
+});
+
+
+
+// =========================
+// HEADER EFEITO SCROLL
 // =========================
 
 const header = document.querySelector(".header");
@@ -113,7 +135,9 @@ window.addEventListener("scroll", () => {
 
   if(window.scrollY > 50){
 
-    header.style.background = "rgba(0,0,0,0.85)";
+    header.style.background = "rgba(0,0,0,0.92)";
+
+    header.style.backdropFilter = "blur(10px)";
 
     header.style.borderBottom = "1px solid rgba(255,255,255,0.08)";
 
@@ -126,6 +150,7 @@ window.addEventListener("scroll", () => {
   }
 
 });
+
 
 
 // =========================
@@ -148,6 +173,8 @@ const observer = new IntersectionObserver((entries) => {
 
   });
 
+}, {
+  threshold: 0.2
 });
 
 cards.forEach((card) => {
@@ -155,6 +182,7 @@ cards.forEach((card) => {
   observer.observe(card);
 
 });
+
 
 
 // =========================
@@ -173,14 +201,158 @@ links.forEach((link) => {
 
     const section = document.querySelector(id);
 
-    section.scrollIntoView({
-      behavior: "smooth"
-    });
+    if(section){
 
-    // FECHAR MENU MOBILE
+      section.scrollIntoView({
+        behavior: "smooth"
+      });
 
-    nav.classList.remove("active");
+    }
 
   });
+
+});
+
+
+
+// =========================
+// CARROSSEL MANUAL
+// =========================
+
+const slides = document.querySelectorAll(".slide");
+
+const nextBtn = document.querySelector(".next");
+
+const prevBtn = document.querySelector(".prev");
+
+let currentSlide = 0;
+
+let autoPlay;
+
+
+
+// MOSTRAR SLIDE
+
+function showSlide(index){
+
+  slides.forEach((slide) => {
+
+    slide.classList.remove("active");
+
+  });
+
+  slides[index].classList.add("active");
+
+}
+
+
+
+// PRÓXIMO SLIDE
+
+function nextSlide(){
+
+  currentSlide++;
+
+  if(currentSlide >= slides.length){
+
+    currentSlide = 0;
+
+  }
+
+  showSlide(currentSlide);
+
+}
+
+
+
+// SLIDE ANTERIOR
+
+function prevSlide(){
+
+  currentSlide--;
+
+  if(currentSlide < 0){
+
+    currentSlide = slides.length - 1;
+
+  }
+
+  showSlide(currentSlide);
+
+}
+
+
+
+// EVENTOS BOTÕES
+
+nextBtn.addEventListener("click", () => {
+
+  nextSlide();
+
+  resetAutoPlay();
+
+});
+
+
+
+prevBtn.addEventListener("click", () => {
+
+  prevSlide();
+
+  resetAutoPlay();
+
+});
+
+
+
+// AUTO PLAY
+
+function startAutoPlay(){
+
+  autoPlay = setInterval(() => {
+
+    nextSlide();
+
+  }, 5000);
+
+}
+
+
+
+// RESET AUTO PLAY
+
+function resetAutoPlay(){
+
+  clearInterval(autoPlay);
+
+  startAutoPlay();
+
+}
+
+
+
+// INICIAR
+
+showSlide(currentSlide);
+
+startAutoPlay();
+
+
+
+// =========================
+// PAUSAR CARROSSEL NO HOVER
+// =========================
+
+const carousel = document.querySelector(".carousel");
+
+carousel.addEventListener("mouseenter", () => {
+
+  clearInterval(autoPlay);
+
+});
+
+carousel.addEventListener("mouseleave", () => {
+
+  startAutoPlay();
 
 });
