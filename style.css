@@ -759,3 +759,98 @@ footer p{
   }
 
 }
+/* ========================= */
+/* MENU MOBILE */
+/* ========================= */
+
+@media(max-width:900px){
+
+  .nav{
+
+    position:absolute;
+
+    top:85px;
+    left:0;
+
+    width:100%;
+
+    background:#050505;
+
+    flex-direction:column;
+
+    padding:30px;
+
+    display:none;
+
+    border-bottom:1px solid #1f1f1f;
+
+  }
+
+  .nav.active{
+    display:flex;
+  }
+
+}
+
+
+
+/* ========================= */
+/* ANIMAÇÕES */
+/* ========================= */
+
+.product-card,
+.mini-item,
+.section-title{
+
+  opacity:0;
+
+  transform:translateY(40px);
+
+  transition:1s;
+
+}
+
+.product-card.show,
+.mini-item.show,
+.section-title.show{
+
+  opacity:1;
+
+  transform:translateY(0px);
+
+}
+
+
+
+/* ========================= */
+/* CART BADGE */
+/* ========================= */
+
+.header-icons{
+  position:relative;
+}
+
+.cart-badge{
+
+  position:absolute;
+
+  top:-5px;
+  right:55px;
+
+  width:20px;
+  height:20px;
+
+  border-radius:50%;
+
+  background:#4da3ff;
+
+  color:#fff;
+
+  font-size:11px;
+  font-weight:700;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+}
