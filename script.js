@@ -1,4 +1,12 @@
 // =========================
+// MORPHEUS COMPANY
+// PREMIUM TRAP JS
+// ACESSIBILIDADE + UX
+// =========================
+
+
+
+// =========================
 // LOADER
 // =========================
 
@@ -14,7 +22,7 @@ window.addEventListener("load", () => {
 
     }
 
-  }, 1000);
+  }, 900);
 
 });
 
@@ -27,33 +35,58 @@ window.addEventListener("load", () => {
 const themeToggle =
 document.getElementById("theme-toggle");
 
+function updateThemeIcon(){
+
+  const icon =
+  themeToggle?.querySelector("i");
+
+  if(!icon) return;
+
+  if(document.body.classList.contains("light")){
+
+    icon.classList.remove("fa-moon");
+
+    icon.classList.add("fa-sun");
+
+    themeToggle.setAttribute(
+      "aria-label",
+      "Ativar modo escuro"
+    );
+
+  }
+
+  else{
+
+    icon.classList.remove("fa-sun");
+
+    icon.classList.add("fa-moon");
+
+    themeToggle.setAttribute(
+      "aria-label",
+      "Ativar modo claro"
+    );
+
+  }
+
+}
+
 if(themeToggle){
 
   themeToggle.addEventListener("click", () => {
 
     document.body.classList.toggle("light");
 
-    const icon = themeToggle.querySelector("i");
+    const currentTheme =
+    document.body.classList.contains("light")
+    ? "light"
+    : "dark";
 
-    if(document.body.classList.contains("light")){
+    localStorage.setItem(
+      "theme",
+      currentTheme
+    );
 
-      icon.classList.remove("fa-moon");
-
-      icon.classList.add("fa-sun");
-
-      localStorage.setItem("theme", "light");
-
-    }
-
-    else{
-
-      icon.classList.remove("fa-sun");
-
-      icon.classList.add("fa-moon");
-
-      localStorage.setItem("theme", "dark");
-
-    }
+    updateThemeIcon();
 
   });
 
@@ -74,18 +107,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
     document.body.classList.add("light");
 
-    const icon =
-    document.querySelector("#theme-toggle i");
-
-    if(icon){
-
-      icon.classList.remove("fa-moon");
-
-      icon.classList.add("fa-sun");
-
-    }
-
   }
+
+  updateThemeIcon();
 
 });
 
@@ -107,6 +131,14 @@ if(menuMobile && nav){
 
     nav.classList.toggle("active");
 
+    const expanded =
+    nav.classList.contains("active");
+
+    menuMobile.setAttribute(
+      "aria-expanded",
+      expanded
+    );
+
   });
 
 }
@@ -114,7 +146,7 @@ if(menuMobile && nav){
 
 
 // =========================
-// FECHAR MENU
+// FECHAR MENU MOBILE
 // =========================
 
 const navLinks =
@@ -125,6 +157,11 @@ navLinks.forEach((link) => {
   link.addEventListener("click", () => {
 
     nav.classList.remove("active");
+
+    menuMobile?.setAttribute(
+      "aria-expanded",
+      "false"
+    );
 
   });
 
@@ -143,20 +180,31 @@ window.addEventListener("scroll", () => {
 
   if(!header) return;
 
-  if(window.scrollY > 50){
+  if(window.scrollY > 40){
 
     header.style.background =
-    "rgba(0,0,0,.88)";
+    "rgba(0,0,0,.92)";
 
     header.style.backdropFilter =
-    "blur(16px)";
+    "blur(18px)";
 
   }
 
   else{
 
-    header.style.background =
-    "rgba(0,0,0,.45)";
+    if(document.body.classList.contains("light")){
+
+      header.style.background =
+      "rgba(255,255,255,.78)";
+
+    }
+
+    else{
+
+      header.style.background =
+      "rgba(0,0,0,.45)";
+
+    }
 
   }
 
@@ -165,7 +213,7 @@ window.addEventListener("scroll", () => {
 
 
 // =========================
-// BOTÃO HERO
+// HERO BUTTON
 // =========================
 
 const heroButton =
@@ -195,11 +243,11 @@ if(heroButton){
 
 
 // =========================
-// BOTÕES PRODUTO
+// CART BADGE
 // =========================
 
-const productButtons =
-document.querySelectorAll(".product-info button");
+const cartIcon =
+document.querySelector(".fa-cart-shopping");
 
 let cartCount = 0;
 
@@ -210,14 +258,25 @@ cartBadge.classList.add("cart-badge");
 
 cartBadge.innerHTML = "0";
 
-const cartContainer =
-document.querySelector(".fa-cart-shopping");
+cartBadge.setAttribute(
+  "aria-label",
+  "Quantidade de itens no carrinho"
+);
 
-if(cartContainer){
+if(cartIcon){
 
-  cartContainer.parentElement.appendChild(cartBadge);
+  cartIcon.parentElement.appendChild(cartBadge);
 
 }
+
+
+
+// =========================
+// PRODUCT BUTTONS
+// =========================
+
+const productButtons =
+document.querySelectorAll(".product-info button");
 
 productButtons.forEach((button) => {
 
@@ -227,23 +286,34 @@ productButtons.forEach((button) => {
 
     button.classList.add("active");
 
-    button.innerHTML = "ADICIONADO ✓";
+    button.innerHTML =
+    "ADICIONADO ✓";
 
-    button.style.background = "#22c55e";
+    button.style.background =
+    "#22c55e";
+
+    button.style.color =
+    "#ffffff";
 
     cartCount++;
 
-    cartBadge.innerHTML = cartCount;
+    cartBadge.innerHTML =
+    cartCount;
 
     setTimeout(() => {
 
-      button.innerHTML = "ADICIONAR";
+      button.innerHTML =
+      "ADICIONAR";
 
-      button.style.background = "";
+      button.style.background =
+      "";
+
+      button.style.color =
+      "";
 
       button.classList.remove("active");
 
-    }, 2000);
+    }, 1800);
 
   });
 
@@ -256,10 +326,23 @@ productButtons.forEach((button) => {
 // =========================
 
 const newsletterBtn =
-document.querySelector(".newsletter-box button");
+document.querySelector(
+".newsletter-box button"
+);
 
 const newsletterInput =
-document.querySelector(".newsletter-box input");
+document.querySelector(
+".newsletter-box input"
+);
+
+function validateEmail(email){
+
+  const regex =
+  /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  return regex.test(email);
+
+}
 
 if(newsletterBtn){
 
@@ -270,16 +353,23 @@ if(newsletterBtn){
 
     if(email === ""){
 
-      alert("Digite seu e-mail!");
+      alert(
+        "Digite seu e-mail."
+      );
+
+      newsletterInput.focus();
 
       return;
 
     }
 
-    if(!email.includes("@") ||
-       !email.includes(".")){
+    if(!validateEmail(email)){
 
-      alert("Digite um e-mail válido!");
+      alert(
+        "Digite um e-mail válido."
+      );
+
+      newsletterInput.focus();
 
       return;
 
@@ -298,17 +388,35 @@ if(newsletterBtn){
 
 
 // =========================
+// ENTER NO INPUT
+// =========================
+
+newsletterInput?.addEventListener(
+"keydown",
+(e) => {
+
+  if(e.key === "Enter"){
+
+    newsletterBtn.click();
+
+  }
+
+});
+
+
+
+// =========================
 // SCROLL SUAVE
 // =========================
 
-const links =
-document.querySelectorAll('a[href^="#"]');
+const smoothLinks =
+document.querySelectorAll(
+'a[href^="#"]'
+);
 
-links.forEach((link) => {
+smoothLinks.forEach((link) => {
 
   link.addEventListener("click", (e) => {
-
-    e.preventDefault();
 
     const id =
     link.getAttribute("href");
@@ -317,6 +425,8 @@ links.forEach((link) => {
     document.querySelector(id);
 
     if(section){
+
+      e.preventDefault();
 
       section.scrollIntoView({
 
@@ -338,7 +448,14 @@ links.forEach((link) => {
 
 const revealElements =
 document.querySelectorAll(
-".product-card, .mini-item, .section-title"
+`
+.product-card,
+.mini-item,
+.section-title,
+.faq-item,
+.banner-content,
+.newsletter
+`
 );
 
 const revealObserver =
@@ -356,7 +473,7 @@ new IntersectionObserver((entries) => {
 
 }, {
 
-  threshold:0.15
+  threshold:0.12
 
 });
 
@@ -375,11 +492,15 @@ revealElements.forEach((element) => {
 if(window.innerWidth > 900){
 
   const products =
-  document.querySelectorAll(".product-card");
+  document.querySelectorAll(
+  ".product-card"
+  );
 
   products.forEach((card) => {
 
-    card.addEventListener("mousemove", (e) => {
+    card.addEventListener(
+    "mousemove",
+    (e) => {
 
       const rect =
       card.getBoundingClientRect();
@@ -391,27 +512,29 @@ if(window.innerWidth > 900){
       e.clientY - rect.top;
 
       const rotateY =
-      ((x / rect.width) - 0.5) * 12;
+      ((x / rect.width) - 0.5) * 10;
 
       const rotateX =
-      ((y / rect.height) - 0.5) * -12;
+      ((y / rect.height) - 0.5) * -10;
 
       card.style.transform = `
-        perspective(1000px)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-        translateY(-10px)
+      perspective(1000px)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+      translateY(-10px)
       `;
 
     });
 
-    card.addEventListener("mouseleave", () => {
+    card.addEventListener(
+    "mouseleave",
+    () => {
 
       card.style.transform = `
-        perspective(1000px)
-        rotateX(0deg)
-        rotateY(0deg)
-        translateY(0px)
+      perspective(1000px)
+      rotateX(0deg)
+      rotateY(0deg)
+      translateY(0px)
       `;
 
     });
@@ -446,6 +569,189 @@ window.addEventListener("scroll", () => {
 
 
 // =========================
+// FAQ ACCORDION
+// =========================
+
+const faqItems =
+document.querySelectorAll(".faq-item");
+
+faqItems.forEach((item, index) => {
+
+  const question =
+  item.querySelector(".faq-question");
+
+  const answer =
+  item.querySelector(".faq-answer");
+
+  // ACESSIBILIDADE
+
+  question.setAttribute(
+    "tabindex",
+    "0"
+  );
+
+  question.setAttribute(
+    "role",
+    "button"
+  );
+
+  question.setAttribute(
+    "aria-expanded",
+    "false"
+  );
+
+  answer.setAttribute(
+    "id",
+    `faq-answer-${index}`
+  );
+
+  question.setAttribute(
+    "aria-controls",
+    `faq-answer-${index}`
+  );
+
+  function toggleFaq(){
+
+    const isActive =
+    item.classList.contains("active");
+
+    faqItems.forEach((faq) => {
+
+      faq.classList.remove("active");
+
+      faq.querySelector(".faq-question")
+      ?.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+    });
+
+    if(!isActive){
+
+      item.classList.add("active");
+
+      question.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+
+    }
+
+  }
+
+  question.addEventListener(
+    "click",
+    toggleFaq
+  );
+
+  question.addEventListener(
+    "keydown",
+    (e) => {
+
+      if(
+        e.key === "Enter" ||
+        e.key === " "
+      ){
+
+        e.preventDefault();
+
+        toggleFaq();
+
+      }
+
+    }
+  );
+
+});
+
+
+
+// =========================
+// ACESSIBILIDADE IMAGENS
+// =========================
+
+const images =
+document.querySelectorAll("img");
+
+images.forEach((img) => {
+
+  if(!img.hasAttribute("alt")){
+
+    img.setAttribute(
+      "alt",
+      "Imagem da Morpheus Company"
+    );
+
+  }
+
+});
+
+
+
+// =========================
+// BOTÃO VOLTAR TOPO
+// =========================
+
+const backToTop =
+document.createElement("button");
+
+backToTop.innerHTML =
+'<i class="fa-solid fa-arrow-up"></i>';
+
+backToTop.classList.add(
+"back-to-top"
+);
+
+backToTop.setAttribute(
+"aria-label",
+"Voltar ao topo"
+);
+
+document.body.appendChild(backToTop);
+
+window.addEventListener("scroll", () => {
+
+  if(window.scrollY > 500){
+
+    backToTop.classList.add("show");
+
+  }
+
+  else{
+
+    backToTop.classList.remove("show");
+
+  }
+
+});
+
+backToTop.addEventListener("click", () => {
+
+  window.scrollTo({
+
+    top:0,
+    behavior:"smooth"
+
+  });
+
+});
+
+
+
+// =========================
+// PRELOAD HERO IMAGE
+// =========================
+
+const preloadImage =
+new Image();
+
+preloadImage.src =
+"./img/hero-bg.jpg";
+
+
+
+// =========================
 // CONSOLE STYLE
 // =========================
 
@@ -465,36 +771,3 @@ color:white;
 font-size:14px;
 `
 );
-// =========================
-// FAQ ACCORDION
-// =========================
-
-const faqItems =
-document.querySelectorAll(".faq-item");
-
-faqItems.forEach((item) => {
-
-  const question =
-  item.querySelector(".faq-question");
-
-  question.addEventListener("click", () => {
-
-    // FECHA OUTROS
-
-    faqItems.forEach((faq) => {
-
-      if(faq !== item){
-
-        faq.classList.remove("active");
-
-      }
-
-    });
-
-    // ABRE O CLICADO
-
-    item.classList.toggle("active");
-
-  });
-
-});
