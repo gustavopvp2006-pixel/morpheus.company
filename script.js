@@ -325,17 +325,14 @@ window.addEventListener("scroll", () => {
 
 });
 // =========================
-// BUSCA
+// BUSCA INLINE
 // =========================
 
 const searchBtn =
 document.getElementById("searchBtn");
 
-const searchModal =
-document.getElementById("searchModal");
-
-const closeSearch =
-document.getElementById("closeSearch");
+const searchContainer =
+document.querySelector(".search-container");
 
 const searchInput =
 document.getElementById("searchInput");
@@ -343,23 +340,17 @@ document.getElementById("searchInput");
 const productCards =
 document.querySelectorAll(".product-card");
 
-// ABRIR
+// ABRIR BUSCA
 
 searchBtn.addEventListener("click", () => {
 
-  searchModal.classList.add("active");
+  searchContainer.classList.toggle("active");
+
+  searchInput.focus();
 
 });
 
-// FECHAR
-
-closeSearch.addEventListener("click", () => {
-
-  searchModal.classList.remove("active");
-
-});
-
-// PESQUISAR
+// PESQUISA EM TEMPO REAL
 
 searchInput.addEventListener("keyup", () => {
 
@@ -384,6 +375,61 @@ searchInput.addEventListener("keyup", () => {
     }
 
   });
+
+});
+
+// ENTER = LOCALIZA
+
+searchInput.addEventListener("keypress", (e) => {
+
+  if(e.key === "Enter"){
+
+    const value =
+    searchInput.value.toLowerCase();
+
+    let found = false;
+
+    productCards.forEach(card => {
+
+      const title =
+      card.querySelector("h3")
+      .innerText
+      .toLowerCase();
+
+      if(title.includes(value) && !found){
+
+        found = true;
+
+        // SCROLL SUAVE
+
+        card.scrollIntoView({
+
+          behavior: "smooth",
+          block: "center"
+
+        });
+
+        // EFEITO
+
+        card.style.transform =
+        "scale(1.04)";
+
+        card.style.boxShadow =
+        "0 0 30px rgba(0,0,0,0.25)";
+
+        setTimeout(() => {
+
+          card.style.transform = "";
+
+          card.style.boxShadow = "";
+
+        }, 2000);
+
+      }
+
+    });
+
+  }
 
 });
 
