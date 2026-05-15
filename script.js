@@ -122,7 +122,7 @@ finishOrder.addEventListener("click", () => {
 
   });
 
-  const phone = "5511999999999";
+  const phone = "5511987654321";
 
   const url =
   `https://wa.me/${phone}?text=${message}`;
