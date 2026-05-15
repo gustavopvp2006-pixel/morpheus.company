@@ -1,172 +1,289 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
   <title>Morpheus Company</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Fonte -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- GOOGLE FONT -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
-  <!-- Ícones -->
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <!-- FONT AWESOME -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
 </head>
 
 <body>
 
-  <!-- MENU LATERAL -->
+  <!-- =========================
+       SIDEBAR
+  ========================== -->
+
   <aside class="sidebar" id="sidebar">
 
     <div class="sidebar-top">
+
       <h2>MENU</h2>
 
       <button id="closeMenu">
         <i class="fa-solid fa-xmark"></i>
       </button>
+
     </div>
 
     <nav class="sidebar-links">
+
       <a href="#inicio">Início</a>
+
       <a href="#colecoes">Coleções</a>
+
       <a href="#shop">Shop</a>
+
       <a href="#sobre">Sobre Nós</a>
+
       <a href="#footer">Contato</a>
+
     </nav>
 
   </aside>
 
   <!-- OVERLAY -->
+
   <div class="overlay" id="overlay"></div>
 
-  <!-- HEADER -->
-<header class="top-header">
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-  <!-- ESQUERDA -->
-  <div class="header-left">
+  <header class="top-header">
 
-    <button class="menu-btn" id="menuBtn">
-      <i class="fa-solid fa-bars"></i>
-    </button>
+    <!-- ESQUERDA -->
 
-    <button class="search-btn">
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </button>
+    <div class="header-left">
 
-  </div>
-
-  <!-- LOGO CENTRAL -->
-  <div class="logo">
-
-    <img src="img/imagem_2026-05-15_115648464.png" alt="Logo Morpheus Company">
-
-  </div>
-
-  <!-- DIREITA -->
-  <div class="header-right">
-
-    <div class="top-links">
-
-      <a href="#">Acessibilidade</a>
-      <span>|</span>
-
-      <a href="#">Acompanhe seu pedido</a>
-      <span>|</span>
-
-      <a href="#">Ajuda</a>
-
-    </div>
-
-    <div class="icons">
-
-      <button>
-        <i class="fa-regular fa-user"></i>
+      <button class="menu-btn" id="menuBtn">
+        <i class="fa-solid fa-bars"></i>
       </button>
 
-      <button>
-      <i class="fa-solid fa-bag-shopping"></i>
-<span id="cartCount">0</span>
+      <button class="search-btn">
+        <i class="fa-solid fa-magnifying-glass"></i>
       </button>
 
     </div>
 
-  </div>
+    <!-- LOGO -->
 
-</header>
+    <div class="logo">
 
-  <!-- MENU CENTRAL -->
+      <img
+        src="img/imagem_2026-05-15_115648464.png"
+        alt="Logo Morpheus Company"
+      >
+
+    </div>
+
+    <!-- DIREITA -->
+
+    <div class="header-right">
+
+      <div class="top-links">
+
+        <a href="#">Acessibilidade</a>
+
+        <span>|</span>
+
+        <a href="#">Acompanhe seu pedido</a>
+
+        <span>|</span>
+
+        <a href="#">Ajuda</a>
+
+      </div>
+
+      <div class="icons">
+
+        <!-- USER -->
+
+        <button aria-label="Usuário">
+
+          <i class="fa-regular fa-user"></i>
+
+        </button>
+
+        <!-- CARRINHO -->
+
+        <button
+          id="cartButton"
+          aria-label="Carrinho"
+        >
+
+          <i class="fa-solid fa-bag-shopping"></i>
+
+          <span id="cartCount">0</span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- =========================
+       MENU CENTRAL
+  ========================== -->
+
   <nav class="main-nav" id="inicio">
 
-    <a href="#">INÍCIO</a>
+    <a href="#inicio">INÍCIO</a>
+
     <span>|</span>
 
     <a href="#colecoes">COLEÇÕES</a>
+
     <span>|</span>
 
     <a href="#shop">SHOP</a>
+
     <span>|</span>
 
     <a href="#sobre">SOBRE NÓS</a>
 
   </nav>
 
-  <!-- HERO MODELOS -->
+  <!-- =========================
+       HERO MODELOS
+  ========================== -->
+
   <section class="models-section">
 
     <div class="models-grid">
 
-      <div class="model-card">
-        <img src="img/DerekMorpheus.PNG" alt="Modelo usando acessórios Morpheus Company">
-      </div>
+      <!-- CARD 1 -->
 
       <div class="model-card">
-        <img src="img/LHchucroMorpheus.PNG" alt="Modelo com colar Morpheus Company">
+
+        <img
+          src="img/DerekMorpheus.PNG"
+          alt="Modelo usando acessórios Morpheus Company"
+        >
+
       </div>
 
+      <!-- CARD 2 -->
+
       <div class="model-card">
-        <img src="img/MdepMorpheus.PNG" alt="Modelo usando pérolas Morpheus Company">
+
+        <img
+          src="img/LHchucroMorpheus.PNG"
+          alt="Modelo usando colar Morpheus Company"
+        >
+
+      </div>
+
+      <!-- CARD 3 -->
+
+      <div class="model-card">
+
+        <img
+          src="img/MdepMorpheus.PNG"
+          alt="Modelo usando pérolas Morpheus Company"
+        >
+
       </div>
 
     </div>
 
   </section>
 
-  <!-- COLEÇÕES -->
-  <section class="collections-section" id="colecoes">
+  <!-- =========================
+       COLEÇÕES
+  ========================== -->
+
+  <section
+    class="collections-section"
+    id="colecoes"
+  >
+
+    <!-- BANNER 1 -->
 
     <div class="collection-banner">
-      <img src="img/EssentialsDrop.PNG" alt="Coleção Essentials">
+
+      <img
+        src="img/EssentialsDrop.PNG"
+        alt="Coleção Essentials"
+      >
+
       <div class="banner-overlay"></div>
-      <h2> </h2>
+
     </div>
 
-    <div class="collection-banner">
-      <img src="img/DropLost.PNG" alt="Drop Lost Necklaces">
-      <div class="banner-overlay"></div>
-      <h2> </h2>
-    </div>
+    <!-- BANNER 2 -->
 
     <div class="collection-banner">
-      <img src="img/ColeçãoOnix.PNG" alt="Coleção Onyx">
+
+      <img
+        src="img/DropLost.PNG"
+        alt="Drop Lost Necklaces"
+      >
+
       <div class="banner-overlay"></div>
-      <h2> </h2>
+
+    </div>
+
+    <!-- BANNER 3 -->
+
+    <div class="collection-banner">
+
+      <img
+        src="img/ColeçãoOnix.PNG"
+        alt="Coleção Onyx"
+      >
+
+      <div class="banner-overlay"></div>
+
     </div>
 
   </section>
 
-  <!-- PRODUTOS -->
-  <section class="products-section" id="shop">
+  <!-- =========================
+       PRODUTOS
+  ========================== -->
+
+  <section
+    class="products-section"
+    id="shop"
+  >
 
     <div class="product-grid">
 
       <!-- PRODUTO 1 -->
+
       <div class="product-card">
 
         <div class="product-image">
-          <img src="img/WhatsApp Image 2026-05-13 at 22.20.29 (3).jpeg" alt="Colar Essentials 1">
+
+          <img
+            src="img/WhatsApp Image 2026-05-13 at 22.20.29 (3).jpeg"
+            alt="Colar Essentials 1"
+          >
+
         </div>
 
         <div class="product-info">
@@ -182,14 +299,16 @@
 
             <span>R$70 BRL</span>
 
-         <button
-class="add-cart"
-data-name="Colar Essentials 1"
-data-price="70">
+            <button
+              class="add-cart"
+              data-name="Colar Essentials 1"
+              data-price="70"
+              aria-label="Adicionar ao carrinho"
+            >
 
-  <i class="fa-solid fa-plus"></i>
+              <i class="fa-solid fa-plus"></i>
 
-</button>
+            </button>
 
           </div>
 
@@ -198,10 +317,16 @@ data-price="70">
       </div>
 
       <!-- PRODUTO 2 -->
+
       <div class="product-card">
 
         <div class="product-image">
-          <img src="img/WhatsApp Image 2026-05-13 at 22.20.29 (1).jpeg" alt="Colar Essentials 2">
+
+          <img
+            src="img/WhatsApp Image 2026-05-13 at 22.20.29 (1).jpeg"
+            alt="Colar Essentials 2"
+          >
+
         </div>
 
         <div class="product-info">
@@ -217,14 +342,16 @@ data-price="70">
 
             <span>R$60 BRL</span>
 
-           <button
-class="add-cart"
-data-name="Colar Essentials 2"
-data-price="60">
+            <button
+              class="add-cart"
+              data-name="Colar Essentials 2"
+              data-price="60"
+              aria-label="Adicionar ao carrinho"
+            >
 
-  <i class="fa-solid fa-plus"></i>
+              <i class="fa-solid fa-plus"></i>
 
-</button>
+            </button>
 
           </div>
 
@@ -233,10 +360,16 @@ data-price="60">
       </div>
 
       <!-- PRODUTO 3 -->
+
       <div class="product-card">
 
         <div class="product-image">
-          <img src="img/WhatsApp Image 2026-05-13 at 22.21.27.jpeg" alt="Colar Essentials 3">
+
+          <img
+            src="img/WhatsApp Image 2026-05-13 at 22.21.27.jpeg"
+            alt="Colar Essentials 3"
+          >
+
         </div>
 
         <div class="product-info">
@@ -252,14 +385,16 @@ data-price="60">
 
             <span>R$60 BRL</span>
 
-          <button
-class="add-cart"
-data-name="Colar Essentials 3"
-data-price="60">
+            <button
+              class="add-cart"
+              data-name="Colar Essentials 3"
+              data-price="60"
+              aria-label="Adicionar ao carrinho"
+            >
 
-  <i class="fa-solid fa-plus"></i>
+              <i class="fa-solid fa-plus"></i>
 
-</button>
+            </button>
 
           </div>
 
@@ -268,10 +403,16 @@ data-price="60">
       </div>
 
       <!-- PRODUTO 4 -->
+
       <div class="product-card">
 
         <div class="product-image">
-          <img src="img/WhatsApp Image 2026-05-13 at 22.20.29.jpeg" alt="Colar Essentials 4">
+
+          <img
+            src="img/WhatsApp Image 2026-05-13 at 22.20.29.jpeg"
+            alt="Colar Essentials 4"
+          >
+
         </div>
 
         <div class="product-info">
@@ -287,14 +428,16 @@ data-price="60">
 
             <span>R$100 BRL</span>
 
-         <button
-class="add-cart"
-data-name="Colar Essentials 4"
-data-price="100">
+            <button
+              class="add-cart"
+              data-name="Colar Essentials 4"
+              data-price="100"
+              aria-label="Adicionar ao carrinho"
+            >
 
-  <i class="fa-solid fa-plus"></i>
+              <i class="fa-solid fa-plus"></i>
 
-</button>
+            </button>
 
           </div>
 
@@ -306,10 +449,18 @@ data-price="100">
 
   </section>
 
-  <!-- SOBRE -->
-  <section class="about-section" id="sobre">
+  <!-- =========================
+       SOBRE / FOOTER
+  ========================== -->
+
+  <section
+    class="about-section"
+    id="sobre"
+  >
 
     <div class="about-container">
+
+      <!-- NEWSLETTER -->
 
       <div class="newsletter">
 
@@ -317,17 +468,25 @@ data-price="100">
 
         <div class="newsletter-box">
 
-          <input type="email" placeholder="E-mail">
+          <input
+            type="email"
+            placeholder="E-mail"
+          >
 
           <button>
+
             <i class="fa-solid fa-arrow-right"></i>
+
           </button>
 
         </div>
 
+        <!-- REDES -->
+
         <div class="socials">
 
           <i class="fa-brands fa-instagram"></i>
+
           <i class="fa-brands fa-tiktok"></i>
 
           <span>@MORPHEUS.COMPANY</span>
@@ -336,26 +495,40 @@ data-price="100">
 
       </div>
 
+      <!-- LINKS -->
+
       <div class="footer-links">
 
-        <a href="#">INÍCIO</a>
-        <a href="#">PRODUTOS</a>
-        <a href="#">COLEÇÕES</a>
-        <a href="#">SOBRE NÓS</a>
+        <a href="#inicio">INÍCIO</a>
+
+        <a href="#shop">PRODUTOS</a>
+
+        <a href="#colecoes">COLEÇÕES</a>
+
+        <a href="#sobre">SOBRE NÓS</a>
+
         <a href="#">POLÍTICA DE PRIVACIDADE</a>
 
       </div>
 
-      <div class="contact">
+      <!-- CONTATO -->
+
+      <div
+        class="contact"
+        id="footer"
+      >
 
         <h3>ENTRE EM CONTATO</h3>
 
-        <p>55+ (11) 98798-4894</p>
+        <p>+55 (11) 98798-4894</p>
+
         <p>support@morpheuscompany.com.br</p>
 
       </div>
 
     </div>
+
+    <!-- FOOTER FINAL -->
 
     <div class="footer-bottom">
 
@@ -364,8 +537,9 @@ data-price="100">
       <div class="payments">
 
         <i class="fa-brands fa-cc-visa"></i>
+
         <i class="fa-brands fa-cc-mastercard"></i>
-        <i class="fa-brands fa-pix"></i>
+
         <i class="fa-brands fa-cc-paypal"></i>
 
       </div>
@@ -374,44 +548,69 @@ data-price="100">
 
   </section>
 
-  <!-- CARRINHO -->
-  <div class="cart-popup" id="cartPopup">
+  <!-- =========================
+       POPUP
+  ========================== -->
+
+  <div
+    class="cart-popup"
+    id="cartPopup"
+  >
+
     Produto adicionado ao carrinho!
-  </div>
-  <!-- CARRINHO LATERAL -->
-
-<div class="cart-sidebar" id="cartSidebar">
-
-  <div class="cart-top">
-
-    <h2>Seu Carrinho</h2>
-
-    <button id="closeCart">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
 
   </div>
 
-  <div class="cart-items" id="cartItems">
+  <!-- =========================
+       CARRINHO LATERAL
+  ========================== -->
 
-    <p class="empty-cart">
-      Seu carrinho está vazio.
-    </p>
+  <div
+    class="cart-sidebar"
+    id="cartSidebar"
+  >
+
+    <div class="cart-top">
+
+      <h2>Seu Carrinho</h2>
+
+      <button id="closeCart">
+
+        <i class="fa-solid fa-xmark"></i>
+
+      </button>
+
+    </div>
+
+    <!-- ITENS -->
+
+    <div
+      class="cart-items"
+      id="cartItems"
+    >
+
+      <p class="empty-cart">
+        Seu carrinho está vazio.
+      </p>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="cart-footer">
+
+      <button id="finishOrder">
+        Finalizar Compra
+      </button>
+
+    </div>
 
   </div>
-
-  <div class="cart-footer">
-
-    <button id="finishOrder">
-      Finalizar Compra
-    </button>
-
-  </div>
-
-</div>
 
   <!-- JS -->
+
   <script src="script.js"></script>
 
 </body>
+
 </html>
