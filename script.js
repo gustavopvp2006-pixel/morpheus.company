@@ -275,7 +275,7 @@ finishOrder.addEventListener("click", () => {
   // NÚMERO WHATSAPP
 
   const phone =
-  "5511987654321";
+  "5511987984894";
 
   // LINK FINAL
 
