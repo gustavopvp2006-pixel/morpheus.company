@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -47,25 +48,25 @@
 
     </div>
 
-<nav class="sidebar-links">
+    <nav class="sidebar-links">
 
-  <a href="#inicio">Início</a>
+      <a href="#inicio">Início</a>
 
-  <a href="#colecoes">Coleções</a>
+      <a href="#colecoes">Coleções</a>
 
-  <a href="#shop">Shop</a>
+      <a href="#shop">Shop</a>
 
-  <a href="#sobre">Sobre Nós</a>
+      <a href="#sobre">Sobre Nós</a>
 
-  <a href="#" id="sidebarHelpBtn">Ajuda</a>
+      <a href="#" id="sidebarHelpBtn">Ajuda</a>
 
-  <a href="#footer">Contato</a>
+      <a href="#footer">Contato</a>
 
-  <a href="#acompanhe">Acompanhe seu pedido</a>
+      <a href="#">Acompanhe seu pedido</a>
 
-  <a href="#acessibilidade">Acessibilidade</a>
+      <a href="#">Acessibilidade</a>
 
-</nav>
+    </nav>
 
   </aside>
 
@@ -84,24 +85,26 @@
     <div class="header-left">
 
       <button class="menu-btn" id="menuBtn">
+
         <i class="fa-solid fa-bars"></i>
+
       </button>
 
-<div class="search-container">
+      <div class="search-container">
 
-  <button class="search-btn" id="searchBtn">
+        <button class="search-btn" id="searchBtn">
 
-    <i class="fa-solid fa-magnifying-glass"></i>
+          <i class="fa-solid fa-magnifying-glass"></i>
 
-  </button>
+        </button>
 
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="Buscar produto..."
-  >
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Buscar produto..."
+        >
 
-</div>
+      </div>
 
     </div>
 
@@ -122,36 +125,34 @@
 
       <div class="top-links">
 
-        <a href="#"> </a>
+        <a href="#">Login</a>
 
         <span>|</span>
 
-        <a href="#"> Login </a>
+        <div class="icons">
 
-        <span>|</span>
+          <!-- USER -->
 
-      <div class="icons">
+          <button aria-label="Usuário">
 
-        <!-- USER -->
+            <i class="fa-regular fa-user"></i>
 
-        <button aria-label="Usuário">
+          </button>
 
-          <i class="fa-regular fa-user"></i>
+          <!-- CARRINHO -->
 
-        </button>
+          <button
+            id="cartButton"
+            aria-label="Carrinho"
+          >
 
-        <!-- CARRINHO -->
+            <i class="fa-solid fa-bag-shopping"></i>
 
-        <button
-          id="cartButton"
-          aria-label="Carrinho"
-        >
+            <span id="cartCount">0</span>
 
-          <i class="fa-solid fa-bag-shopping"></i>
+          </button>
 
-          <span id="cartCount">0</span>
-
-        </button>
+        </div>
 
       </div>
 
@@ -179,9 +180,9 @@
 
     <a href="#sobre">SOBRE NÓS</a>
 
-  <span>|</span>
+    <span>|</span>
 
-    <a href="#faq">FAQ</a>
+    <a href="#" id="faqBtn">FAQ</a>
 
   </nav>
 
@@ -193,8 +194,6 @@
 
     <div class="models-grid">
 
-      <!-- CARD 1 -->
-
       <div class="model-card">
 
         <img
@@ -204,8 +203,6 @@
 
       </div>
 
-      <!-- CARD 2 -->
-
       <div class="model-card">
 
         <img
@@ -214,8 +211,6 @@
         >
 
       </div>
-
-      <!-- CARD 3 -->
 
       <div class="model-card">
 
@@ -239,8 +234,6 @@
     id="colecoes"
   >
 
-    <!-- BANNER 1 -->
-
     <div class="collection-banner">
 
       <img
@@ -252,8 +245,6 @@
 
     </div>
 
-    <!-- BANNER 2 -->
-
     <div class="collection-banner">
 
       <img
@@ -264,8 +255,6 @@
       <div class="banner-overlay"></div>
 
     </div>
-
-    <!-- BANNER 3 -->
 
     <div class="collection-banner">
 
@@ -309,9 +298,9 @@
           <h3>Colar Essentials 1</h3>
 
           <p>
-Essentials é a nossa interpretação do que realmente importa.
-Peças pensadas para o dia a dia, com design atemporal e qualidade que acompanha você em todos os momentos.
-O essencial nunca sai de moda.
+            Essentials é a nossa interpretação do que realmente importa.
+            Peças pensadas para o dia a dia, com design atemporal e qualidade que acompanha você em todos os momentos.
+            O essencial nunca sai de moda.
           </p>
 
           <div class="product-bottom">
@@ -322,7 +311,6 @@ O essencial nunca sai de moda.
               class="add-cart"
               data-name="Colar Essentials 1"
               data-price="70"
-              aria-label="Adicionar ao carrinho"
             >
 
               <i class="fa-solid fa-plus"></i>
@@ -353,9 +341,9 @@ O essencial nunca sai de moda.
           <h3>Colar Essentials 2</h3>
 
           <p>
-           Essentials representa a essência da nossa marca.
-Uma coleção construída a partir do simples, do funcional e do durável.
-Peças que atravessam tendências e valorizam o que é essencial.
+            Essentials representa a essência da nossa marca.
+            Uma coleção construída a partir do simples, do funcional e do durável.
+            Peças que atravessam tendências e valorizam o que é essencial.
           </p>
 
           <div class="product-bottom">
@@ -366,7 +354,6 @@ Peças que atravessam tendências e valorizam o que é essencial.
               class="add-cart"
               data-name="Colar Essentials 2"
               data-price="60"
-              aria-label="Adicionar ao carrinho"
             >
 
               <i class="fa-solid fa-plus"></i>
@@ -397,9 +384,9 @@ Peças que atravessam tendências e valorizam o que é essencial.
           <h3>Colar Essentials 3</h3>
 
           <p>
-          A coleção Essentials nasce do básico bem-feito.
-Modelagens versáteis, conforto e identidade para quem entende que menos é mais.
-O essencial para todos os dias
+            A coleção Essentials nasce do básico bem-feito.
+            Modelagens versáteis, conforto e identidade para quem entende que menos é mais.
+            O essencial para todos os dias.
           </p>
 
           <div class="product-bottom">
@@ -410,7 +397,6 @@ O essencial para todos os dias
               class="add-cart"
               data-name="Colar Essentials 3"
               data-price="60"
-              aria-label="Adicionar ao carrinho"
             >
 
               <i class="fa-solid fa-plus"></i>
@@ -441,8 +427,8 @@ O essencial para todos os dias
           <h3>Colar Essentials 4</h3>
 
           <p>
-A coleção Essentials nasce da ideia de que o verdadeiro estilo está no que permanece.
-Peças criadas para fazer parte da sua rotina, da sua história e da sua identidade.
+            A coleção Essentials nasce da ideia de que o verdadeiro estilo está no que permanece.
+            Peças criadas para fazer parte da sua rotina, da sua história e da sua identidade.
           </p>
 
           <div class="product-bottom">
@@ -453,7 +439,6 @@ Peças criadas para fazer parte da sua rotina, da sua história e da sua identid
               class="add-cart"
               data-name="Colar Essentials 4"
               data-price="100"
-              aria-label="Adicionar ao carrinho"
             >
 
               <i class="fa-solid fa-plus"></i>
@@ -471,7 +456,7 @@ Peças criadas para fazer parte da sua rotina, da sua história e da sua identid
   </section>
 
   <!-- =========================
-       SOBRE / FOOTER
+       FOOTER
   ========================== -->
 
   <section
@@ -480,8 +465,6 @@ Peças criadas para fazer parte da sua rotina, da sua história e da sua identid
   >
 
     <div class="about-container">
-
-      <!-- NEWSLETTER -->
 
       <div class="newsletter">
 
@@ -502,8 +485,6 @@ Peças criadas para fazer parte da sua rotina, da sua história e da sua identid
 
         </div>
 
-        <!-- REDES -->
-
         <div class="socials">
 
           <i class="fa-brands fa-instagram"></i>
@@ -515,8 +496,6 @@ Peças criadas para fazer parte da sua rotina, da sua história e da sua identid
         </div>
 
       </div>
-
-      <!-- LINKS -->
 
       <div class="footer-links">
 
@@ -532,8 +511,6 @@ Peças criadas para fazer parte da sua rotina, da sua história e da sua identid
 
       </div>
 
-      <!-- CONTATO -->
-
       <div
         class="contact"
         id="footer"
@@ -548,8 +525,6 @@ Peças criadas para fazer parte da sua rotina, da sua história e da sua identid
       </div>
 
     </div>
-
-    <!-- FOOTER FINAL -->
 
     <div class="footer-bottom">
 
@@ -570,7 +545,7 @@ Peças criadas para fazer parte da sua rotina, da sua história e da sua identid
   </section>
 
   <!-- =========================
-       POPUP
+       CART POPUP
   ========================== -->
 
   <div
@@ -583,7 +558,7 @@ Peças criadas para fazer parte da sua rotina, da sua história e da sua identid
   </div>
 
   <!-- =========================
-       CARRINHO LATERAL
+       CARRINHO
   ========================== -->
 
   <div
@@ -603,188 +578,134 @@ Peças criadas para fazer parte da sua rotina, da sua história e da sua identid
 
     </div>
 
-    <!-- ITENS -->
-
     <div
       class="cart-items"
       id="cartItems"
     >
 
       <p class="empty-cart">
+
         Seu carrinho está vazio.
+
       </p>
 
     </div>
 
-    <!-- FOOTER -->
-
     <div class="cart-footer">
 
       <button id="finishOrder">
+
         Finalizar Compra
+
       </button>
 
     </div>
 
   </div>
+
   <!-- =========================
-     BUSCA
-========================= -->
+       FAQ MODAL
+  ========================== -->
 
-<div class="search-modal" id="searchModal">
+  <div class="faq-modal" id="faqModal">
 
-  <div class="search-box">
+    <div class="faq-box">
 
-    <div class="search-top">
+      <div class="faq-header">
 
-      <h2>Buscar Produtos</h2>
+        <h2>Perguntas Frequentes</h2>
 
-      <button id="closeSearch">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+        <button id="closeFaq">
 
-<!-- =========================
-     AJUDA / FAQ
-========================= -->
+          <i class="fa-solid fa-xmark"></i>
 
-<div class="help-modal" id="helpModal">
-
-  <div class="help-box">
-
-    <div class="help-top">
-
-      <h2>Central de Ajuda</h2>
-
-      <button id="closeHelp">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-    </div>
-
-<!-- =========================
-     HELP MODAL
-========================= -->
-
-<div class="help-modal" id="helpModal">
-
-  <div class="help-box">
-
-    <div class="help-top">
-
-      <h2>Como podemos ajudar?</h2>
-
-      <button id="closeHelp">
-
-        <i class="fa-solid fa-xmark"></i>
-
-      </button>
-
-    </div>
-
-    <p class="help-text">
-
-      Nossa equipe responderá sua dúvida o mais rápido possível.
-
-    </p>
-
-    <textarea
-      placeholder="Digite sua dúvida aqui..."
-      id="helpMessage"
-    ></textarea>
-
-    <button id="sendHelp">
-
-      Enviar Mensagem
-
-    </button>
-
-    <div class="help-email">
-
-      <i class="fa-solid fa-envelope"></i>
-
-      support@morpheuscompany.com.br
-
-    </div>
-
-  </div>
-
-</div>
-
-    <!-- ITEM -->
-
-    <div class="faq-item">
-
-      <button class="faq-question">
-
-        Qual o prazo de entrega?
-
-      </button>
-
-      <div class="faq-answer">
-
-        O prazo médio é de 5 até 12 dias úteis dependendo da região.
+        </button>
 
       </div>
 
-    </div>
+      <!-- ITEM -->
 
-    <!-- ITEM -->
+      <div class="faq-item">
 
-    <div class="faq-item">
+        <button class="faq-question">
 
-      <button class="faq-question">
+          <span>Qual o prazo de entrega?</span>
 
-        Os produtos possuem garantia?
+          <i class="fa-solid fa-chevron-down"></i>
 
-      </button>
+        </button>
 
-      <div class="faq-answer">
+        <div class="faq-answer">
 
-        Sim. Garantia contra defeitos de fabricação.
+          O prazo médio é de 5 até 12 dias úteis dependendo da região.
 
-      </div>
-
-    </div>
-
-    <!-- ITEM -->
-
-    <div class="faq-item">
-
-      <button class="faq-question">
-
-        Quais formas de pagamento?
-
-      </button>
-
-      <div class="faq-answer">
-
-        PIX, cartão de crédito, débito e PayPal.
+        </div>
 
       </div>
 
-    </div>
+      <!-- ITEM -->
 
-    <!-- ITEM -->
+      <div class="faq-item">
 
-    <div class="faq-item">
+        <button class="faq-question">
 
-      <button class="faq-question">
+          <span>Os produtos possuem garantia?</span>
 
-        As peças escurecem?
+          <i class="fa-solid fa-chevron-down"></i>
 
-      </button>
+        </button>
 
-      <div class="faq-answer">
+        <div class="faq-answer">
 
-        Não. Trabalhamos com materiais premium e alta durabilidade.
+          Sim. Garantia contra defeitos de fabricação.
+
+        </div>
+
+      </div>
+
+      <!-- ITEM -->
+
+      <div class="faq-item">
+
+        <button class="faq-question">
+
+          <span>Quais formas de pagamento?</span>
+
+          <i class="fa-solid fa-chevron-down"></i>
+
+        </button>
+
+        <div class="faq-answer">
+
+          PIX, cartão de crédito, débito e PayPal.
+
+        </div>
+
+      </div>
+
+      <!-- ITEM -->
+
+      <div class="faq-item">
+
+        <button class="faq-question">
+
+          <span>As peças escurecem?</span>
+
+          <i class="fa-solid fa-chevron-down"></i>
+
+        </button>
+
+        <div class="faq-answer">
+
+          Não. Trabalhamos com materiais premium e alta durabilidade.
+
+        </div>
 
       </div>
 
     </div>
 
   </div>
-
-</div>
 
   <!-- JS -->
 
@@ -793,3 +714,4 @@ Peças criadas para fazer parte da sua rotina, da sua história e da sua identid
 </body>
 
 </html>
+```
