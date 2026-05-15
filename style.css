@@ -58,19 +58,20 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+
+  height: 100%;
 }
 
 .logo img{
-  width: 170px;
+  width: 140px;
+  max-width: 140px;
+
   height: auto;
+  max-height: 60px;
 
   object-fit: contain;
 
-  transition: 0.3s;
-}
-
-.logo img:hover{
-  transform: scale(1.03);
+  display: block;
 }
 
 .header-right{
