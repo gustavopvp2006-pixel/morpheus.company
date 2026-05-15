@@ -1,167 +1,160 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-br">
 <head>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Morpheus Company</title>
 
-  <link rel="stylesheet" href="style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
 
-  <!-- FONTES PREMIUM -->
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- ÍCONES -->
-
-  <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
-
+  <!-- Ícones -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 
 <body>
 
-  <!-- LOADER -->
+  <!-- MENU LATERAL -->
+  <aside class="sidebar" id="sidebar">
 
-  <div class="loader">
+    <div class="sidebar-top">
+      <h2>MENU</h2>
 
-    <div class="loader-logo">
-      MORPHEUS
+      <button id="closeMenu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
     </div>
 
-  </div>
-
-  <!-- HEADER -->
-
-  <header class="header">
-
-    <div class="logo">
-      MORPHEUS
-    </div>
-
-    <nav class="nav">
-
-      <a href="#inicio">INÍCIO</a>
-      <a href="#produtos">PRODUTOS</a>
-      <a href="#colecao">COLEÇÃO</a>
-      <a href="#contato">CONTATO</a>
-
+    <nav class="sidebar-links">
+      <a href="#inicio">Início</a>
+      <a href="#colecoes">Coleções</a>
+      <a href="#shop">Shop</a>
+      <a href="#sobre">Sobre Nós</a>
+      <a href="#footer">Contato</a>
     </nav>
 
-    <div class="header-icons">
+  </aside>
 
-      <button id="theme-toggle">
-        <i class="fa-solid fa-moon"></i>
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- HEADER -->
+  <header class="top-header">
+
+    <div class="header-left">
+
+      <button class="menu-btn" id="menuBtn">
+        <i class="fa-solid fa-bars"></i>
       </button>
 
-      <i class="fa-solid fa-cart-shopping"></i>
+      <button class="search-btn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
 
-      <div class="menu-mobile">
-        <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <div class="logo">
+      <h1>MORPHEUS<br>COMPANY</h1>
+    </div>
+
+    <div class="header-right">
+
+      <div class="top-links">
+        <a href="#">Acessibilidade</a>
+        <span>|</span>
+        <a href="#">Acompanhe seu pedido</a>
+        <span>|</span>
+        <a href="#">Ajuda</a>
+      </div>
+
+      <div class="icons">
+        <button>
+          <i class="fa-regular fa-user"></i>
+        </button>
+
+        <button>
+          <i class="fa-solid fa-bag-shopping"></i>
+        </button>
       </div>
 
     </div>
 
   </header>
 
-  <!-- HERO -->
+  <!-- MENU CENTRAL -->
+  <nav class="main-nav" id="inicio">
 
-  <section class="hero" id="inicio">
+    <a href="#">INÍCIO</a>
+    <span>|</span>
 
-    <div class="hero-overlay"></div>
+    <a href="#colecoes">COLEÇÕES</a>
+    <span>|</span>
 
-    <div class="hero-left">
+    <a href="#shop">SHOP</a>
+    <span>|</span>
 
-      <span class="hero-tag">
-        LUXURY STREETWEAR JEWELRY
-      </span>
+    <a href="#sobre">SOBRE NÓS</a>
 
-      <h1>
-        PEARL<br>
-        CROSS<br>
-        COLLECTION
-      </h1>
+  </nav>
 
-      <p>
-        Correntes premium em pérolas,
-        cruzes e estética trap luxury.
-      </p>
+  <!-- HERO MODELOS -->
+  <section class="models-section">
 
-      <div class="hero-buttons">
+    <div class="models-grid">
 
-        <button class="btn-primary">
-          COMPRAR AGORA
-        </button>
-
-        <button class="btn-secondary">
-          EXPLORAR
-        </button>
-
+      <div class="model-card">
+        <img src="images/modelo1.jpg" alt="Modelo usando acessórios Morpheus Company">
       </div>
 
-    </div>
+      <div class="model-card">
+        <img src="images/modelo2.jpg" alt="Modelo com colar Morpheus Company">
+      </div>
 
-    <div class="hero-right">
-
-      <img src="img/ChatGPT Image 14 de mai. de 2026, 14_13_01.png">
+      <div class="model-card">
+        <img src="images/modelo3.jpg" alt="Modelo usando pérolas Morpheus Company">
+      </div>
 
     </div>
 
   </section>
 
-  <!-- BANNER -->
+  <!-- COLEÇÕES -->
+  <section class="collections-section" id="colecoes">
 
-  <section class="mini-banner">
-
-    <div class="mini-item">
-      FRETE GRÁTIS
+    <div class="collection-banner">
+      <img src="images/banner1.jpg" alt="Coleção Essentials">
+      <div class="banner-overlay"></div>
+      <h2>Essentials Drop</h2>
     </div>
 
-    <div class="mini-item">
-      10% OFF NO PIX
+    <div class="collection-banner">
+      <img src="images/banner2.jpg" alt="Drop Lost Necklaces">
+      <div class="banner-overlay"></div>
+      <h2>DROP “LOST NECKLACES”</h2>
     </div>
 
-    <div class="mini-item">
-      DROP LIMITADO 2026
-    </div>
-
-    <div class="mini-item">
-      ESTÉTICA TRAP PREMIUM
+    <div class="collection-banner">
+      <img src="images/banner3.jpg" alt="Coleção Onyx">
+      <div class="banner-overlay"></div>
+      <h2>COLEÇÃO ONYX</h2>
     </div>
 
   </section>
 
   <!-- PRODUTOS -->
+  <section class="products-section" id="shop">
 
-  <section class="products" id="produtos">
+    <div class="product-grid">
 
-    <div class="section-title">
-
-      <span>DROP 2026</span>
-
-      <h2>BEST SELLERS</h2>
-
-    </div>
-
-    <div class="products-grid">
-
-      <!-- PRODUTO -->
-
+      <!-- PRODUTO 1 -->
       <div class="product-card">
 
         <div class="product-image">
-
-          <img src="img/WhatsApp Image 2026-05-13 at 22.20.29 (3).jpeg">
-
-          <span class="badge">
-            HOT
-          </span>
-
+          <img src="images/produto1.jpg" alt="Colar Essentials 1">
         </div>
 
         <div class="product-info">
@@ -170,34 +163,28 @@
 
           <p>
             Essentials é a nossa interpretação do que realmente importa.
-Peças pensadas para o dia a dia, com design atemporal e qualidade que acompanha você em todos os momentos.
-O essencial nunca sai de moda.
+            Peças pensadas para o dia a dia.
           </p>
 
-          <span class="price">
-            R$ 279,90
-          </span>
+          <div class="product-bottom">
 
-          <button>
-            ADICIONAR
-          </button>
+            <span>R$70 BRL</span>
+
+            <button class="add-cart">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+
+          </div>
 
         </div>
 
       </div>
 
-      <!-- PRODUTO -->
-
+      <!-- PRODUTO 2 -->
       <div class="product-card">
 
         <div class="product-image">
-
-          <img src="img/WhatsApp Image 2026-05-13 at 22.20.29 (1).jpeg">
-
-          <span class="badge">
-            NEW
-          </span>
-
+          <img src="images/produto2.jpg" alt="Colar Essentials 2">
         </div>
 
         <div class="product-info">
@@ -206,34 +193,58 @@ O essencial nunca sai de moda.
 
           <p>
             Essentials representa a essência da nossa marca.
-Uma coleção construída a partir do simples, do funcional e do durável.
-Peças que atravessam tendências e valorizam o que é essencial.
+            Elegância para todos os momentos.
           </p>
 
-          <span class="price">
-            R$ 349,90
-          </span>
+          <div class="product-bottom">
 
-          <button>
-            ADICIONAR
-          </button>
+            <span>R$60 BRL</span>
+
+            <button class="add-cart">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+
+          </div>
 
         </div>
 
       </div>
 
-      <!-- PRODUTO -->
-
+      <!-- PRODUTO 3 -->
       <div class="product-card">
 
         <div class="product-image">
+          <img src="images/produto3.jpg" alt="Colar Essentials 3">
+        </div>
 
-          <img src="img/WhatsApp Image 2026-05-13 at 22.20.29.jpeg">
+        <div class="product-info">
 
-          <span class="badge">
-            VIP
-          </span>
+          <h3>Colar Essentials 3</h3>
 
+          <p>
+            Modelagens versáteis, conforto e identidade.
+            O essencial para todos os dias.
+          </p>
+
+          <div class="product-bottom">
+
+            <span>R$60 BRL</span>
+
+            <button class="add-cart">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PRODUTO 4 -->
+      <div class="product-card">
+
+        <div class="product-image">
+          <img src="images/produto4.jpg" alt="Colar Essentials 4">
         </div>
 
         <div class="product-info">
@@ -241,17 +252,19 @@ Peças que atravessam tendências e valorizam o que é essencial.
           <h3>Colar Essentials 4</h3>
 
           <p>
-           A coleção Essentials nasce da ideia de que o verdadeiro estilo está no que permanece.
-Peças criadas para fazer parte da sua rotina, da sua história e da sua identidade.
+            Peças criadas para fazer parte da sua rotina,
+            da sua história e da sua identidade.
           </p>
 
-          <span class="price">
-            R$ 429,90
-          </span>
+          <div class="product-bottom">
 
-          <button>
-            ADICIONAR
-          </button>
+            <span>R$100 BRL</span>
+
+            <button class="add-cart">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+
+          </div>
 
         </div>
 
@@ -261,233 +274,81 @@ Peças criadas para fazer parte da sua rotina, da sua história e da sua identid
 
   </section>
 
-  <!-- BANNER GRANDE -->
+  <!-- SOBRE -->
+  <section class="about-section" id="sobre">
 
-  <section class="big-banner" id="colecao">
+    <div class="about-container">
 
-    <div class="banner-content">
+      <div class="newsletter">
 
-      <span>MORPHEUS COMPANY</span>
+        <h3>Cadastre-se para receber novidades</h3>
 
-      <h2>
-        TRAP<br>
-        LUXURY<br>
-        STYLE
-      </h2>
+        <div class="newsletter-box">
 
-      <p>
-        Estética exclusiva inspirada
-        no streetwear internacional.
-      </p>
+          <input type="email" placeholder="E-mail">
+
+          <button>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+        </div>
+
+        <div class="socials">
+
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-tiktok"></i>
+
+          <span>@MORPHEUS.COMPANY</span>
+
+        </div>
+
+      </div>
+
+      <div class="footer-links">
+
+        <a href="#">INÍCIO</a>
+        <a href="#">PRODUTOS</a>
+        <a href="#">COLEÇÕES</a>
+        <a href="#">SOBRE NÓS</a>
+        <a href="#">POLÍTICA DE PRIVACIDADE</a>
+
+      </div>
+
+      <div class="contact">
+
+        <h3>ENTRE EM CONTATO</h3>
+
+        <p>5511987984894</p>
+        <p>support@morpheuscompany.com.br</p>
+
+      </div>
 
     </div>
-    <div class="banner-carousel">
 
-  <div class="carousel-track">
-    <img src="img/lh chucro.PNG" class="carousel-img active">
-    <img src="img/Mdep.PNG" class="carousel-img">
-    <img src="img/img3.jpg" class="carousel-img">
-    <img src="img/img4.jpg" class="carousel-img">
-  </div>
+    <div class="footer-bottom">
 
-  <button class="carousel-btn prev">&#10094;</button>
-  <button class="carousel-btn next">&#10095;</button>
+      <h2>O BAGULHO É PÉROLA!</h2>
 
-</div>
+      <div class="payments">
+
+        <i class="fa-brands fa-cc-visa"></i>
+        <i class="fa-brands fa-cc-mastercard"></i>
+        <i class="fa-brands fa-pix"></i>
+        <i class="fa-brands fa-cc-paypal"></i>
+
+      </div>
+
+    </div>
 
   </section>
 
-  <!-- NEWSLETTER -->
-
-  <section class="newsletter">
-
-    <h2>ENTRE PARA O DROP</h2>
-
-    <p>
-      Receba promoções exclusivas.
-    </p>
-
-    <div class="newsletter-box">
-
-      <input type="email" placeholder="Seu melhor e-mail">
-
-      <button>
-        ENTRAR
-      </button>
-
-    </div>
-
-  </section>
-  <!-- ========================= -->
-<!-- FAQ / CENTRAL DE AJUDA -->
-<!-- ========================= -->
-
-<section class="faq" id="faq">
-
-  <div class="faq-title">
-
-    <span>SUPORTE</span>
-
-    <h2>Perguntas Frequentes</h2>
-
-    <p>
-      Tire suas dúvidas sobre pedidos, entregas,
-      pagamentos e produtos da Morpheus Company.
-    </p>
-
+  <!-- CARRINHO -->
+  <div class="cart-popup" id="cartPopup">
+    Produto adicionado ao carrinho!
   </div>
 
-  <div class="faq-container">
-
-    <!-- ITEM -->
-
-    <div class="faq-item">
-
-      <div class="faq-question">
-
-        <h3>Qual o prazo de entrega?</h3>
-
-        <i class="fa-solid fa-chevron-down"></i>
-
-      </div>
-
-      <div class="faq-answer">
-
-        <p>
-          O prazo varia entre 3 a 12 dias úteis,
-          dependendo da sua região.
-        </p>
-
-      </div>
-
-    </div>
-
-    <!-- ITEM -->
-
-    <div class="faq-item">
-
-      <div class="faq-question">
-
-        <h3>Os produtos possuem garantia?</h3>
-
-        <i class="fa-solid fa-chevron-down"></i>
-
-      </div>
-
-      <div class="faq-answer">
-
-        <p>
-          Sim. Todos os produtos possuem garantia
-          contra defeitos de fabricação.
-        </p>
-
-      </div>
-
-    </div>
-
-    <!-- ITEM -->
-
-    <div class="faq-item">
-
-      <div class="faq-question">
-
-        <h3>Quais formas de pagamento aceitam?</h3>
-
-        <i class="fa-solid fa-chevron-down"></i>
-
-      </div>
-
-      <div class="faq-answer">
-
-        <p>
-          Aceitamos PIX, cartão de crédito,
-          débito e boleto bancário.
-        </p>
-
-      </div>
-
-    </div>
-
-    <!-- ITEM -->
-
-    <div class="faq-item">
-
-      <div class="faq-question">
-
-        <h3>Como acompanho meu pedido?</h3>
-
-        <i class="fa-solid fa-chevron-down"></i>
-
-      </div>
-
-      <div class="faq-answer">
-
-        <p>
-          Após a compra você receberá um código
-          de rastreamento por e-mail.
-        </p>
-
-      </div>
-
-    </div>
-
-    <!-- ITEM -->
-
-    <div class="faq-item">
-
-      <div class="faq-question">
-
-        <h3>As peças escurecem com o tempo?</h3>
-
-        <i class="fa-solid fa-chevron-down"></i>
-
-      </div>
-
-      <div class="faq-answer">
-
-        <p>
-          Nossas peças possuem acabamento premium
-          e alta durabilidade quando bem cuidadas.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-  <!-- FOOTER -->
-
-  <footer id="contato">
-
-    <div class="footer-logo">
-      MORPHEUS
-    </div>
-
-    <p>
-      Luxury Trap Jewelry
-    </p>
-
-    <div class="social">
-
-      <i class="fa-brands fa-instagram"></i>
-
-      <i class="fa-brands fa-tiktok"></i>
-
-      <i class="fa-brands fa-whatsapp"></i>
-
-    </div>
-
-    <div class="copy">
-      © 2026 Morpheus Company
-    </div>
-
-  </footer>
-
-  <script src="script.js"></script>
+  <!-- JS -->
+  <script src="js/script.js"></script>
 
 </body>
-
 </html>
