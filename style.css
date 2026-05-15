@@ -17,38 +17,35 @@ body{
 /* HEADER */
 
 .top-header{
+  width: 100%;
+  height: 92px;
+
   background: #000;
-  color: white;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 35px;
+
+  padding: 0 35px;
+
   position: sticky;
   top: 0;
   z-index: 999;
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
+
+/* ESQUERDA */
 
 .header-left{
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 14px;
+
+  width: 250px;
 }
 
-.menu-btn,
-.search-btn,
-.icons button{
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 23px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.menu-btn:hover,
-.search-btn:hover,
-.icons button:hover{
-  transform: scale(1.1);
-}
+/* LOGO */
 
 .logo{
   position: absolute;
@@ -63,37 +60,125 @@ body{
 }
 
 .logo img{
-  width: 140px;
-  max-width: 140px;
-
+  width: 150px;
   height: auto;
-  max-height: 60px;
+
+  max-height: 55px;
 
   object-fit: contain;
 
   display: block;
+
+  transition: 0.3s ease;
 }
+
+.logo img:hover{
+  transform: scale(1.03);
+}
+
+/* DIREITA */
 
 .header-right{
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 25px;
+
+  width: 250px;
 }
+
+/* LINKS */
 
 .top-links{
   display: flex;
-  gap: 8px;
+  align-items: center;
+  gap: 7px;
+
   font-size: 12px;
+  font-weight: 500;
 }
 
 .top-links a{
-  color: white;
   text-decoration: none;
+  color: white;
+
+  transition: 0.3s;
 }
+
+.top-links a:hover{
+  opacity: 0.7;
+}
+
+/* ICONES */
 
 .icons{
   display: flex;
+  align-items: center;
   gap: 15px;
+}
+
+.menu-btn,
+.search-btn,
+.icons button{
+  border: none;
+  background: transparent;
+
+  color: white;
+
+  font-size: 22px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.menu-btn:hover,
+.search-btn:hover,
+.icons button:hover{
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+/* RESPONSIVO */
+
+@media(max-width: 900px){
+
+  .top-header{
+    height: 80px;
+    padding: 0 18px;
+  }
+
+  .top-links{
+    display: none;
+  }
+
+  .header-left{
+    width: auto;
+  }
+
+  .header-right{
+    width: auto;
+  }
+
+  .logo img{
+    width: 115px;
+    max-height: 45px;
+  }
+
+}
+
+@media(max-width: 500px){
+
+  .logo img{
+    width: 95px;
+  }
+
+  .menu-btn,
+  .search-btn,
+  .icons button{
+    font-size: 19px;
+  }
+
 }
 
 /* NAV */
