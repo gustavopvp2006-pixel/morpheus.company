@@ -50,11 +50,27 @@ body{
   transform: scale(1.1);
 }
 
-.logo h1{
-  font-size: 28px;
-  text-align: center;
-  line-height: 28px;
-  letter-spacing: 2px;
+.logo{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img{
+  width: 170px;
+  height: auto;
+
+  object-fit: contain;
+
+  transition: 0.3s;
+}
+
+.logo img:hover{
+  transform: scale(1.03);
 }
 
 .header-right{
