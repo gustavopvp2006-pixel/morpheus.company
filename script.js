@@ -324,3 +324,115 @@ window.addEventListener("scroll", () => {
   }
 
 });
+// =========================
+// BUSCA
+// =========================
+
+const searchBtn =
+document.getElementById("searchBtn");
+
+const searchModal =
+document.getElementById("searchModal");
+
+const closeSearch =
+document.getElementById("closeSearch");
+
+const searchInput =
+document.getElementById("searchInput");
+
+const productCards =
+document.querySelectorAll(".product-card");
+
+// ABRIR
+
+searchBtn.addEventListener("click", () => {
+
+  searchModal.classList.add("active");
+
+});
+
+// FECHAR
+
+closeSearch.addEventListener("click", () => {
+
+  searchModal.classList.remove("active");
+
+});
+
+// PESQUISAR
+
+searchInput.addEventListener("keyup", () => {
+
+  const value =
+  searchInput.value.toLowerCase();
+
+  productCards.forEach(card => {
+
+    const title =
+    card.querySelector("h3")
+    .innerText
+    .toLowerCase();
+
+    if(title.includes(value)){
+
+      card.style.display = "block";
+
+    }else{
+
+      card.style.display = "none";
+
+    }
+
+  });
+
+});
+
+// =========================
+// AJUDA
+// =========================
+
+const helpBtn =
+document.getElementById("helpBtn");
+
+const helpModal =
+document.getElementById("helpModal");
+
+const closeHelp =
+document.getElementById("closeHelp");
+
+// ABRIR
+
+helpBtn.addEventListener("click", (e) => {
+
+  e.preventDefault();
+
+  helpModal.classList.add("active");
+
+});
+
+// FECHAR
+
+closeHelp.addEventListener("click", () => {
+
+  helpModal.classList.remove("active");
+
+});
+
+// FAQ
+
+const faqItems =
+document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item => {
+
+  const question =
+  item.querySelector(".faq-question");
+
+  question.addEventListener("click", () => {
+
+    item.classList.toggle("active");
+
+  });
+
+});
+
