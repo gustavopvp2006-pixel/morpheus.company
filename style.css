@@ -973,3 +973,61 @@ body{
 
   margin-top: 10px;
 }
+/* =========================
+   SEARCH INLINE PREMIUM
+========================= */
+
+.search-container{
+  position: relative;
+
+  display: flex;
+  align-items: center;
+}
+
+#searchInput{
+  width: 0;
+
+  opacity: 0;
+
+  border: none;
+
+  height: 42px;
+
+  border-radius: 30px;
+
+  padding: 0 18px;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition: 0.4s ease;
+
+  margin-left: 10px;
+
+  background: white;
+
+  color: black;
+}
+
+/* ATIVO */
+
+.search-container.active #searchInput{
+
+  width: 240px;
+
+  opacity: 1;
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width: 700px){
+
+  .search-container.active #searchInput{
+
+    width: 170px;
+
+  }
+
+}
