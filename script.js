@@ -1,4 +1,4 @@
-// MENU LATERAL
+// MENU
 
 const menuBtn = document.getElementById("menuBtn");
 const closeMenu = document.getElementById("closeMenu");
@@ -20,37 +20,113 @@ overlay.addEventListener("click", () => {
   overlay.classList.remove("active");
 });
 
-// POPUP CARRINHO
+// CARRINHO
 
 const cartButtons = document.querySelectorAll(".add-cart");
-const popup = document.getElementById("cartPopup");
+
+const cartSidebar = document.getElementById("cartSidebar");
+
+const cartIcon = document.querySelector(".fa-bag-shopping");
+
+const closeCart = document.getElementById("closeCart");
+
+const cartItems = document.getElementById("cartItems");
+
+const cartCount = document.getElementById("cartCount");
+
+const finishOrder = document.getElementById("finishOrder");
+
+let cart = [];
+
+// ABRIR CARRINHO
+
+cartIcon.addEventListener("click", () => {
+  cartSidebar.classList.add("active");
+});
+
+// FECHAR
+
+closeCart.addEventListener("click", () => {
+  cartSidebar.classList.remove("active");
+});
+
+// ADICIONAR
 
 cartButtons.forEach(button => {
 
   button.addEventListener("click", () => {
 
-    popup.classList.add("show");
+    const name = button.dataset.name;
 
-    setTimeout(() => {
-      popup.classList.remove("show");
-    }, 2500);
+    const price = button.dataset.price;
+
+    cart.push({ name, price });
+
+    updateCart();
+
+    cartSidebar.classList.add("active");
 
   });
 
 });
 
-// SCROLL HEADER
+// UPDATE
 
-window.addEventListener("scroll", () => {
+function updateCart(){
 
-  const header = document.querySelector(".top-header");
+  cartItems.innerHTML = "";
 
-  if(window.scrollY > 50){
-    header.style.background = "#050505";
-    header.style.boxShadow = "0 5px 20px rgba(0,0,0,0.2)";
+  if(cart.length === 0){
+
+    cartItems.innerHTML = `
+      <p class="empty-cart">
+        Seu carrinho está vazio.
+      </p>
+    `;
+
   }else{
-    header.style.background = "#000";
-    header.style.boxShadow = "none";
+
+    cart.forEach(item => {
+
+      cartItems.innerHTML += `
+        <div class="cart-item">
+
+          <div>
+            <h4>${item.name}</h4>
+            <p>R$ ${item.price}</p>
+          </div>
+
+        </div>
+      `;
+
+    });
+
   }
+
+  cartCount.innerText = cart.length;
+
+}
+
+// WHATSAPP
+
+finishOrder.addEventListener("click", () => {
+
+  if(cart.length === 0) return;
+
+  let message =
+  "Olá, gostaria de finalizar meu pedido:%0A%0A";
+
+  cart.forEach(item => {
+
+    message += `• ${item.name} - R$ ${item.price}%0A`;
+
+  });
+
+  const phone = "5511999999999";
+
+  const url =
+  `https://wa.me/${phone}?text=${message}`;
+
+  window.open(url, "_blank");
 
 });
