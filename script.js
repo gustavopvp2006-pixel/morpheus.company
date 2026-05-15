@@ -424,7 +424,9 @@ document.getElementById("helpModal");
 const closeHelp =
 document.getElementById("closeHelp");
 
-if(helpBtn){
+// ABRIR FAQ TOPO
+
+if(helpBtn && helpModal){
 
   helpBtn.addEventListener("click", (e) => {
 
@@ -436,7 +438,9 @@ if(helpBtn){
 
 }
 
-if(sidebarHelpBtn){
+// ABRIR FAQ SIDEBAR
+
+if(sidebarHelpBtn && helpModal){
 
   sidebarHelpBtn.addEventListener("click", (e) => {
 
@@ -452,7 +456,7 @@ if(sidebarHelpBtn){
 
 }
 
-// FECHAR HELP
+// FECHAR FAQ
 
 if(closeHelp){
 
@@ -464,17 +468,17 @@ if(closeHelp){
 
 }
 
-// FAQ
+// FAQ EXPANSIVO
 
-const faqItems =
-document.querySelectorAll(".faq-item");
+const faqQuestions =
+document.querySelectorAll(".faq-question");
 
-faqItems.forEach(item => {
-
-  const question =
-  item.querySelector(".faq-question");
+faqQuestions.forEach(question => {
 
   question.addEventListener("click", () => {
+
+    const item =
+    question.parentElement;
 
     item.classList.toggle("active");
 
