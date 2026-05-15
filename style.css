@@ -357,32 +357,17 @@ body{
 .product-bottom span{
   font-size: 32px;
   font-weight: 800;
+  
 .add-cart{
-  width: 48px;
-  height: 48px;
-
-  border-radius: 50%;
-
+  background: transparent;
   border: none;
-
-  background: #000;
-  color: white;
-
-  font-size: 18px;
-
+  font-size: 28px;
   cursor: pointer;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 
 .add-cart:hover{
-  transform: scale(1.08);
-
-  background: #111;
+  transform: rotate(90deg);
 }
 
 /* SOBRE */
