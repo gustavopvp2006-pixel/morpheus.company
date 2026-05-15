@@ -1,44 +1,18 @@
 // =========================
-// MENU LATERAL
+// ELEMENTOS
 // =========================
 
-const menuBtn = document.getElementById("menuBtn");
-const closeMenu = document.getElementById("closeMenu");
+const menuBtn =
+document.getElementById("menuBtn");
 
-const sidebar = document.getElementById("sidebar");
+const closeMenu =
+document.getElementById("closeMenu");
 
-const overlay = document.getElementById("overlay");
+const sidebar =
+document.getElementById("sidebar");
 
-// ABRIR MENU
-
-menuBtn.addEventListener("click", () => {
-
-  sidebar.classList.add("active");
-
-  overlay.classList.add("active");
-
-});
-
-// FECHAR MENU
-
-closeMenu.addEventListener("click", closeSidebar);
-
-overlay.addEventListener("click", closeSidebar);
-
-function closeSidebar(){
-
-  sidebar.classList.remove("active");
-
-  overlay.classList.remove("active");
-
-}
-
-// =========================
-// CARRINHO
-// =========================
-
-const cartButtons =
-document.querySelectorAll(".add-cart");
+const overlay =
+document.getElementById("overlay");
 
 const cartSidebar =
 document.getElementById("cartSidebar");
@@ -61,36 +35,85 @@ document.getElementById("finishOrder");
 const cartPopup =
 document.getElementById("cartPopup");
 
-// ARRAY CARRINHO
-
-let cart = [];
-
-// =========================
-// ABRIR CARRINHO
-// =========================
-
-cartButton.addEventListener("click", () => {
-
-  cartSidebar.classList.add("active");
-
-  overlay.classList.add("active");
-
-});
+const cartButtons =
+document.querySelectorAll(".add-cart");
 
 // =========================
-// FECHAR CARRINHO
+// MENU
 // =========================
 
-closeCart.addEventListener("click", () => {
+if(menuBtn){
 
-  cartSidebar.classList.remove("active");
+  menuBtn.addEventListener("click", () => {
+
+    sidebar.classList.add("active");
+
+    overlay.classList.add("active");
+
+  });
+
+}
+
+function closeSidebar(){
+
+  sidebar.classList.remove("active");
 
   overlay.classList.remove("active");
 
-});
+}
+
+if(closeMenu){
+
+  closeMenu.addEventListener("click", closeSidebar);
+
+}
+
+if(overlay){
+
+  overlay.addEventListener("click", () => {
+
+    closeSidebar();
+
+    cartSidebar.classList.remove("active");
+
+    helpModal.classList.remove("active");
+
+  });
+
+}
 
 // =========================
-// ADICIONAR PRODUTO
+// CARRINHO
+// =========================
+
+let cart = [];
+
+if(cartButton){
+
+  cartButton.addEventListener("click", () => {
+
+    cartSidebar.classList.add("active");
+
+    overlay.classList.add("active");
+
+  });
+
+}
+
+if(closeCart){
+
+  closeCart.addEventListener("click", () => {
+
+    cartSidebar.classList.remove("active");
+
+    overlay.classList.remove("active");
+
+  });
+
+}
+
+// =========================
+// ADICIONAR PRODUTOS
 // =========================
 
 cartButtons.forEach(button => {
@@ -103,8 +126,6 @@ cartButtons.forEach(button => {
     const price =
     button.dataset.price;
 
-    // ADICIONAR ITEM
-
     cart.push({
 
       name,
@@ -112,17 +133,11 @@ cartButtons.forEach(button => {
 
     });
 
-    // ATUALIZAR CARRINHO
-
     updateCart();
-
-    // ABRIR CARRINHO
 
     cartSidebar.classList.add("active");
 
     overlay.classList.add("active");
-
-    // POPUP
 
     showPopup();
 
@@ -136,6 +151,8 @@ cartButtons.forEach(button => {
 
 function showPopup(){
 
+  if(!cartPopup) return;
+
   cartPopup.classList.add("show");
 
   setTimeout(() => {
@@ -147,16 +164,14 @@ function showPopup(){
 }
 
 // =========================
-// ATUALIZAR CARRINHO
+// UPDATE CART
 // =========================
 
 function updateCart(){
 
-  // LIMPAR
+  if(!cartItems) return;
 
   cartItems.innerHTML = "";
-
-  // CARRINHO VAZIO
 
   if(cart.length === 0){
 
@@ -171,8 +186,6 @@ function updateCart(){
     `;
 
   }
-
-  // CARRINHO COM ITENS
 
   else{
 
@@ -207,11 +220,9 @@ function updateCart(){
 
   }
 
-  // CONTADOR
-
   cartCount.innerText = cart.length;
 
-  // BOTÕES REMOVER
+  // REMOVER
 
   const removeButtons =
   document.querySelectorAll(".remove-item");
@@ -234,96 +245,52 @@ function updateCart(){
 }
 
 // =========================
-// FINALIZAR PEDIDO
+// FINALIZAR
 // =========================
 
-finishOrder.addEventListener("click", () => {
+if(finishOrder){
 
-  // VERIFICAR CARRINHO
+  finishOrder.addEventListener("click", () => {
 
-  if(cart.length === 0){
+    if(cart.length === 0){
 
-    alert("Seu carrinho está vazio.");
+      alert("Seu carrinho está vazio.");
 
-    return;
+      return;
 
-  }
+    }
 
-  // MENSAGEM
+    let message =
+    "Olá, gostaria de finalizar meu pedido:%0A%0A";
 
-  let message =
-  "Olá, gostaria de finalizar meu pedido:%0A%0A";
+    let total = 0;
 
-  let total = 0;
+    cart.forEach(item => {
 
-  // LISTAR ITENS
+      message +=
+      `• ${item.name} - R$ ${item.price}%0A`;
 
-  cart.forEach(item => {
+      total += Number(item.price);
+
+    });
 
     message +=
-    `• ${item.name} - R$ ${item.price}%0A`;
+    `%0ATotal: R$ ${total}`;
 
-    total += Number(item.price);
+    // SEU WHATSAPP
+
+    const phone =
+    "5511987654321";
+
+    const url =
+    `https://wa.me/${phone}?text=${message}`;
+
+    window.open(url, "_blank");
 
   });
 
-  // TOTAL
+}
 
-  message +=
-  `%0ATotal: R$ ${total}`;
-
-  // NÚMERO WHATSAPP
-
-  const phone =
-  "5511987984894";
-
-  // LINK FINAL
-
-  const url =
-  `https://wa.me/${phone}?text=${message}`;
-
-  // ABRIR WHATSAPP
-
-  window.open(url, "_blank");
-
-});
-
-// =========================
-// FECHAR COM ESC
-// =========================
-
-document.addEventListener("keydown", (event) => {
-
-  if(event.key === "Escape"){
-
-    closeSidebar();
-
-    cartSidebar.classList.remove("active");
-
-  }
-
-});
-
-// =========================
-// ANIMAÇÃO HEADER
-// =========================
-
-window.addEventListener("scroll", () => {
-
-  const header =
-  document.querySelector(".top-header");
-
-  if(window.scrollY > 30){
-
-    header.style.height = "90px";
-
-  }else{
-
-    header.style.height = "110px";
-
-  }
-
-});
 // =========================
 // BUSCA INLINE
 // =========================
@@ -340,54 +307,26 @@ document.getElementById("searchInput");
 const productCards =
 document.querySelectorAll(".product-card");
 
-// ABRIR BUSCA
+if(searchBtn){
 
-searchBtn.addEventListener("click", () => {
+  searchBtn.addEventListener("click", () => {
 
-  searchContainer.classList.toggle("active");
+    searchContainer.classList.toggle("active");
 
-  searchInput.focus();
-
-});
-
-// PESQUISA EM TEMPO REAL
-
-searchInput.addEventListener("keyup", () => {
-
-  const value =
-  searchInput.value.toLowerCase();
-
-  productCards.forEach(card => {
-
-    const title =
-    card.querySelector("h3")
-    .innerText
-    .toLowerCase();
-
-    if(title.includes(value)){
-
-      card.style.display = "block";
-
-    }else{
-
-      card.style.display = "none";
-
-    }
+    searchInput.focus();
 
   });
 
-});
+}
 
-// ENTER = LOCALIZA
+// PESQUISA
 
-searchInput.addEventListener("keypress", (e) => {
+if(searchInput){
 
-  if(e.key === "Enter"){
+  searchInput.addEventListener("keyup", () => {
 
     const value =
     searchInput.value.toLowerCase();
-
-    let found = false;
 
     productCards.forEach(card => {
 
@@ -396,49 +335,88 @@ searchInput.addEventListener("keypress", (e) => {
       .innerText
       .toLowerCase();
 
-      if(title.includes(value) && !found){
+      if(title.includes(value)){
 
-        found = true;
+        card.style.display = "block";
 
-        // SCROLL SUAVE
+      }
 
-        card.scrollIntoView({
+      else{
 
-          behavior: "smooth",
-          block: "center"
-
-        });
-
-        // EFEITO
-
-        card.style.transform =
-        "scale(1.04)";
-
-        card.style.boxShadow =
-        "0 0 30px rgba(0,0,0,0.25)";
-
-        setTimeout(() => {
-
-          card.style.transform = "";
-
-          card.style.boxShadow = "";
-
-        }, 2000);
+        card.style.display = "none";
 
       }
 
     });
 
-  }
+  });
 
-});
+}
+
+// ENTER
+
+if(searchInput){
+
+  searchInput.addEventListener("keypress", (e) => {
+
+    if(e.key === "Enter"){
+
+      const value =
+      searchInput.value.toLowerCase();
+
+      let found = false;
+
+      productCards.forEach(card => {
+
+        const title =
+        card.querySelector("h3")
+        .innerText
+        .toLowerCase();
+
+        if(title.includes(value) && !found){
+
+          found = true;
+
+          card.scrollIntoView({
+
+            behavior: "smooth",
+            block: "center"
+
+          });
+
+          card.style.transform =
+          "scale(1.03)";
+
+          card.style.boxShadow =
+          "0 0 30px rgba(0,0,0,0.2)";
+
+          setTimeout(() => {
+
+            card.style.transform = "";
+
+            card.style.boxShadow = "";
+
+          }, 2000);
+
+        }
+
+      });
+
+    }
+
+  });
+
+}
 
 // =========================
-// AJUDA
+// HELP / FAQ
 // =========================
 
 const helpBtn =
 document.getElementById("helpBtn");
+
+const sidebarHelpBtn =
+document.getElementById("sidebarHelpBtn");
 
 const helpModal =
 document.getElementById("helpModal");
@@ -446,23 +424,45 @@ document.getElementById("helpModal");
 const closeHelp =
 document.getElementById("closeHelp");
 
-// ABRIR
+if(helpBtn){
 
-helpBtn.addEventListener("click", (e) => {
+  helpBtn.addEventListener("click", (e) => {
 
-  e.preventDefault();
+    e.preventDefault();
 
-  helpModal.classList.add("active");
+    helpModal.classList.add("active");
 
-});
+  });
 
-// FECHAR
+}
 
-closeHelp.addEventListener("click", () => {
+if(sidebarHelpBtn){
 
-  helpModal.classList.remove("active");
+  sidebarHelpBtn.addEventListener("click", (e) => {
 
-});
+    e.preventDefault();
+
+    sidebar.classList.remove("active");
+
+    overlay.classList.remove("active");
+
+    helpModal.classList.add("active");
+
+  });
+
+}
+
+// FECHAR HELP
+
+if(closeHelp){
+
+  closeHelp.addEventListener("click", () => {
+
+    helpModal.classList.remove("active");
+
+  });
+
+}
 
 // FAQ
 
@@ -481,91 +481,21 @@ faqItems.forEach(item => {
   });
 
 });
+
 // =========================
-// AJUDA SIDEBAR
-// =========================
-
-const sidebarHelpBtn =
-document.getElementById("sidebarHelpBtn");
-
-sidebarHelpBtn.addEventListener("click", (e) => {
-
-  e.preventDefault();
-
-  // FECHA MENU
-
-  sidebar.classList.remove("active");
-
-  overlay.classList.remove("active");
-
-  // ABRE AJUDA
-
-  helpModal.classList.add("active");
-
-});
-// =========================
-// FAQ / AJUDA
+// ESC
 // =========================
 
-const helpBtn =
-document.getElementById("helpBtn");
+document.addEventListener("keydown", (event) => {
 
-const sidebarHelpBtn =
-document.getElementById("sidebarHelpBtn");
+  if(event.key === "Escape"){
 
-const helpModal =
-document.getElementById("helpModal");
+    closeSidebar();
 
-const closeHelp =
-document.getElementById("closeHelp");
+    cartSidebar.classList.remove("active");
 
-// ABRIR PELO TOPO
+    helpModal.classList.remove("active");
 
-helpBtn.addEventListener("click", (e) => {
-
-  e.preventDefault();
-
-  helpModal.classList.add("active");
+  }
 
 });
-
-// ABRIR PELO MENU
-
-sidebarHelpBtn.addEventListener("click", (e) => {
-
-  e.preventDefault();
-
-  sidebar.classList.remove("active");
-
-  overlay.classList.remove("active");
-
-  helpModal.classList.add("active");
-
-});
-
-// FECHAR
-
-closeHelp.addEventListener("click", () => {
-
-  helpModal.classList.remove("active");
-
-});
-
-// FAQ ABRIR
-
-const faqItems =
-document.querySelectorAll(".faq-item");
-
-faqItems.forEach(item => {
-
-  const question =
-  item.querySelector(".faq-question");
-
-  question.addEventListener("click", () => {
-
-    item.classList.toggle("active");
-
-  });
-
-});
-
