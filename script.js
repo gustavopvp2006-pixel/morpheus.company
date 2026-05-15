@@ -435,4 +435,26 @@ faqItems.forEach(item => {
   });
 
 });
+// =========================
+// AJUDA SIDEBAR
+// =========================
+
+const sidebarHelpBtn =
+document.getElementById("sidebarHelpBtn");
+
+sidebarHelpBtn.addEventListener("click", (e) => {
+
+  e.preventDefault();
+
+  // FECHA MENU
+
+  sidebar.classList.remove("active");
+
+  overlay.classList.remove("active");
+
+  // ABRE AJUDA
+
+  helpModal.classList.add("active");
+
+});
 
