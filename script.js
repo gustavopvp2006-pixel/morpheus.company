@@ -280,7 +280,7 @@ if(finishOrder){
     // SEU WHATSAPP
 
     const phone =
-    "5511987654321";
+    "5511987984894";
 
     const url =
     `https://wa.me/${phone}?text=${message}`;
