@@ -87,7 +87,8 @@
       </button>
 
       <button>
-        <i class="fa-solid fa-bag-shopping"></i>
+      <i class="fa-solid fa-bag-shopping"></i>
+<span id="cartCount">0</span>
       </button>
 
     </div>
@@ -181,8 +182,9 @@
 
             <span>R$70 BRL</span>
 
-            <button class="add-cart">
-              <i class="fa-solid fa-plus"></i>
+           <button class="add-cart"
+             data-name="Colar Essentials 1"
+             data-price="70">
             </button>
 
           </div>
@@ -211,8 +213,10 @@
 
             <span>R$60 BRL</span>
 
-            <button class="add-cart">
-              <i class="fa-solid fa-plus"></i>
+            <button 
+              class="add-cart"
+              data-name="Colar Essentials 2"
+              data-price="60">
             </button>
 
           </div>
@@ -241,8 +245,10 @@
 
             <span>R$60 BRL</span>
 
-            <button class="add-cart">
-              <i class="fa-solid fa-plus"></i>
+           <button 
+              class="add-cart"
+              data-name="Colar Essentials 3"
+              data-price="60">
             </button>
 
           </div>
@@ -271,8 +277,10 @@
 
             <span>R$100 BRL</span>
 
-            <button class="add-cart">
-              <i class="fa-solid fa-plus"></i>
+            <button 
+              class="add-cart"
+              data-name="Colar Essentials 4"
+              data-price="100">
             </button>
 
           </div>
@@ -357,6 +365,37 @@
   <div class="cart-popup" id="cartPopup">
     Produto adicionado ao carrinho!
   </div>
+  <!-- CARRINHO LATERAL -->
+
+<div class="cart-sidebar" id="cartSidebar">
+
+  <div class="cart-top">
+
+    <h2>Seu Carrinho</h2>
+
+    <button id="closeCart">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+  </div>
+
+  <div class="cart-items" id="cartItems">
+
+    <p class="empty-cart">
+      Seu carrinho está vazio.
+    </p>
+
+  </div>
+
+  <div class="cart-footer">
+
+    <button id="finishOrder">
+      Finalizar Compra
+    </button>
+
+  </div>
+
+</div>
 
   <!-- JS -->
   <script src="script.js"></script>
