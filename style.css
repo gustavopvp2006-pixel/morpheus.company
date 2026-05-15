@@ -46,7 +46,9 @@ body{
   box-shadow: 0 2px 15px rgba(0,0,0,0.35);
 }
 
-/* ESQUERDA */
+/* =========================
+   HEADER LEFT
+========================= */
 
 .header-left{
   display: flex;
@@ -93,7 +95,9 @@ body{
   transform: scale(1.03);
 }
 
-/* DIREITA */
+/* =========================
+   HEADER RIGHT
+========================= */
 
 .header-right{
   display: flex;
@@ -104,7 +108,9 @@ body{
   width: 250px;
 }
 
-/* LINKS */
+/* =========================
+   LINKS
+========================= */
 
 .top-links{
   display: flex;
@@ -113,6 +119,8 @@ body{
 
   font-size: 13px;
   font-weight: 500;
+
+  color: white;
 }
 
 .top-links a{
@@ -126,7 +134,9 @@ body{
   opacity: 0.7;
 }
 
-/* ICONES */
+/* =========================
+   ICONS
+========================= */
 
 .icons{
   display: flex;
@@ -156,7 +166,9 @@ body{
   opacity: 0.8;
 }
 
-/* CONTADOR */
+/* =========================
+   CART COUNT
+========================= */
 
 #cartCount{
   font-size: 11px;
@@ -227,7 +239,7 @@ body{
 }
 
 /* =========================
-   MODELOS
+   MODELS
 ========================= */
 
 .models-section{
@@ -269,6 +281,7 @@ body{
 
 .collections-section{
   margin-top: 30px;
+  padding: 0 3%;
 }
 
 .collection-banner{
@@ -306,24 +319,8 @@ body{
   background: rgba(0,0,0,0.35);
 }
 
-.collection-banner h2{
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-
-  color: white;
-
-  font-size: 42px;
-  font-weight: 800;
-
-  letter-spacing: 2px;
-}
-
 /* =========================
-   PRODUTOS
+   PRODUCTS
 ========================= */
 
 .products-section{
@@ -409,7 +406,9 @@ body{
   font-weight: 800;
 }
 
-/* BOTÃO CARRINHO */
+/* =========================
+   CART BUTTON
+========================= */
 
 .add-cart{
   width: 48px;
@@ -440,7 +439,7 @@ body{
 }
 
 /* =========================
-   SOBRE
+   ABOUT
 ========================= */
 
 .about-section{
@@ -638,7 +637,7 @@ body{
 }
 
 /* =========================
-   CARRINHO LATERAL
+   CART SIDEBAR
 ========================= */
 
 .cart-sidebar{
@@ -745,7 +744,228 @@ body{
 }
 
 /* =========================
-   RESPONSIVO
+   SEARCH INLINE
+========================= */
+
+.search-container{
+  position: relative;
+
+  display: flex;
+  align-items: center;
+}
+
+#searchInput{
+  width: 0;
+
+  opacity: 0;
+
+  border: none;
+
+  height: 42px;
+
+  border-radius: 30px;
+
+  padding: 0 18px;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition: 0.4s ease;
+
+  margin-left: 10px;
+
+  background: white;
+
+  color: black;
+}
+
+.search-container.active #searchInput{
+  width: 240px;
+
+  opacity: 1;
+}
+
+/* =========================
+   FAQ MODAL PREMIUM
+========================= */
+
+.faq-modal{
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0,0,0,0.55);
+
+  backdrop-filter: blur(8px);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.35s ease;
+
+  z-index: 5000;
+}
+
+.faq-modal.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+.faq-box{
+  width: 92%;
+  max-width: 650px;
+
+  background: rgba(255,255,255,0.98);
+
+  border-radius: 28px;
+
+  padding: 35px;
+
+  box-shadow:
+  0 20px 60px rgba(0,0,0,0.25);
+
+  animation: faqOpen 0.35s ease;
+}
+
+@keyframes faqOpen{
+  from{
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+  }
+
+  to{
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.faq-top{
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+}
+
+.faq-top h2{
+  font-size: 30px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.faq-top button{
+  border: none;
+  background: transparent;
+
+  font-size: 30px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.faq-top button:hover{
+  transform: rotate(90deg);
+}
+
+.faq-subtitle{
+  margin-bottom: 30px;
+
+  font-size: 15px;
+
+  line-height: 24px;
+
+  opacity: 0.7;
+}
+
+/* =========================
+   FAQ ITEMS
+========================= */
+
+.faq-item{
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+
+  padding: 18px 0;
+
+  transition: 0.3s ease;
+}
+
+.faq-question{
+  width: 100%;
+
+  border: none;
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  text-align: left;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.faq-question:hover{
+  opacity: 0.7;
+}
+
+.faq-question i{
+  transition: 0.3s ease;
+}
+
+.faq-item.active .faq-question i{
+  transform: rotate(180deg);
+}
+
+.faq-answer{
+  max-height: 0;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  transition: 0.35s ease;
+
+  font-size: 15px;
+
+  line-height: 25px;
+
+  color: #333;
+}
+
+.faq-item.active .faq-answer{
+  max-height: 300px;
+
+  opacity: 1;
+
+  margin-top: 14px;
+}
+
+/* =========================
+   HELP BUTTON
+========================= */
+
+#openFaq,
+#sidebarFaqBtn{
+  cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE
 ========================= */
 
 @media(max-width: 1200px){
@@ -782,14 +1002,6 @@ body{
     grid-template-columns: 1fr;
   }
 
-  .collection-banner h2{
-    font-size: 28px;
-
-    width: 90%;
-
-    text-align: center;
-  }
-
 }
 
 @media(max-width: 700px){
@@ -812,6 +1024,18 @@ body{
 
   .payments{
     flex-wrap: wrap;
+  }
+
+  .search-container.active #searchInput{
+    width: 170px;
+  }
+
+  .faq-box{
+    padding: 25px;
+  }
+
+  .faq-top h2{
+    font-size: 24px;
   }
 
 }
@@ -837,559 +1061,8 @@ body{
     height: 120px;
   }
 
-  .collection-banner h2{
-    font-size: 20px;
+  .faq-question{
+    font-size: 15px;
   }
 
-}
-/* =========================
-   SEARCH MODAL
-========================= */
-
-.search-modal,
-.help-modal{
-  position: fixed;
-
-  inset: 0;
-
-  background: rgba(0,0,0,0.6);
-
-  backdrop-filter: blur(8px);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition: 0.3s ease;
-
-  z-index: 3000;
-}
-
-.search-modal.active,
-.help-modal.active{
-  opacity: 1;
-  visibility: visible;
-}
-
-.search-box,
-.help-box{
-  width: 90%;
-  max-width: 600px;
-
-  background: white;
-
-  border-radius: 20px;
-
-  padding: 30px;
-
-  box-shadow:
-  0 20px 50px rgba(0,0,0,0.25);
-}
-
-.search-top,
-.help-top{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin-bottom: 25px;
-}
-
-.search-top h2,
-.help-top h2{
-  font-size: 28px;
-}
-
-.search-top button,
-.help-top button{
-  border: none;
-  background: transparent;
-
-  font-size: 28px;
-
-  cursor: pointer;
-}
-
-#searchInput{
-  width: 100%;
-  height: 60px;
-
-  border-radius: 14px;
-
-  border: 2px solid #ddd;
-
-  padding: 0 20px;
-
-  font-size: 16px;
-
-  outline: none;
-}
-
-/* FAQ */
-
-.faq-item{
-  border-bottom: 1px solid #ddd;
-
-  padding: 15px 0;
-}
-
-.faq-question{
-  width: 100%;
-
-  border: none;
-  background: transparent;
-
-  text-align: left;
-
-  font-size: 18px;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  padding: 10px 0;
-}
-
-.faq-answer{
-  max-height: 0;
-
-  overflow: hidden;
-
-  transition: 0.3s ease;
-
-  opacity: 0;
-
-  font-size: 15px;
-
-  line-height: 24px;
-}
-
-.faq-item.active .faq-answer{
-  max-height: 200px;
-
-  opacity: 1;
-
-  margin-top: 10px;
-}
-/* =========================
-   SEARCH INLINE PREMIUM
-========================= */
-
-.search-container{
-  position: relative;
-
-  display: flex;
-  align-items: center;
-}
-
-#searchInput{
-  width: 0;
-
-  opacity: 0;
-
-  border: none;
-
-  height: 42px;
-
-  border-radius: 30px;
-
-  padding: 0 18px;
-
-  font-size: 14px;
-
-  outline: none;
-
-  transition: 0.4s ease;
-
-  margin-left: 10px;
-
-  background: white;
-
-  color: black;
-}
-
-/* ATIVO */
-
-.search-container.active #searchInput{
-
-  width: 240px;
-
-  opacity: 1;
-
-}
-
-/* RESPONSIVO */
-
-@media(max-width: 700px){
-
-  .search-container.active #searchInput{
-
-    width: 170px;
-
-  }
-
-}
-/* =========================
-   HELP MODAL
-========================= */
-
-.help-modal{
-  position: fixed;
-
-  inset: 0;
-
-  background: rgba(0,0,0,0.6);
-
-  backdrop-filter: blur(8px);
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition: 0.3s ease;
-
-  z-index: 4000;
-}
-
-.help-modal.active{
-  opacity: 1;
-  visibility: visible;
-}
-
-.help-box{
-  width: 90%;
-  max-width: 650px;
-
-  background: white;
-
-  border-radius: 20px;
-
-  padding: 30px;
-
-  max-height: 85vh;
-
-  overflow-y: auto;
-
-  box-shadow:
-  0 20px 50px rgba(0,0,0,0.25);
-}
-
-.help-top{
-  display: flex;
-
-  justify-content: space-between;
-  align-items: center;
-
-  margin-bottom: 30px;
-}
-
-.help-top h2{
-  font-size: 30px;
-}
-
-.help-top button{
-  border: none;
-  background: transparent;
-
-  font-size: 28px;
-
-  cursor: pointer;
-}
-
-/* FAQ */
-
-.faq-item{
-  border-bottom: 1px solid #ddd;
-
-  padding: 18px 0;
-}
-
-.faq-question{
-  width: 100%;
-
-  border: none;
-  background: transparent;
-
-  text-align: left;
-
-  font-size: 18px;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  padding: 10px 0;
-}
-
-.faq-answer{
-  max-height: 0;
-
-  overflow: hidden;
-
-  opacity: 0;
-
-  transition: 0.3s ease;
-
-  line-height: 24px;
-
-  font-size: 15px;
-}
-
-.faq-item.active .faq-answer{
-  max-height: 300px;
-
-  opacity: 1;
-
-  margin-top: 12px;
-}
-
-/* =========================
-   HELP MODAL
-========================= */
-
-.help-modal{
-  position: fixed;
-
-  inset: 0;
-
-  background: rgba(0,0,0,0.6);
-
-  backdrop-filter: blur(8px);
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition: 0.3s ease;
-
-  z-index: 4000;
-}
-
-.help-modal.active{
-  opacity: 1;
-  visibility: visible;
-}
-
-.help-box{
-  width: 90%;
-  max-width: 650px;
-
-  background: white;
-
-  border-radius: 20px;
-
-  padding: 30px;
-
-  max-height: 85vh;
-
-  overflow-y: auto;
-
-  box-shadow:
-  0 20px 50px rgba(0,0,0,0.25);
-}
-
-.help-top{
-  display: flex;
-
-  justify-content: space-between;
-  align-items: center;
-
-  margin-bottom: 30px;
-}
-
-.help-top h2{
-  font-size: 30px;
-}
-
-.help-top button{
-  border: none;
-  background: transparent;
-
-  font-size: 28px;
-
-  cursor: pointer;
-}
-
-/* FAQ */
-
-.faq-item{
-  border-bottom: 1px solid #ddd;
-
-  padding: 18px 0;
-}
-
-.faq-question{
-  width: 100%;
-
-  border: none;
-  background: transparent;
-
-  text-align: left;
-
-  font-size: 18px;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  padding: 10px 0;
-}
-
-.faq-answer{
-  max-height: 0;
-
-  overflow: hidden;
-
-  opacity: 0;
-
-  transition: 0.3s ease;
-
-  line-height: 24px;
-
-  font-size: 15px;
-}
-
-.faq-item.active .faq-answer{
-  max-height: 300px;
-
-  opacity: 1;
-
-  margin-top: 12px;
-}
-/* =========================
-   HELP MODAL PREMIUM
-========================= */
-
-.help-modal{
-  position: fixed;
-
-  inset: 0;
-
-  background: rgba(0,0,0,0.55);
-
-  backdrop-filter: blur(6px);
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition: 0.3s ease;
-
-  z-index: 5000;
-}
-
-.help-modal.active{
-  opacity: 1;
-  visibility: visible;
-}
-
-.help-box{
-  width: 90%;
-  max-width: 500px;
-
-  background: white;
-
-  border-radius: 24px;
-
-  padding: 35px;
-
-  box-shadow:
-  0 20px 60px rgba(0,0,0,0.2);
-}
-
-.help-top{
-  display: flex;
-
-  justify-content: space-between;
-  align-items: center;
-
-  margin-bottom: 15px;
-}
-
-.help-top h2{
-  font-size: 28px;
-}
-
-.help-top button{
-  border: none;
-  background: transparent;
-
-  font-size: 28px;
-
-  cursor: pointer;
-}
-
-.help-text{
-  margin-bottom: 20px;
-
-  opacity: 0.7;
-
-  line-height: 24px;
-}
-
-#helpMessage{
-  width: 100%;
-  height: 140px;
-
-  resize: none;
-
-  border: 2px solid #ddd;
-
-  border-radius: 18px;
-
-  padding: 18px;
-
-  font-size: 15px;
-
-  outline: none;
-
-  margin-bottom: 20px;
-}
-
-#sendHelp{
-  width: 100%;
-  height: 55px;
-
-  border: none;
-
-  border-radius: 14px;
-
-  background: black;
-
-  color: white;
-
-  font-size: 16px;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition: 0.3s ease;
-}
-
-#sendHelp:hover{
-  opacity: 0.9;
-}
-
-.help-email{
-  margin-top: 22px;
-
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  font-size: 14px;
-
-  opacity: 0.7;
 }
