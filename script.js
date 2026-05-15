@@ -409,11 +409,8 @@ if(searchInput){
 }
 
 // =========================
-// HELP / FAQ
+// HELP MODAL
 // =========================
-
-const helpBtn =
-document.getElementById("helpBtn");
 
 const sidebarHelpBtn =
 document.getElementById("sidebarHelpBtn");
@@ -424,23 +421,12 @@ document.getElementById("helpModal");
 const closeHelp =
 document.getElementById("closeHelp");
 
-// ABRIR FAQ TOPO
+const sendHelp =
+document.getElementById("sendHelp");
 
-if(helpBtn && helpModal){
+// ABRIR
 
-  helpBtn.addEventListener("click", (e) => {
-
-    e.preventDefault();
-
-    helpModal.classList.add("active");
-
-  });
-
-}
-
-// ABRIR FAQ SIDEBAR
-
-if(sidebarHelpBtn && helpModal){
+if(sidebarHelpBtn){
 
   sidebarHelpBtn.addEventListener("click", (e) => {
 
@@ -456,7 +442,7 @@ if(sidebarHelpBtn && helpModal){
 
 }
 
-// FECHAR FAQ
+// FECHAR
 
 if(closeHelp){
 
@@ -468,23 +454,34 @@ if(closeHelp){
 
 }
 
-// FAQ EXPANSIVO
+// ENVIAR
 
-const faqQuestions =
-document.querySelectorAll(".faq-question");
+if(sendHelp){
 
-faqQuestions.forEach(question => {
+  sendHelp.addEventListener("click", () => {
 
-  question.addEventListener("click", () => {
+    const message =
+    document.getElementById("helpMessage").value;
 
-    const item =
-    question.parentElement;
+    if(message.trim() === ""){
 
-    item.classList.toggle("active");
+      alert("Digite sua dúvida.");
+
+      return;
+
+    }
+
+    alert(
+      "Mensagem enviada com sucesso!"
+    );
+
+    document.getElementById("helpMessage").value = "";
+
+    helpModal.classList.remove("active");
 
   });
 
-});
+}
 
 // =========================
 // ESC
