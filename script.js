@@ -38,6 +38,23 @@ document.getElementById("cartPopup");
 const cartButtons =
 document.querySelectorAll(".add-cart");
 
+// FAQ
+
+const faqModal =
+document.getElementById("faqModal");
+
+const openFaq =
+document.getElementById("openFaq");
+
+const sidebarFaqBtn =
+document.getElementById("sidebarFaqBtn");
+
+const closeFaq =
+document.getElementById("closeFaq");
+
+const faqItems =
+document.querySelectorAll(".faq-item");
+
 // =========================
 // MENU
 // =========================
@@ -68,6 +85,10 @@ if(closeMenu){
 
 }
 
+// =========================
+// OVERLAY
+// =========================
+
 if(overlay){
 
   overlay.addEventListener("click", () => {
@@ -76,7 +97,7 @@ if(overlay){
 
     cartSidebar.classList.remove("active");
 
-    helpModal.classList.remove("active");
+    faqModal.classList.remove("active");
 
   });
 
@@ -178,9 +199,7 @@ function updateCart(){
     cartItems.innerHTML = `
 
       <p class="empty-cart">
-
         Seu carrinho está vazio.
-
       </p>
 
     `;
@@ -222,7 +241,7 @@ function updateCart(){
 
   cartCount.innerText = cart.length;
 
-  // REMOVER
+  // REMOVER ITEM
 
   const removeButtons =
   document.querySelectorAll(".remove-item");
@@ -245,7 +264,7 @@ function updateCart(){
 }
 
 // =========================
-// FINALIZAR
+// FINALIZAR PEDIDO
 // =========================
 
 if(finishOrder){
@@ -276,8 +295,6 @@ if(finishOrder){
 
     message +=
     `%0ATotal: R$ ${total}`;
-
-    // SEU WHATSAPP
 
     const phone =
     "5511987984894";
@@ -319,7 +336,9 @@ if(searchBtn){
 
 }
 
+// =========================
 // PESQUISA
+// =========================
 
 if(searchInput){
 
@@ -353,7 +372,9 @@ if(searchInput){
 
 }
 
-// ENTER
+// =========================
+// ENTER PESQUISA
+// =========================
 
 if(searchInput){
 
@@ -409,79 +430,96 @@ if(searchInput){
 }
 
 // =========================
-// HELP MODAL
+// FAQ MODAL
 // =========================
 
-const sidebarHelpBtn =
-document.getElementById("sidebarHelpBtn");
+function openFaqModal(){
 
-const helpModal =
-document.getElementById("helpModal");
+  faqModal.classList.add("active");
 
-const closeHelp =
-document.getElementById("closeHelp");
+  overlay.classList.add("active");
 
-const sendHelp =
-document.getElementById("sendHelp");
+  sidebar.classList.remove("active");
 
-// ABRIR
+}
 
-if(sidebarHelpBtn){
+function closeFaqModal(){
 
-  sidebarHelpBtn.addEventListener("click", (e) => {
+  faqModal.classList.remove("active");
+
+  overlay.classList.remove("active");
+
+}
+
+// BOTÃO FAQ NAVBAR
+
+if(openFaq){
+
+  openFaq.addEventListener("click", (e) => {
 
     e.preventDefault();
 
-    sidebar.classList.remove("active");
-
-    overlay.classList.remove("active");
-
-    helpModal.classList.add("active");
+    openFaqModal();
 
   });
 
 }
 
-// FECHAR
+// BOTÃO FAQ SIDEBAR
 
-if(closeHelp){
+if(sidebarFaqBtn){
 
-  closeHelp.addEventListener("click", () => {
+  sidebarFaqBtn.addEventListener("click", (e) => {
 
-    helpModal.classList.remove("active");
+    e.preventDefault();
+
+    openFaqModal();
 
   });
 
 }
 
-// ENVIAR
+// FECHAR FAQ
 
-if(sendHelp){
+if(closeFaq){
 
-  sendHelp.addEventListener("click", () => {
+  closeFaq.addEventListener("click", () => {
 
-    const message =
-    document.getElementById("helpMessage").value;
+    closeFaqModal();
 
-    if(message.trim() === ""){
+  });
 
-      alert("Digite sua dúvida.");
+}
 
-      return;
+// =========================
+// FAQ ACCORDION
+// =========================
+
+faqItems.forEach(item => {
+
+  const question =
+  item.querySelector(".faq-question");
+
+  question.addEventListener("click", () => {
+
+    const isActive =
+    item.classList.contains("active");
+
+    faqItems.forEach(i => {
+
+      i.classList.remove("active");
+
+    });
+
+    if(!isActive){
+
+      item.classList.add("active");
 
     }
 
-    alert(
-      "Mensagem enviada com sucesso!"
-    );
-
-    document.getElementById("helpMessage").value = "";
-
-    helpModal.classList.remove("active");
-
   });
 
-}
+});
 
 // =========================
 // ESC
@@ -495,7 +533,37 @@ document.addEventListener("keydown", (event) => {
 
     cartSidebar.classList.remove("active");
 
-    helpModal.classList.remove("active");
+    faqModal.classList.remove("active");
+
+    overlay.classList.remove("active");
+
+  }
+
+});
+
+// =========================
+// ANIMAÇÃO HEADER
+// =========================
+
+window.addEventListener("scroll", () => {
+
+  const header =
+  document.querySelector(".top-header");
+
+  if(window.scrollY > 40){
+
+    header.style.background =
+    "rgba(0,0,0,0.92)";
+
+    header.style.backdropFilter =
+    "blur(14px)";
+
+  }
+
+  else{
+
+    header.style.background =
+    "rgba(0,0,0,0.96)";
 
   }
 
