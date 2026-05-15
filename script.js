@@ -503,4 +503,69 @@ sidebarHelpBtn.addEventListener("click", (e) => {
   helpModal.classList.add("active");
 
 });
+// =========================
+// FAQ / AJUDA
+// =========================
+
+const helpBtn =
+document.getElementById("helpBtn");
+
+const sidebarHelpBtn =
+document.getElementById("sidebarHelpBtn");
+
+const helpModal =
+document.getElementById("helpModal");
+
+const closeHelp =
+document.getElementById("closeHelp");
+
+// ABRIR PELO TOPO
+
+helpBtn.addEventListener("click", (e) => {
+
+  e.preventDefault();
+
+  helpModal.classList.add("active");
+
+});
+
+// ABRIR PELO MENU
+
+sidebarHelpBtn.addEventListener("click", (e) => {
+
+  e.preventDefault();
+
+  sidebar.classList.remove("active");
+
+  overlay.classList.remove("active");
+
+  helpModal.classList.add("active");
+
+});
+
+// FECHAR
+
+closeHelp.addEventListener("click", () => {
+
+  helpModal.classList.remove("active");
+
+});
+
+// FAQ ABRIR
+
+const faqItems =
+document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item => {
+
+  const question =
+  item.querySelector(".faq-question");
+
+  question.addEventListener("click", () => {
+
+    item.classList.toggle("active");
+
+  });
+
+});
 
