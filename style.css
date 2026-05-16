@@ -1066,3 +1066,34 @@ body{
   }
 
 }
+.faq-container{
+    max-width: 800px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.faq-item{
+    background: #111;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+}
+
+.faq-item h3{
+    margin-bottom: 10px;
+    color: white;
+}
+
+.faq-item p{
+    color: #ccc;
+}
+
+.btn-voltar{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    text-decoration: none;
+}
