@@ -2,159 +2,91 @@
 // ELEMENTOS
 // =========================
 
-const menuBtn =
-document.getElementById("menuBtn");
+const menuBtn = document.getElementById("menuBtn");
+const closeMenu = document.getElementById("closeMenu");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
 
-const closeMenu =
-document.getElementById("closeMenu");
+const cartSidebar = document.getElementById("cartSidebar");
+const cartButton = document.getElementById("cartButton");
+const closeCart = document.getElementById("closeCart");
+const cartItems = document.getElementById("cartItems");
+const cartCount = document.getElementById("cartCount");
+const finishOrder = document.getElementById("finishOrder");
+const cartPopup = document.getElementById("cartPopup");
 
-const sidebar =
-document.getElementById("sidebar");
-
-const overlay =
-document.getElementById("overlay");
-
-const cartSidebar =
-document.getElementById("cartSidebar");
-
-const cartButton =
-document.getElementById("cartButton");
-
-const closeCart =
-document.getElementById("closeCart");
-
-const cartItems =
-document.getElementById("cartItems");
-
-const cartCount =
-document.getElementById("cartCount");
-
-const finishOrder =
-document.getElementById("finishOrder");
-
-const cartPopup =
-document.getElementById("cartPopup");
-
-const cartButtons =
-document.querySelectorAll(".add-cart");
+const cartButtons = document.querySelectorAll(".add-cart");
 
 // FAQ
+const faqModal = document.getElementById("faqModal");
+const openFaq = document.getElementById("openFaq");
+const sidebarFaqBtn = document.getElementById("sidebarFaqBtn");
+const closeFaq = document.getElementById("closeFaq");
+const faqItems = document.querySelectorAll(".faq-item");
 
-const faqModal =
-document.getElementById("faqModal");
+// ACESSIBILIDADE
+const accessibilityBtn = document.getElementById("accessibilityBtn");
+const accessibilityPanel = document.getElementById("accessibilityPanel");
+const closeAccessibility = document.getElementById("closeAccessibility");
 
-const openFaq =
-document.getElementById("openFaq");
+const sidebarAccessibilityBtn = document.getElementById("sidebarAccessibilityBtn");
 
-const sidebarFaqBtn =
-document.getElementById("sidebarFaqBtn");
+// =========================
+// ESTADO
+// =========================
 
-const closeFaq =
-document.getElementById("closeFaq");
-
-const faqItems =
-document.querySelectorAll(".faq-item");
+let cart = [];
+let currentFontSize = 16;
 
 // =========================
 // MENU
 // =========================
 
-if(menuBtn){
-
+if (menuBtn) {
   menuBtn.addEventListener("click", () => {
-
-    sidebar.classList.add("active");
-
-    overlay.classList.add("active");
-
+    sidebar?.classList.add("active");
+    overlay?.classList.add("active");
   });
-
 }
 
-function closeSidebar(){
-
-  if(sidebar){
-
-    sidebar.classList.remove("active");
-
-  }
-
-  if(overlay){
-
-    overlay.classList.remove("active");
-
-  }
-
+function closeSidebar() {
+  sidebar?.classList.remove("active");
+  overlay?.classList.remove("active");
 }
 
-if(closeMenu){
-
+if (closeMenu) {
   closeMenu.addEventListener("click", closeSidebar);
-
 }
 
 // =========================
 // OVERLAY
 // =========================
 
-if(overlay){
-
+if (overlay) {
   overlay.addEventListener("click", () => {
-
     closeSidebar();
-
-    if(cartSidebar){
-
-      cartSidebar.classList.remove("active");
-
-    }
-
-    if(faqModal){
-
-      faqModal.classList.remove("active");
-
-    }
-
+    cartSidebar?.classList.remove("active");
+    faqModal?.classList.remove("active");
+    accessibilityPanel?.classList.remove("active");
   });
-
 }
 
 // =========================
 // CARRINHO
 // =========================
 
-let cart = [];
-
-if(cartButton){
-
+if (cartButton) {
   cartButton.addEventListener("click", () => {
-
-    if(cartSidebar){
-
-      cartSidebar.classList.add("active");
-
-    }
-
-    overlay.classList.add("active");
-
+    cartSidebar?.classList.add("active");
+    overlay?.classList.add("active");
   });
-
 }
 
-if(closeCart){
-
+if (closeCart) {
   closeCart.addEventListener("click", () => {
-
-    if(cartSidebar){
-
-      cartSidebar.classList.remove("active");
-
-    }
-
-    overlay.classList.remove("active");
-
+    cartSidebar?.classList.remove("active");
+    overlay?.classList.remove("active");
   });
-
 }
 
 // =========================
@@ -162,538 +94,284 @@ if(closeCart){
 // =========================
 
 cartButtons.forEach(button => {
-
   button.addEventListener("click", () => {
-
-    const name =
-    button.dataset.name;
-
-    const price =
-    button.dataset.price;
-
     cart.push({
-
-      name,
-      price
-
+      name: button.dataset.name,
+      price: button.dataset.price
     });
 
     updateCart();
 
-    if(cartSidebar){
-
-      cartSidebar.classList.add("active");
-
-    }
-
-    overlay.classList.add("active");
+    cartSidebar?.classList.add("active");
+    overlay?.classList.add("active");
 
     showPopup();
-
   });
-
 });
 
 // =========================
 // POPUP
 // =========================
 
-function showPopup(){
-
-  if(!cartPopup) return;
+function showPopup() {
+  if (!cartPopup) return;
 
   cartPopup.classList.add("show");
 
   setTimeout(() => {
-
     cartPopup.classList.remove("show");
-
   }, 2000);
-
 }
 
 // =========================
-// UPDATE CART
+// ATUALIZAR CARRINHO
 // =========================
 
-function updateCart(){
-
-  if(!cartItems) return;
+function updateCart() {
+  if (!cartItems) return;
 
   cartItems.innerHTML = "";
 
-  if(cart.length === 0){
-
-    cartItems.innerHTML = `
-
-      <p class="empty-cart">
-        Seu carrinho está vazio.
-      </p>
-
-    `;
-
-  }
-
-  else{
-
+  if (cart.length === 0) {
+    cartItems.innerHTML = `<p class="empty-cart">Seu carrinho está vazio.</p>`;
+  } else {
     cart.forEach((item, index) => {
-
       cartItems.innerHTML += `
-
         <div class="cart-item">
-
           <div>
-
             <h4>${item.name}</h4>
-
             <p>R$ ${item.price}</p>
-
           </div>
 
-          <button
-            class="remove-item"
-            data-index="${index}"
-          >
-
+          <button class="remove-item" data-index="${index}">
             <i class="fa-solid fa-trash"></i>
-
           </button>
-
         </div>
-
       `;
-
     });
-
   }
 
-  if(cartCount){
-
+  if (cartCount) {
     cartCount.innerText = cart.length;
-
   }
 
-  // REMOVER ITEM
-
-  const removeButtons =
-  document.querySelectorAll(".remove-item");
-
-  removeButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-      const index =
-      button.dataset.index;
-
+  document.querySelectorAll(".remove-item").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const index = btn.dataset.index;
       cart.splice(index, 1);
-
       updateCart();
-
     });
-
   });
-
 }
 
 // =========================
 // FINALIZAR PEDIDO
 // =========================
 
-if(finishOrder){
-
+if (finishOrder) {
   finishOrder.addEventListener("click", () => {
-
-    if(cart.length === 0){
-
+    if (cart.length === 0) {
       alert("Seu carrinho está vazio.");
-
       return;
-
     }
 
-    let message =
-    "Olá, gostaria de finalizar meu pedido:%0A%0A";
-
+    let message = "Olá, gostaria de finalizar meu pedido:%0A%0A";
     let total = 0;
 
     cart.forEach(item => {
-
-      message +=
-      `• ${item.name} - R$ ${item.price}%0A`;
-
+      message += `• ${item.name} - R$ ${item.price}%0A`;
       total += Number(item.price);
-
     });
 
-    message +=
-    `%0ATotal: R$ ${total}`;
+    message += `%0ATotal: R$ ${total}`;
 
-    const phone =
-    "5511987984894";
+    const phone = "5511987984894";
 
-    const url =
-    `https://wa.me/${phone}?text=${message}`;
-
-    window.open(url, "_blank");
-
+    window.open(
+      `https://wa.me/${phone}?text=${message}`,
+      "_blank"
+    );
   });
-
 }
 
 // =========================
-// BUSCA INLINE
+// BUSCA
 // =========================
 
-const searchBtn =
-document.getElementById("searchBtn");
+const searchBtn = document.getElementById("searchBtn");
+const searchContainer = document.querySelector(".search-container");
+const searchInput = document.getElementById("searchInput");
+const productCards = document.querySelectorAll(".product-card");
 
-const searchContainer =
-document.querySelector(".search-container");
-
-const searchInput =
-document.getElementById("searchInput");
-
-const productCards =
-document.querySelectorAll(".product-card");
-
-if(searchBtn){
-
+if (searchBtn) {
   searchBtn.addEventListener("click", () => {
-
-    if(searchContainer){
-
-      searchContainer.classList.toggle("active");
-
-    }
-
-    if(searchInput){
-
-      searchInput.focus();
-
-    }
-
+    searchContainer?.classList.toggle("active");
+    searchInput?.focus();
   });
-
 }
 
-// =========================
-// PESQUISA
-// =========================
-
-if(searchInput){
-
+if (searchInput) {
   searchInput.addEventListener("keyup", () => {
-
-    const value =
-    searchInput.value.toLowerCase();
+    const value = searchInput.value.toLowerCase();
 
     productCards.forEach(card => {
+      const title = card.querySelector("h3").innerText.toLowerCase();
 
-      const title =
-      card.querySelector("h3")
-      .innerText
-      .toLowerCase();
-
-      if(title.includes(value)){
-
-        card.style.display = "block";
-
-      }
-
-      else{
-
-        card.style.display = "none";
-
-      }
-
+      card.style.display = title.includes(value) ? "block" : "none";
     });
-
   });
 
-}
-
-// =========================
-// ENTER PESQUISA
-// =========================
-
-if(searchInput){
-
   searchInput.addEventListener("keypress", (e) => {
-
-    if(e.key === "Enter"){
-
-      const value =
-      searchInput.value.toLowerCase();
-
+    if (e.key === "Enter") {
+      const value = searchInput.value.toLowerCase();
       let found = false;
 
       productCards.forEach(card => {
+        const title = card.querySelector("h3").innerText.toLowerCase();
 
-        const title =
-        card.querySelector("h3")
-        .innerText
-        .toLowerCase();
-
-        if(title.includes(value) && !found){
-
+        if (title.includes(value) && !found) {
           found = true;
 
           card.scrollIntoView({
-
             behavior: "smooth",
             block: "center"
-
           });
 
-          card.style.transform =
-          "scale(1.03)";
-
-          card.style.boxShadow =
-          "0 0 30px rgba(0,0,0,0.2)";
+          card.style.transform = "scale(1.03)";
+          card.style.boxShadow = "0 0 30px rgba(0,0,0,0.2)";
 
           setTimeout(() => {
-
             card.style.transform = "";
-
             card.style.boxShadow = "";
-
           }, 2000);
-
         }
-
       });
-
     }
-
   });
-
 }
 
 // =========================
-// FAQ MODAL
+// FAQ
 // =========================
 
-function openFaqModal(){
-
-  if(faqModal){
-
-    faqModal.classList.add("active");
-
-  }
-
-  if(overlay){
-
-    overlay.classList.add("active");
-
-  }
-
-  if(sidebar){
-
-    sidebar.classList.remove("active");
-
-  }
-
+function openFaqModal() {
+  faqModal?.classList.add("active");
+  overlay?.classList.add("active");
+  sidebar?.classList.remove("active");
 }
 
-function closeFaqModal(){
-
-  if(faqModal){
-
-    faqModal.classList.remove("active");
-
-  }
-
-  if(overlay){
-
-    overlay.classList.remove("active");
-
-  }
-
+function closeFaqModal() {
+  faqModal?.classList.remove("active");
+  overlay?.classList.remove("active");
 }
 
-// BOTÃO FAQ NAVBAR
-
-if(openFaq){
-
-  openFaq.addEventListener("click", (e) => {
-
+if (openFaq) {
+  openFaq.addEventListener("click", e => {
     e.preventDefault();
-
     openFaqModal();
-
   });
-
 }
 
-// BOTÃO FAQ SIDEBAR
-
-if(sidebarFaqBtn){
-
-  sidebarFaqBtn.addEventListener("click", (e) => {
-
+if (sidebarFaqBtn) {
+  sidebarFaqBtn.addEventListener("click", e => {
     e.preventDefault();
-
     openFaqModal();
-
   });
-
 }
 
-// FECHAR FAQ
-
-if(closeFaq){
-
-  closeFaq.addEventListener("click", () => {
-
-    closeFaqModal();
-
-  });
-
+if (closeFaq) {
+  closeFaq.addEventListener("click", closeFaqModal);
 }
 
-// =========================
-// FAQ ACCORDION
-// =========================
-
-if(faqItems.length > 0){
-
+if (faqItems.length > 0) {
   faqItems.forEach(item => {
-
-    const question =
-    item.querySelector(".faq-question");
+    const question = item.querySelector(".faq-question");
 
     question.addEventListener("click", () => {
+      const isActive = item.classList.contains("active");
 
-      const isActive =
-      item.classList.contains("active");
+      faqItems.forEach(i => i.classList.remove("active"));
 
-      faqItems.forEach(i => {
-
-        i.classList.remove("active");
-
-      });
-
-      if(!isActive){
-
-        item.classList.add("active");
-
-      }
-
+      if (!isActive) item.classList.add("active");
     });
-
   });
-
 }
 
 // =========================
-// ESC
+// TECLADO ESC
 // =========================
 
-document.addEventListener("keydown", (event) => {
-
-  if(event.key === "Escape"){
-
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
     closeSidebar();
-
-    if(cartSidebar){
-
-      cartSidebar.classList.remove("active");
-
-    }
-
-    if(faqModal){
-
-      faqModal.classList.remove("active");
-
-    }
-
-    if(overlay){
-
-      overlay.classList.remove("active");
-
-    }
-
+    cartSidebar?.classList.remove("active");
+    faqModal?.classList.remove("active");
+    accessibilityPanel?.classList.remove("active");
+    overlay?.classList.remove("active");
   }
-
 });
 
 // =========================
-// ANIMAÇÃO HEADER
+// HEADER SCROLL
 // =========================
 
 window.addEventListener("scroll", () => {
+  const header = document.querySelector(".top-header");
+  if (!header) return;
 
-  const header =
-  document.querySelector(".top-header");
-
-  if(!header) return;
-
-  if(window.scrollY > 40){
-
-    header.style.background =
-    "rgba(0,0,0,0.92)";
-
-    header.style.backdropFilter =
-    "blur(14px)";
-
-  }
-
-  else{
-
-    header.style.background =
-    "rgba(0,0,0,0.96)";
-
-  }
-
+  header.style.background =
+    window.scrollY > 40
+      ? "rgba(0,0,0,0.92)"
+      : "rgba(0,0,0,0.96)";
 });
 
 // =========================
 // ACESSIBILIDADE
 // =========================
 
-const accessibilityBtn =
-document.getElementById("accessibilityBtn");
-
-const accessibilityPanel =
-document.getElementById("accessibilityPanel");
-
-let currentFontSize = 16;
-
-// ABRIR / FECHAR PAINEL
-
-if(accessibilityBtn){
-
+if (accessibilityBtn && accessibilityPanel) {
   accessibilityBtn.addEventListener("click", () => {
-
     accessibilityPanel.classList.toggle("active");
-
   });
-
 }
 
-// TAMANHO TEXTO
+if (closeAccessibility) {
+  closeAccessibility.addEventListener("click", () => {
+    accessibilityPanel.classList.remove("active");
+  });
+}
 
-function changeFontSize(change){
-
+// FONT SIZE
+function changeFontSize(change) {
   currentFontSize += change;
 
-  document.body.style.fontSize =
-  currentFontSize + "px";
+  if (currentFontSize < 12) currentFontSize = 12;
+  if (currentFontSize > 24) currentFontSize = 24;
 
+  document.body.style.fontSize = currentFontSize + "px";
 }
 
-// ALTO CONTRASTE
+function resetFontSize() {
+  currentFontSize = 16;
+  document.body.style.fontSize = "16px";
+}
 
-function toggleContrast(){
-
+// CONTRASTE
+function toggleContrast() {
   document.body.classList.toggle("high-contrast");
-
+  document.body.classList.remove("light-mode");
 }
 
 // LIGHT MODE
-
-function toggleLightMode(){
-
+function toggleLightMode() {
   document.body.classList.toggle("light-mode");
+  document.body.classList.remove("high-contrast");
+}
 
+// ACESSIBILIDADE VIA SIDEBAR
+if (sidebarAccessibilityBtn) {
+  sidebarAccessibilityBtn.addEventListener("click", e => {
+    e.preventDefault();
+    accessibilityPanel?.classList.add("active");
+  });
 }
