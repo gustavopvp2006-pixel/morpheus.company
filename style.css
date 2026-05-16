@@ -1521,6 +1521,15 @@ NOTIFICAÇÕES LOGIN
     color: #cfcfcf;
 
     font-size: 14px;
+
+    text-align: center;
+}
+
+.notification-option p{
+
+    margin: 0;
+
+    line-height: 1.2;
 }
 
 /* SWITCH */
