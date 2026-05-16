@@ -73,9 +73,17 @@ if(menuBtn){
 
 function closeSidebar(){
 
-  sidebar.classList.remove("active");
+  if(sidebar){
 
-  overlay.classList.remove("active");
+    sidebar.classList.remove("active");
+
+  }
+
+  if(overlay){
+
+    overlay.classList.remove("active");
+
+  }
 
 }
 
@@ -95,9 +103,17 @@ if(overlay){
 
     closeSidebar();
 
-    cartSidebar.classList.remove("active");
+    if(cartSidebar){
 
-    faqModal.classList.remove("active");
+      cartSidebar.classList.remove("active");
+
+    }
+
+    if(faqModal){
+
+      faqModal.classList.remove("active");
+
+    }
 
   });
 
@@ -113,7 +129,11 @@ if(cartButton){
 
   cartButton.addEventListener("click", () => {
 
-    cartSidebar.classList.add("active");
+    if(cartSidebar){
+
+      cartSidebar.classList.add("active");
+
+    }
 
     overlay.classList.add("active");
 
@@ -125,7 +145,11 @@ if(closeCart){
 
   closeCart.addEventListener("click", () => {
 
-    cartSidebar.classList.remove("active");
+    if(cartSidebar){
+
+      cartSidebar.classList.remove("active");
+
+    }
 
     overlay.classList.remove("active");
 
@@ -156,7 +180,11 @@ cartButtons.forEach(button => {
 
     updateCart();
 
-    cartSidebar.classList.add("active");
+    if(cartSidebar){
+
+      cartSidebar.classList.add("active");
+
+    }
 
     overlay.classList.add("active");
 
@@ -239,7 +267,11 @@ function updateCart(){
 
   }
 
-  cartCount.innerText = cart.length;
+  if(cartCount){
+
+    cartCount.innerText = cart.length;
+
+  }
 
   // REMOVER ITEM
 
@@ -328,9 +360,17 @@ if(searchBtn){
 
   searchBtn.addEventListener("click", () => {
 
-    searchContainer.classList.toggle("active");
+    if(searchContainer){
 
-    searchInput.focus();
+      searchContainer.classList.toggle("active");
+
+    }
+
+    if(searchInput){
+
+      searchInput.focus();
+
+    }
 
   });
 
@@ -435,19 +475,39 @@ if(searchInput){
 
 function openFaqModal(){
 
-  faqModal.classList.add("active");
+  if(faqModal){
 
-  overlay.classList.add("active");
+    faqModal.classList.add("active");
 
-  sidebar.classList.remove("active");
+  }
+
+  if(overlay){
+
+    overlay.classList.add("active");
+
+  }
+
+  if(sidebar){
+
+    sidebar.classList.remove("active");
+
+  }
 
 }
 
 function closeFaqModal(){
 
-  faqModal.classList.remove("active");
+  if(faqModal){
 
-  overlay.classList.remove("active");
+    faqModal.classList.remove("active");
+
+  }
+
+  if(overlay){
+
+    overlay.classList.remove("active");
+
+  }
 
 }
 
@@ -495,31 +555,35 @@ if(closeFaq){
 // FAQ ACCORDION
 // =========================
 
-faqItems.forEach(item => {
+if(faqItems.length > 0){
 
-  const question =
-  item.querySelector(".faq-question");
+  faqItems.forEach(item => {
 
-  question.addEventListener("click", () => {
+    const question =
+    item.querySelector(".faq-question");
 
-    const isActive =
-    item.classList.contains("active");
+    question.addEventListener("click", () => {
 
-    faqItems.forEach(i => {
+      const isActive =
+      item.classList.contains("active");
 
-      i.classList.remove("active");
+      faqItems.forEach(i => {
+
+        i.classList.remove("active");
+
+      });
+
+      if(!isActive){
+
+        item.classList.add("active");
+
+      }
 
     });
 
-    if(!isActive){
-
-      item.classList.add("active");
-
-    }
-
   });
 
-});
+}
 
 // =========================
 // ESC
@@ -531,11 +595,23 @@ document.addEventListener("keydown", (event) => {
 
     closeSidebar();
 
-    cartSidebar.classList.remove("active");
+    if(cartSidebar){
 
-    faqModal.classList.remove("active");
+      cartSidebar.classList.remove("active");
 
-    overlay.classList.remove("active");
+    }
+
+    if(faqModal){
+
+      faqModal.classList.remove("active");
+
+    }
+
+    if(overlay){
+
+      overlay.classList.remove("active");
+
+    }
 
   }
 
@@ -549,6 +625,8 @@ window.addEventListener("scroll", () => {
 
   const header =
   document.querySelector(".top-header");
+
+  if(!header) return;
 
   if(window.scrollY > 40){
 
@@ -566,20 +644,5 @@ window.addEventListener("scroll", () => {
     "rgba(0,0,0,0.96)";
 
   }
-
-});
-// FAQ ABRIR / FECHAR
-
-const faqItems = document.querySelectorAll(".faq-item");
-
-faqItems.forEach(item => {
-
-    const question = item.querySelector(".faq-question");
-
-    question.addEventListener("click", () => {
-
-        item.classList.toggle("active");
-
-    });
 
 });
