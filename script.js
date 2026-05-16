@@ -646,3 +646,54 @@ window.addEventListener("scroll", () => {
   }
 
 });
+
+// =========================
+// ACESSIBILIDADE
+// =========================
+
+const accessibilityBtn =
+document.getElementById("accessibilityBtn");
+
+const accessibilityPanel =
+document.getElementById("accessibilityPanel");
+
+let currentFontSize = 16;
+
+// ABRIR / FECHAR PAINEL
+
+if(accessibilityBtn){
+
+  accessibilityBtn.addEventListener("click", () => {
+
+    accessibilityPanel.classList.toggle("active");
+
+  });
+
+}
+
+// TAMANHO TEXTO
+
+function changeFontSize(change){
+
+  currentFontSize += change;
+
+  document.body.style.fontSize =
+  currentFontSize + "px";
+
+}
+
+// ALTO CONTRASTE
+
+function toggleContrast(){
+
+  document.body.classList.toggle("high-contrast");
+
+}
+
+// LIGHT MODE
+
+function toggleLightMode(){
+
+  document.body.classList.toggle("light-mode");
+
+}
