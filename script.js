@@ -326,52 +326,91 @@ window.addEventListener("scroll", () => {
 });
 
 // =========================
-// ACESSIBILIDADE
+// ACESSIBILIDADE PREMIUM
 // =========================
 
-if (accessibilityBtn && accessibilityPanel) {
+const accessibilityBtn =
+document.getElementById("accessibilityBtn");
+
+const accessibilityPanel =
+document.getElementById("accessibilityPanel");
+
+let fontSize = parseInt(localStorage.getItem("fontSize")) || 16;
+
+// abrir/fechar painel
+if (accessibilityBtn) {
   accessibilityBtn.addEventListener("click", () => {
     accessibilityPanel.classList.toggle("active");
   });
 }
 
-if (closeAccessibility) {
-  closeAccessibility.addEventListener("click", () => {
-    accessibilityPanel.classList.remove("active");
-  });
+// aplicar fonte global
+function applyFont() {
+  document.documentElement.style.fontSize = fontSize + "px";
+  localStorage.setItem("fontSize", fontSize);
 }
 
-// FONT SIZE
-function changeFontSize(change) {
-  currentFontSize += change;
+// aumentar texto
+function changeFontSize(value) {
+  fontSize += value;
 
-  if (currentFontSize < 12) currentFontSize = 12;
-  if (currentFontSize > 24) currentFontSize = 24;
+  if (fontSize < 12) fontSize = 12;
+  if (fontSize > 24) fontSize = 24;
 
-  document.body.style.fontSize = currentFontSize + "px";
+  applyFont();
 }
 
-function resetFontSize() {
-  currentFontSize = 16;
-  document.body.style.fontSize = "16px";
+// =========================
+// TEMA (CLARO / ESCURO REAL)
+// =========================
+
+function setTheme(mode) {
+  if (mode === "light") {
+    document.body.classList.add("light-mode");
+    localStorage.setItem("theme", "light");
+  } else {
+    document.body.classList.remove("light-mode");
+    localStorage.setItem("theme", "dark");
+  }
 }
 
-// CONTRASTE
+function toggleLightMode() {
+  if (document.body.classList.contains("light-mode")) {
+    setTheme("dark");
+  } else {
+    setTheme("light");
+  }
+}
+
+// =========================
+// ALTO CONTRASTE REAL
+// =========================
+
 function toggleContrast() {
   document.body.classList.toggle("high-contrast");
-  document.body.classList.remove("light-mode");
+
+  const active = document.body.classList.contains("high-contrast");
+
+  localStorage.setItem("contrast", active ? "1" : "0");
 }
 
-// LIGHT MODE
-function toggleLightMode() {
-  document.body.classList.toggle("light-mode");
-  document.body.classList.remove("high-contrast");
-}
+// =========================
+// CARREGAR PREFERÊNCIAS
+// =========================
 
-// ACESSIBILIDADE VIA SIDEBAR
-if (sidebarAccessibilityBtn) {
-  sidebarAccessibilityBtn.addEventListener("click", e => {
-    e.preventDefault();
-    accessibilityPanel?.classList.add("active");
-  });
-}
+(function initAccessibility() {
+  // fonte
+  applyFont();
+
+  // tema
+  const theme = localStorage.getItem("theme");
+  if (theme === "light") {
+    document.body.classList.add("light-mode");
+  }
+
+  // contraste
+  const contrast = localStorage.getItem("contrast");
+  if (contrast === "1") {
+    document.body.classList.add("high-contrast");
+  }
+})();
