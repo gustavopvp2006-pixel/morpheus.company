@@ -1855,3 +1855,132 @@ TRACKING
 
     background: rgba(255,255,255,0.2);
 }
+
+/* =========================
+ACESSIBILIDADE
+========================= */
+
+#accessibilityBtn{
+
+    position: fixed;
+
+    right: 20px;
+
+    bottom: 20px;
+
+    width: 60px;
+
+    height: 60px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: white;
+
+    color: black;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    z-index: 9999;
+
+    box-shadow:
+    0 0 20px rgba(0,0,0,0.3);
+
+    transition: 0.3s;
+}
+
+#accessibilityBtn:hover{
+
+    transform: scale(1.08);
+}
+
+.accessibility-panel{
+
+    position: fixed;
+
+    right: -320px;
+
+    top: 0;
+
+    width: 300px;
+
+    height: 100vh;
+
+    background: #111;
+
+    padding: 30px;
+
+    transition: 0.4s;
+
+    z-index: 9999;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    border-left:
+    1px solid rgba(255,255,255,0.08);
+}
+
+.accessibility-panel.active{
+
+    right: 0;
+}
+
+.accessibility-panel h2{
+
+    color: white;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+}
+
+.accessibility-panel button{
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #1f1f1f;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    font-weight: bold;
+}
+
+.accessibility-panel button:hover{
+
+    background: white;
+
+    color: black;
+}
+
+/* CONTRASTE */
+
+.high-contrast{
+
+    background: black !important;
+
+    color: yellow !important;
+}
+
+/* LIGHT MODE */
+
+.light-mode{
+
+    background: white !important;
+
+    color: black !important;
+}
