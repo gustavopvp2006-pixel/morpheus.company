@@ -1595,6 +1595,7 @@ NOTIFICAÇÕES LOGIN
 
     background: black;
 }
+
 /* =========================
 TROCAS E REEMBOLSO
 ========================= */
@@ -1605,13 +1606,13 @@ TROCAS E REEMBOLSO
 
     max-width: 800px;
 
-    margin-top: 40px;
+    margin-top: 45px;
 
     background: #151515;
 
-    border-radius: 18px;
+    border-radius: 20px;
 
-    padding: 35px;
+    padding: 40px;
 
     border:
     1px solid rgba(255,255,255,0.08);
@@ -1620,33 +1621,49 @@ TROCAS E REEMBOLSO
     0 0 25px rgba(0,0,0,0.25);
 }
 
-.refund-box h2{
+.refund-title{
 
     text-align: center;
 
-    margin-bottom: 30px;
+    font-size: 32px;
 
-    font-size: 30px;
+    margin-bottom: 35px;
 
     color: white;
 }
 
-.refund-text p{
+.refund-content{
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 28px;
+}
+
+.refund-item{
+
+    text-align: center;
+}
+
+.refund-item h3{
+
+    color: white;
+
+    font-size: 18px;
+
+    margin-bottom: 12px;
+
+    font-weight: bold;
+}
+
+.refund-item p{
 
     color: #cfcfcf;
 
-    line-height: 1.8;
-
-    margin-bottom: 28px;
+    line-height: 1.7;
 
     font-size: 15px;
-}
-
-.refund-text strong{
-
-    color: white;
-
-    font-size: 17px;
 }
 
 /* RESPONSIVO */
@@ -1655,12 +1672,17 @@ TROCAS E REEMBOLSO
 
     .refund-box{
 
-        padding: 25px 20px;
+        padding: 28px 20px;
     }
 
-    .refund-box h2{
+    .refund-title{
 
-        font-size: 24px;
+        font-size: 25px;
+    }
+
+    .refund-item h3{
+
+        font-size: 17px;
     }
 
 }
