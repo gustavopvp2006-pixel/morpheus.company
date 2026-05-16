@@ -3,37 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
   <title>FAQ - Morpheus Company</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="faq-body">
 
-  <header>
-    <h1>Perguntas Frequentes</h1>
-  </header>
+  <section class="faq-section">
 
-  <main class="faq-container">
-
-    <div class="faq-item">
-      <h3>Qual o prazo de entrega?</h3>
-      <p>O prazo varia entre 5 e 15 dias úteis.</p>
+    <!-- LOGO -->
+    <div class="faq-logo">
+      <img src="logo.png" alt="Logo Morpheus Company">
     </div>
 
-    <div class="faq-item">
-      <h3>Como rastrear meu pedido?</h3>
-      <p>Você receberá um código por e-mail.</p>
+    <!-- TITULO -->
+    <h1 class="faq-title">Perguntas Frequentes</h1>
+
+    <!-- FAQ -->
+    <div class="faq-container">
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Qual o prazo de entrega?
+        </button>
+
+        <div class="faq-answer">
+          <p>
+            O prazo de entrega varia entre 5 e 15 dias úteis dependendo da região.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Como rastrear meu pedido?
+        </button>
+
+        <div class="faq-answer">
+          <p>
+            Após a compra você receberá um código de rastreio diretamente no e-mail.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Os produtos possuem garantia?
+        </button>
+
+        <div class="faq-answer">
+          <p>
+            Sim. Todos os produtos possuem garantia contra defeitos de fabricação.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Posso trocar um produto?
+        </button>
+
+        <div class="faq-answer">
+          <p>
+            Sim. Você pode solicitar troca em até 7 dias após o recebimento.
+          </p>
+        </div>
+      </div>
+
     </div>
 
-    <div class="faq-item">
-      <h3>Os produtos possuem garantia?</h3>
-      <p>Sim, todos possuem garantia contra defeitos.</p>
-    </div>
+    <!-- BOTAO -->
+    <a href="index.html" class="faq-btn">
+      Voltar para Loja
+    </a>
 
-    <a href="index.html" class="btn-voltar">Voltar</a>
+  </section>
 
-  </main>
+  <script src="script.js"></script>
 
 </body>
 </html>
