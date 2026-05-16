@@ -1,5 +1,5 @@
 /* =========================
-   RESET
+   RESET & BASE
 ========================= */
 
 *{
@@ -17,6 +17,7 @@ body{
   background: linear-gradient(to bottom, #efefef, #dcdcdc);
   color: #000;
   overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* =========================
@@ -35,8 +36,6 @@ body{
   position: sticky;
   top: 0;
   z-index: 999;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 2px 15px rgba(0,0,0,0.35);
 }
 
 .header-left,
@@ -56,17 +55,15 @@ body{
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 500px;
-  height: 160px;
+  width: 260px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 .logo img{
-  width: 188%;
-  height: 188%;
+  width: 100%;
+  height: auto;
   object-fit: contain;
   transition: 0.3s ease;
 }
@@ -116,7 +113,7 @@ body{
 }
 
 /* =========================
-   NAV
+   NAVIGATION
 ========================= */
 
 .main-nav{
@@ -151,6 +148,72 @@ body{
 }
 
 /* =========================
+   MODELS SECTION
+========================= */
+
+.models-section{
+  padding: 30px 5%;
+}
+
+.models-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.model-card{
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.model-card img{
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  transition: 0.5s ease;
+}
+
+.model-card:hover img{
+  transform: scale(1.05);
+}
+
+/* =========================
+   COLLECTIONS
+========================= */
+
+.collections-section{
+  padding: 0 3%;
+  margin-top: 30px;
+}
+
+.collection-banner{
+  position: relative;
+  height: 180px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.collection-banner img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s ease;
+}
+
+.collection-banner:hover img{
+  transform: scale(1.03);
+}
+
+.banner-overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+/* =========================
    PRODUCTS
 ========================= */
 
@@ -164,105 +227,155 @@ body{
   gap: 22px;
 }
 
-/* =========================
-   FAQ MODAL (CORRIGIDO)
-========================= */
-
-.faq-modal{
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
+.product-card{
+  background: rgba(255,255,255,0.95);
+  border-radius: 18px;
+  overflow: hidden;
   transition: 0.35s ease;
-  z-index: 5000;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
-.faq-modal.active{
-  opacity: 1;
-  visibility: visible;
+.product-card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
 }
 
-.faq-box{
-  width: 92%;
-  max-width: 650px;
-  background: rgba(255,255,255,0.98);
-  border-radius: 28px;
-  padding: 35px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+.product-image img{
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  transition: 0.5s ease;
 }
 
-/* HEADER CORRIGIDO */
-.faq-header{
+.product-card:hover img{
+  transform: scale(1.05);
+}
+
+.product-info{
+  padding: 18px;
+}
+
+.product-info h3{
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.product-info p{
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+
+.product-bottom{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
 }
 
-.faq-header h2{
+.product-bottom span{
   font-size: 28px;
   font-weight: 800;
 }
 
-.faq-header button{
-  border: none;
-  background: transparent;
-  font-size: 26px;
-  cursor: pointer;
-}
-
-/* SUBTITULO (POLÍTICA TROCAS) */
-.faq-subtitle{
-  text-align: center;
-  margin-bottom: 25px;
-  font-size: 14px;
-  color: #444;
-  line-height: 22px;
-}
-
 /* =========================
-   FAQ ITEMS (UNIFICADO)
+   CART BUTTON
 ========================= */
 
-.faq-item{
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-  padding: 18px 0;
-}
-
-.faq-question{
-  width: 100%;
+.add-cart{
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   border: none;
-  background: transparent;
-  display: flex;
-  justify-content: space-between;
-  font-size: 17px;
-  font-weight: 700;
+  background: #000;
+  color: #fff;
+  font-size: 18px;
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
-.faq-answer{
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: 0.35s ease;
-  font-size: 15px;
-  line-height: 25px;
-  color: #333;
-}
-
-.faq-item.active .faq-answer{
-  max-height: 300px;
-  opacity: 1;
-  margin-top: 12px;
+.add-cart:hover{
+  transform: scale(1.08);
 }
 
 /* =========================
-   CART / SIDEBAR / OVERLAY (mantido limpo)
+   ABOUT / FOOTER
+========================= */
+
+.about-section{
+  padding: 80px 4%;
+}
+
+.about-container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-links{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-links a{
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+}
+
+.footer-bottom{
+  margin-top: 80px;
+  text-align: center;
+}
+
+.footer-bottom h2{
+  letter-spacing: 6px;
+  margin-bottom: 25px;
+}
+
+.payments{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 40px;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 320px;
+  height: 100vh;
+  background: #111;
+  padding: 30px;
+  transition: 0.4s ease;
+  z-index: 1000;
+}
+
+.sidebar.active{
+  left: 0;
+}
+
+.sidebar-links{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-links a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* =========================
+   OVERLAY
 ========================= */
 
 .overlay{
@@ -281,136 +394,154 @@ body{
 }
 
 /* =========================
-   ACESSIBILIDADE PREMIUM
+   CART SIDEBAR
+========================= */
+
+.cart-sidebar{
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 400px;
+  height: 100vh;
+  background: #fff;
+  transition: 0.4s ease;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-sidebar.active{
+  right: 0;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-container{
+  display: flex;
+  align-items: center;
+}
+
+#searchInput{
+  width: 0;
+  opacity: 0;
+  transition: 0.4s ease;
+  border: none;
+  padding: 0 12px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.search-container.active #searchInput{
+  width: 200px;
+  opacity: 1;
+}
+
+/* =========================
+   FAQ (UNIFICADO E LIMPO)
+========================= */
+
+.faq-modal{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 5000;
+}
+
+.faq-modal.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+.faq-box{
+  width: 92%;
+  max-width: 650px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.faq-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.faq-item{
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+
+.faq-question{
+  width: 100%;
+  background: none;
+  border: none;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.faq-answer{
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.faq-item.active .faq-answer{
+  max-height: 200px;
+  margin-top: 10px;
+}
+
+/* =========================
+   ACCESSIBILITY
 ========================= */
 
 #accessibilityBtn{
   position: fixed;
   right: 20px;
   bottom: 20px;
-  width: 62px;
-  height: 62px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: none;
-  background: #ffffff;
-  color: #000;
-  font-size: 22px;
+  background: #fff;
   cursor: pointer;
   z-index: 9999;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-  transition: 0.3s ease;
-}
-
-#accessibilityBtn:hover{
-  transform: scale(1.08);
 }
 
 .accessibility-panel{
   position: fixed;
-  right: -340px;
+  right: -320px;
   top: 0;
-  width: 320px;
+  width: 300px;
   height: 100vh;
-
-  background: rgba(15,15,15,0.98);
-  backdrop-filter: blur(12px);
-
+  background: #111;
   padding: 30px;
-  transition: 0.4s cubic-bezier(.4,0,.2,1);
-
-  z-index: 9999;
-
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-
-  border-left: 1px solid rgba(255,255,255,0.08);
+  transition: 0.4s ease;
 }
 
 .accessibility-panel.active{
   right: 0;
 }
 
-.accessibility-panel h2{
-  color: white;
-  text-align: center;
-  font-size: 22px;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-}
-
-.accessibility-panel button{
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-
-  background: #1e1e1e;
-  color: white;
-
-  cursor: pointer;
-
-  font-weight: 600;
-
-  transition: 0.25s ease;
-}
-
-.accessibility-panel button:hover{
-  background: white;
-  color: black;
-  transform: translateY(-2px);
-}
-
-/* =========================
-   TEMA CLARO (REAL)
-========================= */
-
-body.light-mode{
-  background: #f5f5f5 !important;
-  color: #111 !important;
-}
-
-body.light-mode .top-header{
-  background: rgba(255,255,255,0.95) !important;
-}
-
-body.light-mode .main-nav a{
-  color: #111 !important;
-}
-
-/* =========================
-   ALTO CONTRASTE (REAL)
-========================= */
-
-body.high-contrast{
-  background: #000 !important;
-  color: #fff200 !important;
-}
-
-body.high-contrast a,
-body.high-contrast p,
-body.high-contrast h1,
-body.high-contrast h2,
-body.high-contrast h3{
-  color: #fff200 !important;
-}
-
-body.high-contrast .product-card{
-  border: 2px solid #fff200 !important;
-  background: #000 !important;
-}
-
 /* =========================
    RESPONSIVO
 ========================= */
 
-@media(max-width: 900px){
-  .product-grid{
-    grid-template-columns: 1fr 1fr;
-  }
+@media(max-width: 1200px){
+  .product-grid{ grid-template-columns: repeat(2,1fr); }
 }
 
-@media(max-width: 600px){
-  .product-grid{
-    grid-template-columns: 1fr;
-  }
+@media(max-width: 700px){
+  .product-grid{ grid-template-columns: 1fr; }
+  .models-grid{ grid-template-columns: 1fr; }
 }
