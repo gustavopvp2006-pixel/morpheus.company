@@ -647,9 +647,9 @@ window.addEventListener("scroll", () => {
 
 });
 
-// =========================
-// ACESSIBILIDADE
-// =========================
+/* =========================
+   ACESSIBILIDADE
+========================= */
 
 const accessibilityBtn =
 document.getElementById("accessibilityBtn");
@@ -657,43 +657,21 @@ document.getElementById("accessibilityBtn");
 const accessibilityPanel =
 document.getElementById("accessibilityPanel");
 
-let currentFontSize = 16;
+const closeAccessibility =
+document.querySelector(".close-accessibility");
 
-// ABRIR / FECHAR PAINEL
+/* ABRIR */
 
-if(accessibilityBtn){
+accessibilityBtn.addEventListener("click", () => {
 
-  accessibilityBtn.addEventListener("click", () => {
+  accessibilityPanel.classList.add("active");
 
-    accessibilityPanel.classList.toggle("active");
+});
 
-  });
+/* FECHAR */
 
-}
+closeAccessibility.addEventListener("click", () => {
 
-// TAMANHO TEXTO
+  accessibilityPanel.classList.remove("active");
 
-function changeFontSize(change){
-
-  currentFontSize += change;
-
-  document.body.style.fontSize =
-  currentFontSize + "px";
-
-}
-
-// ALTO CONTRASTE
-
-function toggleContrast(){
-
-  document.body.classList.toggle("high-contrast");
-
-}
-
-// LIGHT MODE
-
-function toggleLightMode(){
-
-  document.body.classList.toggle("light-mode");
-
-}
+});
