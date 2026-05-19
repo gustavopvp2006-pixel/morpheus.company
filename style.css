@@ -327,7 +327,7 @@ body{
   padding: 60px 3%;
 }
 
-.product-grid{
+.products-grid{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 
