@@ -2110,3 +2110,30 @@ TRACKING
   }
 
 }
+
+/* =========================
+   TÍTULOS DAS COLEÇÕES
+========================= */
+
+.category-section{
+  margin-top:80px;
+}
+
+.category-title{
+  font-size:30px;
+  font-weight:800;
+  margin-bottom:35px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  position:relative;
+}
+
+.category-title::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-10px;
+  width:80px;
+  height:4px;
+  background:black;
+}
