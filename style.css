@@ -1984,17 +1984,20 @@ ACESSIBILIDADE
 
     color: black !important;
 }
+
 /* =========================
-   PÁGINA SOBRE NÓS
+   SOBRE NÓS - CSS ISOLADO
 ========================= */
 
-body{
+.sobre-page{
   margin:0;
   padding:0;
   font-family:'Poppins',sans-serif;
   background:#0d0d0d;
   color:white;
 }
+
+/* HEADER */
 
 .sobre-header{
   width:100%;
@@ -2011,7 +2014,7 @@ body{
   box-sizing:border-box;
 }
 
-.logo{
+.sobre-logo{
   color:white;
   text-decoration:none;
   font-size:22px;
@@ -2019,21 +2022,23 @@ body{
   letter-spacing:2px;
 }
 
-.sobre-header nav{
+.sobre-nav{
   display:flex;
   gap:30px;
 }
 
-.sobre-header nav a{
+.sobre-nav a{
   color:white;
   text-decoration:none;
   transition:0.3s;
   font-weight:500;
 }
 
-.sobre-header nav a:hover{
+.sobre-nav a:hover{
   color:#c9a86a;
 }
+
+/* HERO */
 
 .sobre-hero{
   height:100vh;
@@ -2045,28 +2050,30 @@ body{
   text-align:center;
 }
 
-.overlay{
+.sobre-overlay{
   position:absolute;
   width:100%;
   height:100%;
   background:rgba(0,0,0,0.65);
 }
 
-.hero-content{
+.sobre-hero-content{
   position:relative;
   z-index:2;
   padding:20px;
 }
 
-.hero-content h1{
+.sobre-hero-content h1{
   font-size:60px;
   margin-bottom:20px;
 }
 
-.hero-content p{
+.sobre-hero-content p{
   font-size:20px;
   color:#d9d9d9;
 }
+
+/* SECTIONS */
 
 .sobre-section{
   padding:100px 10%;
@@ -2084,18 +2091,20 @@ body{
   color:#d6d6d6;
 }
 
-.dark-section{
+.sobre-dark{
   background:#111;
 }
 
-.cards{
+/* CARDS */
+
+.sobre-cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:25px;
   margin-top:40px;
 }
 
-.card{
+.sobre-card{
   background:#1a1a1a;
   padding:30px;
   border-radius:20px;
@@ -2103,17 +2112,19 @@ body{
   border:1px solid rgba(255,255,255,0.05);
 }
 
-.card:hover{
+.sobre-card:hover{
   transform:translateY(-8px);
   border-color:#c9a86a;
 }
 
-.card h3{
+.sobre-card h3{
   color:#c9a86a;
   margin-bottom:15px;
 }
 
-.btn-voltar{
+/* BOTÃO */
+
+.sobre-btn{
   display:inline-block;
   margin-top:25px;
   padding:14px 28px;
@@ -2125,7 +2136,7 @@ body{
   transition:0.3s;
 }
 
-.btn-voltar:hover{
+.sobre-btn:hover{
   transform:scale(1.05);
 }
 
@@ -2138,17 +2149,17 @@ body{
     gap:15px;
   }
 
-  .sobre-header nav{
+  .sobre-nav{
     gap:15px;
     flex-wrap:wrap;
     justify-content:center;
   }
 
-  .hero-content h1{
+  .sobre-hero-content h1{
     font-size:38px;
   }
 
-  .hero-content p{
+  .sobre-hero-content p{
     font-size:16px;
   }
 
