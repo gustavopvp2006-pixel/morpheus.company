@@ -651,27 +651,31 @@ window.addEventListener("scroll", () => {
    ACESSIBILIDADE
 ========================= */
 
-const accessibilityBtn =
-document.getElementById("accessibilityBtn");
+document.addEventListener("DOMContentLoaded", () => {
 
-const accessibilityPanel =
-document.getElementById("accessibilityPanel");
+  const accessibilityBtn =
+    document.getElementById("accessibilityBtn");
 
-const closeAccessibility =
-document.querySelector(".close-accessibility");
+  const accessibilityPanel =
+    document.getElementById("accessibilityPanel");
 
-/* ABRIR */
+  const closeAccessibility =
+    document.querySelector(".close-accessibility");
 
-accessibilityBtn.addEventListener("click", () => {
+  /* ABRIR */
 
-  accessibilityPanel.classList.add("active");
+  accessibilityBtn.addEventListener("click", () => {
 
-});
+    accessibilityPanel.classList.add("active");
 
-/* FECHAR */
+  });
 
-closeAccessibility.addEventListener("click", () => {
+  /* FECHAR */
 
-  accessibilityPanel.classList.remove("active");
+  closeAccessibility.addEventListener("click", () => {
+
+    accessibilityPanel.classList.remove("active");
+
+  });
 
 });
