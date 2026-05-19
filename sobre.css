@@ -78,23 +78,21 @@ body{
 
 .menu{
   width:100%;
-
   display:flex;
   justify-content:center;
-  gap:35px;
-
-  padding:20px 10px;
-
+  gap:28px;
+  padding:18px 10px;
   background:white;
+  border-bottom:1px solid #dcdcdc;
 }
 
 .menu a{
   text-decoration:none;
   color:black;
-  font-size:14px;
+  font-size:13px;
   font-weight:700;
-
   transition:0.3s;
+  letter-spacing:0.5px;
 }
 
 .menu a:hover{
@@ -105,11 +103,9 @@ body{
 
 .sobre-container{
   width:100%;
-  max-width:900px;
-
+  max-width:700px;
   margin:auto;
-
-  padding:60px 30px 100px;
+  padding:50px 25px 90px;
 }
 
 /* TÍTULO PRINCIPAL */
