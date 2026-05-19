@@ -1984,3 +1984,103 @@ ACESSIBILIDADE
 
     color: black !important;
 }
+
+/* =========================
+   BANNER PROMOCIONAL
+========================= */
+
+.promo-banner{
+  position:relative;
+  width:100%;
+  height:350px;
+  overflow:hidden;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.promo-banner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(45%);
+}
+
+.promo-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.25);
+}
+
+.promo-content{
+  position:absolute;
+  z-index:2;
+
+  text-align:center;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:35px;
+
+  padding:20px;
+}
+
+.promo-content h2{
+  color:white;
+
+  font-size:48px;
+  font-weight:900;
+
+  line-height:1.1;
+  letter-spacing:1px;
+
+  text-transform:uppercase;
+
+  max-width:1200px;
+}
+
+.promo-btn{
+  width:240px;
+  height:70px;
+
+  border:3px solid white;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:white;
+  text-decoration:none;
+
+  font-size:26px;
+  font-weight:800;
+
+  transition:0.3s;
+}
+
+.promo-btn:hover{
+  background:white;
+  color:black;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+  .promo-banner{
+    height:300px;
+  }
+
+  .promo-content h2{
+    font-size:28px;
+  }
+
+  .promo-btn{
+    width:190px;
+    height:58px;
+    font-size:20px;
+  }
+
+}
