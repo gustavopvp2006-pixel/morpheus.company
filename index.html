@@ -733,38 +733,78 @@
 
   </div>
   
-<!-- ACESSIBILIDADE -->
+<!-- =========================
+     ACESSIBILIDADE
+========================= -->
 
-<button id="accessibilityBtn">
+<!-- BOTÃO ABRIR -->
+
+<button id="accessibilityBtn" class="accessibility-btn">
 
   <i class="fa-solid fa-universal-access"></i>
 
 </button>
+
+<!-- PAINEL -->
 
 <div
   class="accessibility-panel"
   id="accessibilityPanel"
 >
 
-  <h2>
-    Acessibilidade
-  </h2>
+  <!-- TOPO -->
 
-  <button onclick="changeFontSize(1)">
-    Aumentar Texto
-  </button>
+  <div class="accessibility-header">
 
-  <button onclick="changeFontSize(-1)">
-    Diminuir Texto
-  </button>
+    <h2>
+      Acessibilidade
+    </h2>
 
-  <button onclick="toggleContrast()">
-    Alto Contraste
-  </button>
+    <button class="close-accessibility">
 
-  <button onclick="toggleLightMode()">
-    Tema Claro / Escuro
-  </button>
+      <i class="fa-solid fa-xmark"></i>
+
+    </button>
+
+  </div>
+
+  <!-- BOTÕES -->
+
+  <div class="accessibility-options">
+
+    <button onclick="changeFontSize(1)">
+
+      <i class="fa-solid fa-plus"></i>
+
+      Aumentar Texto
+
+    </button>
+
+    <button onclick="changeFontSize(-1)">
+
+      <i class="fa-solid fa-minus"></i>
+
+      Diminuir Texto
+
+    </button>
+
+    <button onclick="toggleContrast()">
+
+      <i class="fa-solid fa-circle-half-stroke"></i>
+
+      Alto Contraste
+
+    </button>
+
+    <button onclick="toggleLightMode()">
+
+      <i class="fa-solid fa-moon"></i>
+
+      Tema Claro / Escuro
+
+    </button>
+
+  </div>
 
 </div>
   <!-- JS -->
