@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 
   <meta charset="UTF-8">
@@ -9,13 +10,15 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Acompanhar Pedido</title>
+  <title>Acompanhar Pedido | Morpheus Company</title>
 
+  <!-- CSS -->
   <link
     rel="stylesheet"
     href="tracking.css"
   >
 
+  <!-- FONT AWESOME -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -25,56 +28,107 @@
 
 <body class="tracking-body">
 
-<section class="tracking-container">
+  <!-- =========================
+       TRACKING CARD
+  ========================== -->
 
-  <h1>Acompanhar Pedido</h1>
+  <section class="tracking-card">
 
-  <p>Digite o código do seu pedido abaixo</p>
+    <h1>Acompanhar Pedido</h1>
 
-  <input
-    type="text"
-    placeholder="Ex: #MORPHEUS2048"
-  >
+    <p>
+      Digite o código do seu pedido abaixo para acompanhar o status da entrega.
+    </p>
 
-  <button>Buscar Pedido</button>
+    <!-- INPUT -->
 
-  <div class="tracking-status">
+    <div class="tracking-input">
 
-    <div class="status-item active">
-      <div class="status-icon">
-        <i class="fa-solid fa-box"></i>
-      </div>
+      <input
+        type="text"
+        placeholder="Ex: #MORPHEUS2048"
+      >
 
-      <span>Pedido Confirmado</span>
     </div>
 
-    <div class="status-line"></div>
+    <!-- BOTÃO -->
 
-    <div class="status-item active">
-      <div class="status-icon">
-        <i class="fa-solid fa-truck"></i>
+    <button class="tracking-btn">
+
+      Buscar Pedido
+
+    </button>
+
+    <!-- STATUS -->
+
+    <div class="tracking-status">
+
+      <!-- STATUS 1 -->
+
+      <div class="status-item active">
+
+        <div class="status-icon">
+
+          <i class="fa-solid fa-box"></i>
+
+        </div>
+
+        <span>Pedido Confirmado</span>
+
       </div>
 
-      <span>Em Transporte</span>
-    </div>
+      <!-- LINHA -->
 
-    <div class="status-line"></div>
+      <div class="status-line"></div>
 
-    <div class="status-item">
-      <div class="status-icon">
-        <i class="fa-solid fa-house"></i>
+      <!-- STATUS 2 -->
+
+      <div class="status-item active">
+
+        <div class="status-icon">
+
+          <i class="fa-solid fa-truck"></i>
+
+        </div>
+
+        <span>Em Transporte</span>
+
       </div>
 
-      <span>Entregue</span>
+      <!-- LINHA -->
+
+      <div class="status-line"></div>
+
+      <!-- STATUS 3 -->
+
+      <div class="status-item">
+
+        <div class="status-icon">
+
+          <i class="fa-solid fa-house"></i>
+
+        </div>
+
+        <span>Entregue</span>
+
+      </div>
+
     </div>
 
-  </div>
+    <!-- VOLTAR -->
 
-  <a
-    href="index.html"
-    class="back-store"
-  >
-    Voltar para Loja
-  </a>
+    <a
+      href="index.html"
+      class="back-store"
+    >
 
-</section>
+      <i class="fa-solid fa-arrow-left"></i>
+      Voltar para Loja
+
+    </a>
+
+  </section>
+
+</body>
+
+</html>
