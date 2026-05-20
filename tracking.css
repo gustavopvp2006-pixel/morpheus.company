@@ -1,0 +1,347 @@
+/* =========================
+   TRACKING PAGE
+========================= */
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.tracking-body{
+
+    background: #0b0b0b;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px 20px;
+
+    box-sizing: border-box;
+
+    font-family: Arial, sans-serif;
+
+    color: white;
+}
+
+/* CARD */
+
+.tracking-card{
+
+    width: 100%;
+
+    max-width: 700px;
+
+    background: #151515;
+
+    padding: 40px;
+
+    border-radius: 24px;
+
+    text-align: center;
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    box-sizing: border-box;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.35);
+}
+
+/* TITULO */
+
+.tracking-card h1{
+
+    font-size: 48px;
+
+    margin-bottom: 10px;
+
+    line-height: 1.1;
+}
+
+.tracking-card p{
+
+    color: #bcbcbc;
+
+    margin-bottom: 30px;
+
+    font-size: 16px;
+}
+
+/* INPUT */
+
+.tracking-input input{
+
+    width: 100%;
+
+    padding: 16px;
+
+    border-radius: 14px;
+
+    border: none;
+
+    outline: none;
+
+    background: #1f1f1f;
+
+    color: white;
+
+    margin-bottom: 20px;
+
+    box-sizing: border-box;
+
+    font-size: 16px;
+}
+
+.tracking-input input::placeholder{
+
+    color: #777;
+}
+
+/* BOTAO */
+
+.tracking-btn{
+
+    width: 100%;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: white;
+
+    color: black;
+
+    font-weight: bold;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    margin-bottom: 50px;
+
+    transition: 0.3s ease;
+}
+
+.tracking-btn:hover{
+
+    opacity: 0.85;
+}
+
+/* STATUS */
+
+.tracking-status{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+/* ITEM */
+
+.status-item{
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+
+    opacity: 0.4;
+
+    min-width: 120px;
+
+    transition: 0.3s ease;
+}
+
+/* ITEM ATIVO */
+
+.status-item.active{
+
+    opacity: 1;
+}
+
+/* ICONE */
+
+.status-item i{
+
+    width: 70px;
+
+    height: 70px;
+
+    border-radius: 50%;
+
+    background: #1f1f1f;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 24px;
+
+    transition: 0.3s ease;
+}
+
+.status-item.active i{
+
+    background: white;
+
+    color: black;
+}
+
+/* TEXTO */
+
+.status-item span{
+
+    font-size: 18px;
+
+    text-align: center;
+}
+
+/* LINHA */
+
+.status-line{
+
+    width: 80px;
+
+    height: 2px;
+
+    background: rgba(255,255,255,0.2);
+}
+
+/* VOLTAR */
+
+.back-store{
+
+    display: block;
+
+    margin-top: 50px;
+
+    text-align: center;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    transition: 0.3s ease;
+}
+
+.back-store:hover{
+
+    opacity: 0.7;
+}
+
+/* =========================
+   RESPONSIVO TABLET
+========================= */
+
+@media screen and (max-width: 768px){
+
+    .tracking-card{
+
+        padding: 30px 20px;
+    }
+
+    .tracking-card h1{
+
+        font-size: 34px;
+    }
+
+    .tracking-card p{
+
+        font-size: 15px;
+    }
+
+    .tracking-status{
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .status-line{
+
+        width: 2px;
+
+        height: 40px;
+    }
+
+    .status-item{
+
+        width: 100%;
+    }
+
+}
+
+/* =========================
+   RESPONSIVO MOBILE
+========================= */
+
+@media screen and (max-width: 480px){
+
+    .tracking-body{
+
+        padding: 20px 12px;
+    }
+
+    .tracking-card{
+
+        padding: 25px 15px;
+
+        border-radius: 18px;
+    }
+
+    .tracking-card h1{
+
+        font-size: 28px;
+    }
+
+    .tracking-card p{
+
+        font-size: 14px;
+    }
+
+    .tracking-input input{
+
+        font-size: 14px;
+    }
+
+    .tracking-btn{
+
+        font-size: 14px;
+    }
+
+    .status-item span{
+
+        font-size: 16px;
+    }
+
+    .status-item i{
+
+        width: 65px;
+
+        height: 65px;
+
+        font-size: 22px;
+    }
+
+}
