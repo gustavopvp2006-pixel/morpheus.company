@@ -25,79 +25,56 @@
 
 <body class="tracking-body">
 
-  <section class="tracking-section">
+<section class="tracking-container">
 
-    <div class="tracking-card">
+  <h1>Acompanhar Pedido</h1>
 
-      <h1>
-        Acompanhar Pedido
-      </h1>
+  <p>Digite o código do seu pedido abaixo</p>
 
-      <p>
-        Digite o código do seu pedido abaixo
-      </p>
+  <input
+    type="text"
+    placeholder="Ex: #MORPHEUS2048"
+  >
 
-      <div class="tracking-input">
+  <button>Buscar Pedido</button>
 
-        <input
-          type="text"
-          placeholder="Ex: #MORPHEUS2048"
-        >
+  <div class="tracking-status">
 
+    <div class="status-item active">
+      <div class="status-icon">
+        <i class="fa-solid fa-box"></i>
       </div>
 
-      <button class="tracking-btn">
-
-        Buscar Pedido
-
-      </button>
-
-      <!-- STATUS -->
-
-      <div class="tracking-status">
-
-        <div class="status-item active">
-
-          <i class="fa-solid fa-box"></i>
-
-          <span>Pedido Confirmado</span>
-
-        </div>
-
-        <div class="status-line"></div>
-
-        <div class="status-item active">
-
-          <i class="fa-solid fa-truck"></i>
-
-          <span>Em Transporte</span>
-
-        </div>
-
-        <div class="status-line"></div>
-
-        <div class="status-item">
-
-          <i class="fa-solid fa-house"></i>
-
-          <span>Entregue</span>
-
-        </div>
-
-      </div>
-
-      <a
-        href="index.html"
-        class="back-store"
-      >
-
-        Voltar para Loja
-
-      </a>
-
+      <span>Pedido Confirmado</span>
     </div>
 
-  </section>
+    <div class="status-line"></div>
 
-</body>
-</html>
+    <div class="status-item active">
+      <div class="status-icon">
+        <i class="fa-solid fa-truck"></i>
+      </div>
+
+      <span>Em Transporte</span>
+    </div>
+
+    <div class="status-line"></div>
+
+    <div class="status-item">
+      <div class="status-icon">
+        <i class="fa-solid fa-house"></i>
+      </div>
+
+      <span>Entregue</span>
+    </div>
+
+  </div>
+
+  <a
+    href="index.html"
+    class="back-store"
+  >
+    Voltar para Loja
+  </a>
+
+</section>
